@@ -4,11 +4,28 @@
       <h1>
           Add Skill
       </h1>
+      <form #addSkillForm="ngForm" class="form-horizontal form-container" (ngSubmit)="addSkills(addSkillForm)">
       <div>
         <label>Add Skill : </label>
-        <input type="text" name="skillName" id="skillName">
+        <input type="text" class="form-control" name="skillName" [(ngModel)]="skillName">
         <input type="submit" value="Add">
       </div>
+      <table>
+        <tr *ngFor = "let skill of addedSkills; let i = index">
+          <td>
+            <div>
+              <input type="text" class="form-control" #textbox [attr.id]="'skill-' + i"  [value]="skill.skillId">
+            </div>
+          </td>
+          <td>
+            <input class="btn btn-info"  type="button" [attr.id]="'editBtn' + i" value="Edit">
+        </td>
+        <td>
+            <input class="btn btn-danger" type="button" value="Delete">
+        </td>
+        </tr>
+      </table>
+      </form>
     </div>
   </body>
 </html>
