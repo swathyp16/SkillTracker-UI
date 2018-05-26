@@ -5,6 +5,8 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { IAddSkills } from '../model/add-skill';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,19 @@ export class AddSkillService {
     var params = JSON.stringify(addSkillForm.value);
     console.log("params : " + params);
     return this._http.post("http://localhost:8090/addSkill",params,this.options)
+    .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
+
+  viewAllSkills(): Observable<IAddSkills[]>{
+    return this._http.get("http://localhost:8090/viewAllSkills",this.options)
+    .map((response: Response) =>  response.json())
+    .catch(this.handleErrorObservable);
+  }
+
+  deleteSkill(skill):Observable<any>{
+    var params = JSON.stringify(skill);
+    return this._http.post("http://localhost:8090/deleteSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }

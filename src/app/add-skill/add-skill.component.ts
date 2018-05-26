@@ -14,9 +14,15 @@ export class AddSkillComponent implements OnInit {
   addedSkills : IAddSkills[];
   successMessage: string;
   errorMessage: string;
+  deleteSkillStatus : Response;
   constructor(private _addSkillService: AddSkillService) { }
 
   ngOnInit() {
+    this._addSkillService.viewAllSkills()
+    .subscribe(data => {
+      this.addedSkills = data; 
+      console.log("addedSkills : "+ this.addedSkills);
+    });
   }
 
   addSkills(addSkillForm : NgForm):void{
@@ -31,6 +37,19 @@ export class AddSkillComponent implements OnInit {
         this.errorMessage = "Oops !! Something went wrong";
       }
     );        
+  }
+
+  deleteSkill(skill,index){
+    this._addSkillService.deleteSkill(skill)
+    .subscribe(data =>{
+      this.deleteSkillStatus = data;
+      if(this.deleteSkillStatus.status == 200){
+        this.successMessage = "Successfully deleted the Skill";
+        this.addedSkills.splice(index,1);
+      }
+    },error =>{
+      this.errorMessage = "Oops !! Something went wrong";
+    });
   }
 
 }

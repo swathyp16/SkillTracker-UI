@@ -8,14 +8,17 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
 import { AddSkillComponent } from './add-skill/add-skill.component';
+import { AddAssociateComponent } from './add-associate/add-associate.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 const appRoutes: Routes = [
   {path : 'home', component: HomeComponent},
   {path : '', component: HomeComponent},//redirectTo: '/app',pathMatch: 'full'},
   {path : 'searchAssociate',  component: SearchComponent},
-  {path : 'addSkill', component: AddSkillComponent}
+  {path : 'addSkill', component: AddSkillComponent},
+  {path : 'addAssociate', component: AddAssociateComponent},
   // {path : 'editWorkout/:id', component: EditWorkoutComponent},
   // {path : 'startWorkout/:id', component: StartEndWorkoutComponent},
-  //{path : '**', component: PagenotfoundComponent}
+  {path : '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -23,7 +26,9 @@ const appRoutes: Routes = [
     AppComponent,
     SearchComponent,
     HomeComponent,
-    AddSkillComponent
+    AddSkillComponent,
+    AddAssociateComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

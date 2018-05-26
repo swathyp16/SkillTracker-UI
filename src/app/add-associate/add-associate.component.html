@@ -1,0 +1,75 @@
+<html>
+  <body>
+    <div class="search-container">
+    <h1 class="header">
+      search works!
+    </h1>
+    <form class="form-horizontal">    
+<div class="row">
+  <div class="col-lg-4 col-md-4">
+      <div class="form-group">
+        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Name</label>
+        <div class="col-md-8 col-lg-8 col-xs-2">
+          <input type="text" class="form-control" name="associateName" [(ngModel)]="associateName">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Associate ID</label>
+        <div class="col-md-8 col-lg-8 col-xs-2">
+          <input type="text" class="form-control" name="associateId" [(ngModel)]="associateId">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Email</label>
+        <div class="col-md-8 col-lg-8 col-xs-2">
+          <input type="text" class="form-control" name="email" [(ngModel)]="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Mobile</label>
+        <div class="col-md-8 col-lg-8 col-xs-2">
+          <input type="text" class="form-control" name="mobile" [(ngModel)]="mobile">
+        </div>
+      </div>
+    </div>
+      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field upload-pic">
+          <label for="upload" class="fileUpload-label">Upload Pic
+              <a class="btn btn-info btn-lg upload-area">
+              <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+              <input type="file" id="upload" name="pic" accept="image/*" class="files">
+              </a>
+            </label>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
+          <div class="status-green">Status Green</div>
+          <div class="status-blue">Status Blue</div>
+          <div class="status-red">Status Red</div>
+       </div>
+       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
+          <input type="button" class="btn btn-secondary btn-lg" value="L1">
+          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L2">
+          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L3">
+       </div>  
+       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+         <label>Remark:</label>
+         <textarea name="remarks" id="remarks" cols="70" rows="7"></textarea>
+       </div> 
+   </div> 
+   <div class="row">
+     <div *ngFor="let skill of addedSkills">
+       <label for="skills" class="col-md-0 col-lg-0 col-xs-1 control-label">{{skill.skillName}}</label>
+      <div class="col-md-3 col-lg-3 col-xs-2" data-role="rangeslider">
+        <input id="skills" type="range" class="form-control" min="0" max="20" value="0">
+       </div>
+        <!-- <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="255" data-slider-step="1" data-slider-value="128" data-slider-id="BC" id="B" data-slider-tooltip="hide" data-slider-handle="triangle" /> -->
+     </div>
+   </div>
+   <div class="col-lg-offset-9 btns-grp">
+     <input type="button" class="btn btn-info col-lg-3" value="Reset">
+     <input type="button" class="btn btn-danger col-lg-3 btn-spacing" value="Cancel">
+     <input type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Save">
+   </div>
+    </form>
+  </div>
+  </body>
+</html>
