@@ -3,6 +3,7 @@ import { AddSkillService } from '../add-skill/add-skill.service';
 import { IAddSkills } from '../model/add-skill';
 import { IAddAssociate } from '../model/add-associate';
 import { NgForm } from '@angular/forms';
+import { AddAssociateService } from './add-associate.service';
 
 @Component({
   selector: 'app-add-associate',
@@ -13,7 +14,13 @@ import { NgForm } from '@angular/forms';
 export class AddAssociateComponent implements OnInit {
   addedSkills : IAddSkills[];
   associateDetails : IAddAssociate = new IAddAssociate();
-  constructor(private _addSkillService: AddSkillService) { }
+  addAssociateResponse: Response;
+  successMessage: string;
+  errorMessage: string;
+  selectedFiles: FileList;
+  picture: File;
+  constructor(private _addSkillService: AddSkillService,
+  private _addAssociateService: AddAssociateService) { }
 
   ngOnInit() {
     this._addSkillService.viewAllSkills()
@@ -23,7 +30,7 @@ export class AddAssociateComponent implements OnInit {
   }
 
   addAssociate(addAssociateForm : NgForm) : void{
-    console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));
+    //console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));
     this.associateDetails.name = addAssociateForm.value.associateName;
     this.associateDetails.associateId = addAssociateForm.value.associateId;
     this.associateDetails.email = addAssociateForm.value.email;
@@ -33,13 +40,30 @@ export class AddAssociateComponent implements OnInit {
       this.associateDetails.associateSkills.push(this.addedSkills[i]);
     }  
     this.associateDetails.otherSkill = addAssociateForm.value.otherSkill;
+    this.associateDetails.strength = addAssociateForm.value.strength;
+    this.associateDetails.weakness = addAssociateForm.value.weakness;
+    this.picture = this.selectedFiles.item(0);
     console.log("associateDetails : " + JSON.stringify(this.associateDetails));
+    this._addAssociateService.addAssociate(this.associateDetails,this.picture)
+    .subscribe(data => {
+      this.addAssociateResponse = data;
+      if(this.addAssociateResponse.status == 200){
+        this.successMessage = "Successfully added the Associate";
+      }
+    }, error =>{
+        this.errorMessage = "Oops !! Something went wrong";
+    });
   }
 
   selectedSkillRating(skillRating,index){
     console.log("skillRating: "+ skillRating);
     this.addedSkills[index].skillRating = skillRating;
     console.log("addedSkills: "+ JSON.stringify(this.addedSkills));
+  }
+
+  selectFile(event){
+    debugger
+    this.selectedFiles = event.target.files;
   }
 
 }

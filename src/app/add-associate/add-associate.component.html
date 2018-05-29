@@ -36,7 +36,7 @@
           <label for="upload" class="fileUpload-label">Upload Pic
               <a class="btn btn-info btn-lg upload-area">
               <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-              <input type="file" id="upload" name="pic" accept="image/*" class="files">
+              <input type="file" id="upload" name="pic" accept="image/*" class="files" (change)="selectFile($event)">
               </a>
             </label>
       </div>

@@ -10,6 +10,7 @@ export class IAddAssociate{
     otherSkill: string;
     strength: string;
     weakness: string;
+    // picture: File;
 }
 
 
