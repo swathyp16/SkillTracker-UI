@@ -18,12 +18,12 @@
             </tr>
           </thead>
         <tbody>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
+          <tr *ngFor = "let data of associateData">
+            <td>{{data.associateId}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>Mary</td>
             <td>Moe</td>
             <td>mary@example.com</td>
@@ -32,7 +32,7 @@
             <td>July</td>
             <td>Dooley</td>
             <td>july@example.com</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
   </div>

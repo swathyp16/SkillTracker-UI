@@ -21,7 +21,6 @@ export class AddAssociateService {
   } 
   
   addAssociate(associateDetails,picture:File): Observable<any>{
-    //var Indata = {associateModel:JSON.stringify(associateDetails),picture:picToUpload};
     var params = JSON.stringify(associateDetails);
     let formData: FormData = new FormData();
     formData.append('file',picture);
