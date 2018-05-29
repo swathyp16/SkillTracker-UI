@@ -27,6 +27,12 @@ export class SearchService {
     .catch(this.handleErrorObservable);
   }
 
+  viewAssociatePic():Observable<IAddAssociate[]>{
+    return this._http.get("http://localhost:8090/viewAssociatePic",this.options)
+    .map((response: Response) =>  response.json())
+    .catch(this.handleErrorObservable);
+  }
+
   extractData(res: Response) {
     let body = res;//.json();
     return body || {};

@@ -10,13 +10,17 @@ import { IAddAssociate } from '../model/add-associate';
 })
 export class SearchComponent implements OnInit {
   associateData: IAddAssociate[];
+  associatePic: File;
   constructor(private _searchService : SearchService) { }
 
   ngOnInit() {
+    this._searchService.viewAssociatePic()
+    .subscribe(data => {
+      this.associatePic = data;
+    });
     this._searchService.viewAllAssociates()
     .subscribe(data => {
-      this.associateData = data; 
-      console.log("associateData : "+ this.associateData);
+      this.associateData = data;
     });
   }
 
