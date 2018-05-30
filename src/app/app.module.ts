@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AddSkillComponent } from './add-skill/add-skill.component';
 import { AddAssociateComponent } from './add-associate/add-associate.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FilterPipe } from './filter.pipe';
 const appRoutes: Routes = [
   {path : 'home', component: HomeComponent},
   {path : '', component: HomeComponent},//redirectTo: '/app',pathMatch: 'full'},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     HomeComponent,
     AddSkillComponent,
     AddAssociateComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

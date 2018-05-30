@@ -27,11 +27,12 @@ export class SearchService {
     .catch(this.handleErrorObservable);
   }
 
-  // viewAssociatePic():Observable<IAddAssociate[]>{
-  //   return this._http.get("http://localhost:8090/viewAssociatePic",this.options)
-  //   .map((response: Response) =>  response.json())
-  //   .catch(this.handleErrorObservable);
-  // }
+  deleteAssociate(associateData):Observable<any>{
+    var params = JSON.stringify(associateData);
+    return this._http.post("http://localhost:8090/deleteAssociate",params,this.options)
+    .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
 
   extractData(res: Response) {
     let body = res;//.json();

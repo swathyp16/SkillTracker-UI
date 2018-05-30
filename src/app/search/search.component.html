@@ -9,16 +9,16 @@
             <tr>
               <th>Pic</th>
               <th>Status</th>
-              <th><input type="text" placeholder="Search By Name" name="search-name"/></th>
-              <th><input type="text" placeholder="Search By Associate ID" name="search-associate-id"/></th>
-              <th><input type="text" placeholder="Search By Email ID" name="search-email-id"/></th>
-              <th><input type="text" placeholder="Search By Mobile Number" name="search-mobile-num"/></th>
-              <th><input type="text" placeholder="Search By Strong Skills" name="search-strong-skills"/></th>
+              <th><input type="text" placeholder="Search By Name" name="searchByName" [(ngModel)]="searchByName"/></th>
+              <th><input type="text" placeholder="Search By Associate ID" name="searchByAssociateId" [(ngModel)]="searchByAssociateId"/></th>
+              <th><input type="text" placeholder="Search By Email ID" name="searchByEmail" [(ngModel)]="searchByEmail"/></th>
+              <th><input type="text" placeholder="Search By Mobile Number" name="searchByMobile" [(ngModel)]="searchByMobile"/></th>
+              <th><input type="text" placeholder="Search By Strong Skills" name="searchByStrongskills" [(ngModel)]="searchByStrongskills"/></th>
               <th><input type="button" value="Add New Associate" [routerLink]="['/addAssociate']"/></th>
             </tr>
           </thead>
         <tbody>
-          <tr *ngFor = "let data of associateData">
+          <tr *ngFor = "let data of associateData | filter: { name: searchByName, associateId: searchByAssociateId,email: searchByEmail,mobileNum: searchByMobile} : searchByName:searchByAssociateId; let i =  index">
             <td>
               <img src="http://localhost:8090/getAssociatePic/{{data.associateId}}" width="40px" height="40px">
             </td>
@@ -35,6 +35,12 @@
             <td>{{data.associateId}}</td>
             <td>{{data.email}}</td>
             <td>{{data.mobileNum}}</td>
+            <td>Skills</td>
+            <td>
+              <input type="button" value="Edit">
+              <input type="button" value="Delete" (click)="onDeleteBtnClick(data,i)">
+              <input type="button" value="View">
+            </td>
           </tr>
         </tbody>
       </table>
