@@ -18,7 +18,7 @@
             </tr>
           </thead>
         <tbody>
-          <tr *ngFor = "let data of associateData | filter: { name: searchByName, associateId: searchByAssociateId,email: searchByEmail,mobileNum: searchByMobile} : searchByName:searchByAssociateId; let i =  index">
+          <tr *ngFor = "let data of associateData | filter: { name: searchByName, associateId: searchByAssociateId,email: searchByEmail,mobileNum: searchByMobile} : searchByName:searchByAssociateId:searchByEmail:searchByMobile; let i =  index">
             <td>
               <img src="http://localhost:8090/getAssociatePic/{{data.associateId}}" width="40px" height="40px">
             </td>
