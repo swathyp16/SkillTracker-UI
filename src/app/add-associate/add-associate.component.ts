@@ -36,7 +36,7 @@ export class AddAssociateComponent implements OnInit {
   }
 
   addAssociate(addAssociateForm : NgForm) : void{
-    //console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));
+    console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));
     this.associateDetails.name = addAssociateForm.value.associateName;
     this.associateDetails.associateId = addAssociateForm.value.associateId;
     this.associateDetails.email = addAssociateForm.value.email;
@@ -76,36 +76,42 @@ export class AddAssociateComponent implements OnInit {
     this.redStatusClicked = true;
     this.blueStatusClicked = true;
     this.greenStatusClicked = undefined ;
+    this.associateDetails.statusGreen = true;
   }
 
   statusBlueOnClick(){
     this.redStatusClicked = true;
     this.greenStatusClicked = true;
     this.blueStatusClicked = undefined;
+    this.associateDetails.statusBlue = true;
   }
 
   statusRedOnClick(){
     this.blueStatusClicked = true;
     this.greenStatusClicked = true;
     this.redStatusClicked = undefined;
+    this.associateDetails.statusRed = true;
   }
 
   level1OnClick(){
     this.L2Clicked = true;
     this.L3Clicked = true;
     this.L1Clicked = undefined ;
+    this.associateDetails.level1 = true;
   }
 
   level2OnClick(){
     this.L2Clicked = undefined;
     this.L3Clicked = true;
     this.L1Clicked = true ;
+    this.associateDetails.level2 = true;
   }
 
   level3OnClick(){
     this.L2Clicked = true;
     this.L3Clicked = undefined;
     this.L1Clicked = true ;
+    this.associateDetails.level3 = true;
   }
 
 }

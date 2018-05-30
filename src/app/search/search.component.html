@@ -22,7 +22,15 @@
             <td>
               <img src="http://localhost:8090/getAssociatePic/{{data.associateId}}" width="40px" height="40px">
             </td>
-            <td>status</td>
+            <td>
+              <div *ngIf="data.statusGreen==true;else checkStatusBlue" class="status-green"></div>
+              <ng-template #checkStatusBlue>
+                  <div *ngIf="data.statusBlue == true;else checkStatusRed" class="status-blue"></div>
+              </ng-template>
+              <ng-template #checkStatusRed>
+                  <div *ngIf="data.statusRed == true" class="status-red"></div>
+              </ng-template>
+            </td>
             <td>{{data.name}}</td>
             <td>{{data.associateId}}</td>
             <td>{{data.email}}</td>

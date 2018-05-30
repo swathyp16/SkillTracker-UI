@@ -2,3 +2,21 @@
     position: relative;
     top: 0px;
 }
+
+.status-green{
+    width:40px;
+    height: 40px;
+    background-color: rgb(131, 207, 8);
+}
+
+.status-blue{
+    width:40px;
+    height: 40px;
+    background-color: rgb(34, 30, 240);
+}
+
+.status-red{
+    width:40px;
+    height: 40px;
+    background-color: rgb(223, 26, 12);
+}
