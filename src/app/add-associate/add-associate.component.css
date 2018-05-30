@@ -32,7 +32,7 @@
 }
 
 .level-btn{
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .status-green{
@@ -68,4 +68,11 @@
 
 .margin-t-20{
     margin-top: 20px;
+}
+
+.status-btn{
+    width: 72px;
+    height: 47px;
+    color: black;
+    font-weight: bold;
 }

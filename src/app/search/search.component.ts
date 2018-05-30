@@ -14,10 +14,6 @@ export class SearchComponent implements OnInit {
   constructor(private _searchService : SearchService) { }
 
   ngOnInit() {
-    this._searchService.viewAssociatePic()
-    .subscribe(data => {
-      this.associatePic = data;
-    });
     this._searchService.viewAllAssociates()
     .subscribe(data => {
       this.associateData = data;

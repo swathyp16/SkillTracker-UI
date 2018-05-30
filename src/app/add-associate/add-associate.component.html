@@ -41,14 +41,17 @@
             </label>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
-          <div class="status-green">Status Green</div>
-          <div class="status-blue">Status Blue</div>
-          <div class="status-red">Status Red</div>
+          <!-- <div class="status-green"  name="statusGreen" [(ngModel)]="statusGreen">Status Green</div>
+          <div class="status-blue" name="statusBlue" [(ngModel)]="statusBlue">Status Blue</div>
+          <div class="status-red"  name="statusRed" [(ngModel)]="statusRed">Status Red</div> -->
+          <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn" (click)="statusGreenOnClick()">Status<br/>Green</button>
+          <button type="button" [attr.disabled]="blueStatusClicked" class="btn btn-primary level-btn status-btn" (click)="statusBlueOnClick()">Status<br/>Blue</button>
+          <button type="button" [attr.disabled]="redStatusClicked" class="btn btn-danger level-btn status-btn" (click)="statusRedOnClick()">Status<br/>Red</button>
        </div>
        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
-          <input type="button" class="btn btn-secondary btn-lg" value="L1">
-          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L2">
-          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L3">
+          <input type="button" class="btn btn-secondary btn-lg" value="L1" [attr.disabled]="L1Clicked" (click)="level1OnClick()">
+          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L2" [attr.disabled]="L2Clicked" (click)="level2OnClick()">
+          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L3" [attr.disabled]="L3Clicked" (click)="level3OnClick()">
        </div>  
        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
          <label>Remark:</label>

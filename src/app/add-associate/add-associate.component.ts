@@ -19,6 +19,12 @@ export class AddAssociateComponent implements OnInit {
   errorMessage: string;
   selectedFiles: FileList;
   picture: File;
+  redStatusClicked: boolean = null;
+  greenStatusClicked: boolean = null;
+  blueStatusClicked: boolean = null;
+  L1Clicked: boolean = null;
+  L2Clicked: boolean = null;
+  L3Clicked: boolean = null;
   constructor(private _addSkillService: AddSkillService,
   private _addAssociateService: AddAssociateService) { }
 
@@ -64,6 +70,42 @@ export class AddAssociateComponent implements OnInit {
   selectFile(event){
     debugger
     this.selectedFiles = event.target.files;
+  }
+
+  statusGreenOnClick(){
+    this.redStatusClicked = true;
+    this.blueStatusClicked = true;
+    this.greenStatusClicked = undefined ;
+  }
+
+  statusBlueOnClick(){
+    this.redStatusClicked = true;
+    this.greenStatusClicked = true;
+    this.blueStatusClicked = undefined;
+  }
+
+  statusRedOnClick(){
+    this.blueStatusClicked = true;
+    this.greenStatusClicked = true;
+    this.redStatusClicked = undefined;
+  }
+
+  level1OnClick(){
+    this.L2Clicked = true;
+    this.L3Clicked = true;
+    this.L1Clicked = undefined ;
+  }
+
+  level2OnClick(){
+    this.L2Clicked = undefined;
+    this.L3Clicked = true;
+    this.L1Clicked = true ;
+  }
+
+  level3OnClick(){
+    this.L2Clicked = true;
+    this.L3Clicked = undefined;
+    this.L1Clicked = true ;
   }
 
 }
