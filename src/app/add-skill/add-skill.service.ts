@@ -43,6 +43,14 @@ export class AddSkillService {
     .catch(this.handleErrorObservable);
   }
 
+  editSkill(editSkillData):Observable<any>{
+    var params = JSON.stringify(editSkillData);
+    console.log("params : "+ params);
+    return this._http.post("http://localhost:8090/addSkill",params,this.options)
+    .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
+
   extractData(res: Response) {
     let body = res;//.json();
     return body || {};

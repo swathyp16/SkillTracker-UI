@@ -14,11 +14,11 @@
         <tr *ngFor = "let skill of addedSkills; let i = index">
           <td>
             <div>
-              <input type="text" class="form-control" #textbox [attr.id]="'skill-' + i"  [value]="skill.skillName">
+              <input type="text" class="form-control" #textbox [attr.id]="'skill-' + i"  [value]="skill.skillName" [attr.disabled]="skill.isEdit?null:''">
             </div>
           </td>
           <td>
-            <input class="btn btn-info"  type="button" [attr.id]="'editBtn' + i" value="Edit">
+            <input class="btn btn-info"  type="button" [attr.id]="'editBtn' + i" value="Edit" (click)="editSkill(skill.skillId,skill.skillName,$event,i)">
         </td>
         <td>
             <input class="btn btn-danger" type="button" value="Delete" (click)="deleteSkill(skill,i)">

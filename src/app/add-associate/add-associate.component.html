@@ -41,9 +41,6 @@
             </label>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
-          <!-- <div class="status-green"  name="statusGreen" [(ngModel)]="statusGreen">Status Green</div>
-          <div class="status-blue" name="statusBlue" [(ngModel)]="statusBlue">Status Blue</div>
-          <div class="status-red"  name="statusRed" [(ngModel)]="statusRed">Status Red</div> -->
           <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn" (click)="statusGreenOnClick()">Status<br/>Green</button>
           <button type="button" [attr.disabled]="blueStatusClicked" class="btn btn-primary level-btn status-btn" (click)="statusBlueOnClick()">Status<br/>Blue</button>
           <button type="button" [attr.disabled]="redStatusClicked" class="btn btn-danger level-btn status-btn" (click)="statusRedOnClick()">Status<br/>Red</button>
@@ -87,7 +84,7 @@
     </div>
   </div>
    <div class="col-lg-offset-9 btns-grp">
-     <input type="button" class="btn btn-info col-lg-3" value="Reset">
+     <input type="reset" class="btn btn-info col-lg-3" value="Reset">
      <input type="button" class="btn btn-danger col-lg-3 btn-spacing" value="Cancel">
      <input type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Save">
    </div>

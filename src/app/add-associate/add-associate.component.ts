@@ -43,7 +43,9 @@ export class AddAssociateComponent implements OnInit {
     this.associateDetails.mobileNum = addAssociateForm.value.mobile;
     this.associateDetails.remark = addAssociateForm.value.remarks;
     for(var i= 0 ; i < this.addedSkills.length ; i++){
-      this.associateDetails.associateSkills.push(this.addedSkills[i]);
+      if(this.addedSkills[i].skillRating !== null){
+        this.associateDetails.associateSkills.push(this.addedSkills[i]);
+      }      
     }  
     this.associateDetails.otherSkill = addAssociateForm.value.otherSkill;
     this.associateDetails.strength = addAssociateForm.value.strength;
