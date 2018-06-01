@@ -18,7 +18,7 @@
             </tr>
           </thead>
         <tbody>
-          <tr *ngFor = "let data of associateData | filter: { name: searchByName, associateId: searchByAssociateId,email: searchByEmail,mobileNum: searchByMobile} : searchByName:searchByAssociateId:searchByEmail:searchByMobile; let i =  index">
+          <tr *ngFor = "let data of associateData | filter: { name: searchByName, associateId: searchByAssociateId,email: searchByEmail,mobileNum: searchByMobile, associateSkills:searchByStrongskills} : searchByName:searchByAssociateId:searchByEmail:searchByMobile:searchByStrongskills; let i =  index">
             <td>
               <img src="http://localhost:8090/getAssociatePic/{{data.associateId}}" width="40px" height="40px">
             </td>
@@ -35,7 +35,11 @@
             <td>{{data.associateId}}</td>
             <td>{{data.email}}</td>
             <td>{{data.mobileNum}}</td>
-            <td>Skills</td>
+            <td>
+              <span *ngFor= "let associateSkills of data.associateSkills; let i = index">
+                {{associateSkills.skillName}}{{i === associateSkills.length - 1 ? '' : ', '}}
+              </span>
+            </td>
             <td>
               <input type="button" value="Edit">
               <input type="button" value="Delete" (click)="onDeleteBtnClick(data,i)">
