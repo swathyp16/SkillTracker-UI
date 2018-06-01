@@ -11,13 +11,16 @@ import { AddSkillComponent } from './add-skill/add-skill.component';
 import { AddAssociateComponent } from './add-associate/add-associate.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FilterPipe } from './filter.pipe';
+import { EditAssociateComponent } from './edit-associate/edit-associate.component';
+import { SharedService } from './shared.service';
+
 const appRoutes: Routes = [
   {path : 'home', component: HomeComponent},
   {path : '', component: HomeComponent},//redirectTo: '/app',pathMatch: 'full'},
   {path : 'searchAssociate',  component: SearchComponent},
   {path : 'addSkill', component: AddSkillComponent},
   {path : 'addAssociate', component: AddAssociateComponent},
-  // {path : 'editWorkout/:id', component: EditWorkoutComponent},
+  {path : 'editAssociate', component: EditAssociateComponent},
   // {path : 'startWorkout/:id', component: StartEndWorkoutComponent},
   {path : '**', component: PageNotFoundComponent}
 ];
@@ -30,7 +33,8 @@ const appRoutes: Routes = [
     AddSkillComponent,
     AddAssociateComponent,
     PageNotFoundComponent,
-    FilterPipe
+    FilterPipe,
+    EditAssociateComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from './search.service';
 import { IAddAssociate } from '../model/add-associate';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,8 @@ export class SearchComponent implements OnInit {
   deleteAssociateStatus : Response;
   successMessage: string;
   errorMessage: string;
-  constructor(private _searchService : SearchService) { }
+  constructor(private _searchService : SearchService,
+    private _sharedService : SharedService) { }
 
   ngOnInit() {
     this._searchService.viewAllAssociates()
@@ -34,6 +36,11 @@ export class SearchComponent implements OnInit {
     },error =>{
       this.errorMessage = "Oops !! Something went wrong";
     });
+  }
+
+  onEdit(associateData){
+    console.log("INSIDE EDIT FUNCTION");
+    this._sharedService.saveAssociateData(associateData);
   }
 
 }

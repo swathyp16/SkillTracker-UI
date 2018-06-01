@@ -1,0 +1,78 @@
+.skill-styles{
+    margin-top: 90px;
+}
+
+.upload-pic{
+    background-color: #ccc;
+    height: 180px;
+    border-radius: 5px;
+}
+
+.upload-area{
+    top: 18px;
+    position: relative;
+    left: 17px;
+}
+
+.fileUpload-label{
+    margin-top: 33px;
+}
+
+.slider{
+    width: 170px;
+}
+
+.btns-grp{
+    top: 30px;
+    position: relative;
+}
+
+.btn-spacing{
+    margin-left: 5px;
+}
+
+.level-btn{
+    margin-top: 20px;
+}
+
+.status-green{
+    width: 55px;
+    height: 44px;
+    background-color: #1cdc1c;
+    text-align: center;
+}
+
+.status-blue{
+    width: 55px;
+    height: 44px;
+    margin-top: 20px;
+    background-color: #261cdc;
+    text-align: center;
+}
+
+.status-red{
+    width: 55px;
+    height: 44px;
+    margin-top: 20px;
+    background-color: #f11f01;
+    text-align: center;
+}
+
+.input-field{
+    margin-left: 1%;
+}
+
+.input-level{
+    margin-left: -30px;
+}
+
+.margin-t-20{
+    margin-top: 20px;
+}
+
+.status-btn{
+    width: 72px;
+    height: 47px;
+    color: black;
+    font-weight: bold;
+}

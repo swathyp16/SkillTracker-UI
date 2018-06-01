@@ -41,7 +41,7 @@
               </span>
             </td>
             <td>
-              <input type="button" value="Edit">
+              <input type="button" value="Edit" [routerLink]="['/editAssociate']" (click)="onEdit(data)">
               <input type="button" value="Delete" (click)="onDeleteBtnClick(data,i)">
               <input type="button" value="View">
             </td>
