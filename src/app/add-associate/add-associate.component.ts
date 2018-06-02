@@ -4,6 +4,7 @@ import { IAddSkills } from '../model/add-skill';
 import { IAddAssociate } from '../model/add-associate';
 import { NgForm } from '@angular/forms';
 import { AddAssociateService } from './add-associate.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-add-associate',
@@ -26,7 +27,8 @@ export class AddAssociateComponent implements OnInit {
   L2Clicked: boolean = null;
   L3Clicked: boolean = null;
   constructor(private _addSkillService: AddSkillService,
-  private _addAssociateService: AddAssociateService) { }
+  private _addAssociateService: AddAssociateService,private route: ActivatedRoute,
+  private router: Router) { }
 
   ngOnInit() {
     this._addSkillService.viewAllSkills()
@@ -71,6 +73,10 @@ export class AddAssociateComponent implements OnInit {
 
   selectFile(event){
     this.selectedFiles = event.target.files;
+  }
+
+  onCancelBtnClick(){
+    this.router.navigate(['/searchAssociate']);
   }
 
   statusGreenOnClick(){
