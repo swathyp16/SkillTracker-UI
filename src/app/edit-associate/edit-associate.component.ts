@@ -24,6 +24,7 @@ export class EditAssociateComponent implements OnInit {
   L2Clicked: boolean = null;
   L3Clicked: boolean = null;
   addAssociateResponse: Response;
+  deleteAssociateResponse: Response;
   successMessage: string;
   errorMessage: string;
   picture: File;
@@ -68,8 +69,15 @@ export class EditAssociateComponent implements OnInit {
     this.router.navigate(['/searchAssociate']);
   }
 
-  onDeleteBtnClick(){
-
+  onDeleteBtnClick(associateId){
+    this._addAssociateService.deleteAssociate(associateId).subscribe(data => {
+      this.deleteAssociateResponse = data;
+      if(this.deleteAssociateResponse.status == 200){
+        this.successMessage = "Successfully added the Associate";
+      }
+    }, error =>{
+        this.errorMessage = "Oops !! Something went wrong";
+    });;
   }
 
   statusGreenOnClick(){
@@ -122,7 +130,7 @@ export class EditAssociateComponent implements OnInit {
     this.associateDetails.mobileNum = editAssociateForm.value.mobile;
     this.associateDetails.remark = editAssociateForm.value.remarks;
     for(var i= 0 ; i < this.addedSkills.length ; i++){
-      if(this.addedSkills[i].skillRating !== null){
+      if(this.addedSkills[i].skillRating !== null && this.addedSkills[i].skillRating !== 0 ){
         this.associateDetails.associateSkills.push(this.addedSkills[i]);
       }      
     }  

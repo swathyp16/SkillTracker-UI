@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from './search.service';
 import { IAddAssociate } from '../model/add-associate';
 import { SharedService } from '../shared.service';
+import { AddAssociateService } from '../add-associate/add-associate.service'
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
   constructor(private _searchService : SearchService,
-    private _sharedService : SharedService) { }
+    private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
 
   ngOnInit() {
     this._searchService.viewAllAssociates()
@@ -26,7 +27,7 @@ export class SearchComponent implements OnInit {
   }
 
   onDeleteBtnClick(associateData,index){
-    this._searchService.deleteAssociate(associateData)
+    this._addAssociateService.deleteAssociate(associateData.associateId)
     .subscribe(data =>{
       this.deleteAssociateStatus = data;
       if(this.deleteAssociateStatus.status == 200){

@@ -31,6 +31,12 @@ export class AddAssociateService {
     .catch(this.handleErrorObservable);
   }
 
+  deleteAssociate(associateId): Observable<any>{
+    return this._http.get("http://localhost:8090/deleteAssociate"+associateId)
+    .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
+
   extractData(res: Response) {
     let body = res;//.json();
     return body || {};

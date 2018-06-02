@@ -94,7 +94,7 @@
       </div>
     </div>
      <div class="col-lg-offset-9 btns-grp">
-       <input *ngIf="!readOnlyFlag" type="button" class="btn btn-info col-lg-3" value="Delete" (click)="onDeleteBtnClick()">
+       <input *ngIf="!readOnlyFlag" type="button" class="btn btn-info col-lg-3" value="Delete" (click)="onDeleteBtnClick(associateData.associateId)">
        <input *ngIf="!readOnlyFlag" type="button" class="btn btn-danger col-lg-3 btn-spacing" value="Cancel" (click)="onCancelBtnClick()">
        <input *ngIf="!readOnlyFlag" type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Update">
      </div>

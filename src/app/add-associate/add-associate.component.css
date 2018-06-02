@@ -76,3 +76,41 @@
     color: black;
     font-weight: bold;
 }
+
+.add-associate{
+    position: relative;
+    top: 0px;
+    height: 100vh;
+} 
+
+
+body{
+    overflow-x: hidden;
+    width: 103%;
+    margin-top: -20px;
+    height: 100vh;
+}
+
+.header{
+    color: white;
+    font-family: Verdana;
+    margin-top: 47px;
+}
+
+.header-div{
+    background-image: url(../images/header-icon-1.png);;
+    margin-top: -20px;
+    margin-left: -16px;
+    height: 120px;
+    margin-bottom: 15px;
+}
+
+h3{
+    display: inline-block;
+    margin-left: 400px;
+    text-align: right;
+}
+
+h1{
+    display: inline-block;
+}
