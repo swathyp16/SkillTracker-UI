@@ -38,9 +38,16 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  onEdit(associateData){
+  onEdit(associateData,event){
     console.log("INSIDE EDIT FUNCTION");
     this._sharedService.saveAssociateData(associateData);
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.value;
+    if(idAttr == "View"){
+        this._sharedService.setReadOnly(true);
+      } else if(idAttr == "Edit"){
+        this._sharedService.setReadOnly(null); 
+      }
   }
 
 }

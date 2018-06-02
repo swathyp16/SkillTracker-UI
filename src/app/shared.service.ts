@@ -7,12 +7,12 @@ import { IAddAssociate} from './model/add-associate';
 export class SharedService {
   associateIndex: number;
   associateData: IAddAssociate;
+  readOnly: boolean;
 
   constructor() { }
 
   saveAssociateData(data){
     this.associateData = data;
-    //this.associateIndex = index;
   }
 
   fetchAssociateData():IAddAssociate{
@@ -21,6 +21,14 @@ export class SharedService {
 
   fetchAssociateIndex(){
     return this.associateIndex;
+  }
+
+  setReadOnly(readOnly){
+    this.readOnly = readOnly;
+  }
+
+  getReadOnly(){
+    return this.readOnly;
   }
 
 }

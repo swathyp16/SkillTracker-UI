@@ -70,7 +70,6 @@ export class AddAssociateComponent implements OnInit {
   }
 
   selectFile(event){
-    debugger
     this.selectedFiles = event.target.files;
   }
 
