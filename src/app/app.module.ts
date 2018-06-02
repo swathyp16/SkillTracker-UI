@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FilterPipe } from './filter.pipe';
 import { EditAssociateComponent } from './edit-associate/edit-associate.component';
 import { SharedService } from './shared.service';
+import { SearchSkillPipe } from './search-skill.pipe';
 
 const appRoutes: Routes = [
   {path : 'home', component: HomeComponent},
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     AddAssociateComponent,
     PageNotFoundComponent,
     FilterPipe,
-    EditAssociateComponent
+    EditAssociateComponent,
+    SearchSkillPipe
   ],
   imports: [
     BrowserModule,

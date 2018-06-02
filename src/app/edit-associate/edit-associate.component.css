@@ -76,3 +76,34 @@
     color: black;
     font-weight: bold;
 }
+
+.input-m-left{
+    margin-left: -26px;
+}
+
+.label-m-left{
+    margin-left: 48px;
+}
+
+.input-m1-left{
+    margin-left: -17px;
+}
+
+.label-m1-left{
+    margin-left: 77px;
+}
+
+.addSkill-btn{
+    height: 26px;
+    width: 55px;
+    margin-left: 10px;
+    color: white;
+}
+
+.m-top-10{
+    margin-top: 10px;
+}
+
+.m-top-7{
+    margin-top: 7px;
+}

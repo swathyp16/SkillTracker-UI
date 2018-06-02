@@ -5,6 +5,7 @@ import { IAddSkills } from '../model/add-skill';
 import { AddAssociateService } from '../add-associate/add-associate.service';
 import { NgForm } from '@angular/forms';
 import { AddSkillService } from '../add-skill/add-skill.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-edit-associate',
@@ -28,13 +29,13 @@ export class EditAssociateComponent implements OnInit {
   picture: File;
   readOnlyFlag: boolean;
   constructor(private _sharedService : SharedService,
-  private _addAssociateService:AddAssociateService,private _addSkillService: AddSkillService) { }
+  private _addAssociateService:AddAssociateService,private _addSkillService: AddSkillService,
+  private route: ActivatedRoute,
+  private router: Router) { }
 
   ngOnInit() {
     this.readOnlyFlag = this._sharedService.getReadOnly();
-    console.log("readOnlyFlag: "+ this.readOnlyFlag);
     this.associateData = this._sharedService.fetchAssociateData();
-    console.log("AssociateData in shared service : "+ JSON.stringify(this.associateData));
     this._addSkillService.viewAllSkills()
     .subscribe(data => {
       this.addedSkills = data; 
@@ -52,7 +53,6 @@ export class EditAssociateComponent implements OnInit {
         }
       }     
     }
-    console.log("this.addedSkills : "+ JSON.stringify(this.addedSkills));
   }
 
 
@@ -61,9 +61,15 @@ export class EditAssociateComponent implements OnInit {
   }
 
   selectedSkillRating(skillRating,index){
-    console.log("skillRating: "+ skillRating);
     this.addedSkills[index].skillRating = skillRating;
-    console.log("addedSkills: "+ JSON.stringify(this.addedSkills));
+  }
+
+  onCancelBtnClick(){
+    this.router.navigate(['/searchAssociate']);
+  }
+
+  onDeleteBtnClick(){
+
   }
 
   statusGreenOnClick(){
