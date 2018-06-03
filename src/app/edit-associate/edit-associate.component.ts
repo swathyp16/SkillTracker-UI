@@ -31,6 +31,9 @@ export class EditAssociateComponent implements OnInit {
   errorMessage: string;
   picture: File;
   readOnlyFlag: boolean;
+  greenStatusView: boolean;
+  blueStatusView: boolean;
+  redStatusView: boolean;
   constructor(private _sharedService : SharedService,
   private _addAssociateService:AddAssociateService,private _addSkillService: AddSkillService,
   private route: ActivatedRoute,
@@ -39,6 +42,8 @@ export class EditAssociateComponent implements OnInit {
   ngOnInit() {
     this.readOnlyFlag = this._sharedService.getReadOnly();
     this.associateData = this._sharedService.fetchAssociateData();
+    this.mapAssociateLevel();
+    this.mapAssociateStatus();
     this._addSkillService.viewAllSkills()
     .subscribe(data => {
       this.addedSkills = data; 
@@ -46,6 +51,30 @@ export class EditAssociateComponent implements OnInit {
     });
     
   }
+
+  mapAssociateLevel(){
+    if(this.associateData.level1 === true){
+      this.L1Clicked = true;
+    } else if(this.associateData.level2 === true){
+      this.L2Clicked = true;
+    } else if(this.associateData.level3 === true){
+      this.L3Clicked = true;
+    }
+  }
+
+  mapAssociateStatus(){
+    if(this.associateData.statusGreen === true){
+      this.greenStatusClicked = true;
+      this.greenStatusView = false;
+    } else if(this.associateData.statusBlue === true){
+      this.blueStatusClicked = true;
+      this.blueStatusView = false;
+    } else if(this.associateData.statusRed === true){
+      this.redStatusClicked = true;
+      this.redStatusView = false;
+    }
+  }
+
   mapSkillRating(){
     //debugger
     for(var i=0; i<this.addedSkills.length; i++){

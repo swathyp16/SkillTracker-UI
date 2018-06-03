@@ -34,6 +34,11 @@
             <input type="text" class="form-control" name="mobile" [(ngModel)]="associateData.mobileNum" [value]="associateData.mobileNum" [attr.disabled]="readOnlyFlag">
           </div>
         </div>
+        <div class="form-group">
+          <label class="col-md-4 col-lg-2 col-lg-offset-2 col-xs-1">Gender</label>
+            <input type="radio" name="gender" [(ngModel)]="gender" value="male" [checked]="associateData.gender === 'male'">Male
+            <input type="radio" name="gender" [(ngModel)]="gender" value="female" [checked]="associateData.gender === 'female'">Female
+        </div>
       </div>
         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2">   
           <div class="input-field upload-pic">
@@ -41,15 +46,25 @@
           </div>  
           <input *ngIf="!readOnlyFlag" type="file" class="m-top-7" id="upload" name="pic" accept="image/*" (change)="selectFile($event)">
       </div>
-        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
+        <div *ngIf="!readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
             <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn" (click)="statusGreenOnClick()">Status<br/>Green</button>
             <button type="button" [attr.disabled]="blueStatusClicked" class="btn btn-primary level-btn status-btn" (click)="statusBlueOnClick()">Status<br/>Blue</button>
             <button type="button" [attr.disabled]="redStatusClicked" class="btn btn-danger level-btn status-btn" (click)="statusRedOnClick()">Status<br/>Red</button>
          </div>
-         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
+         <div *ngIf="readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
+            <button type="button" [attr.disabled]="!greenStatusView" class="btn btn-success status-btn">Status<br/>Green</button>
+            <button type="button" [attr.disabled]="!blueStatusView" class="btn btn-primary level-btn status-btn">Status<br/>Blue</button>
+            <button type="button" [attr.disabled]="!redStatusView" class="btn btn-danger level-btn status-btn">Status<br/>Red</button>
+         </div>
+         <div *ngIf="!readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
             <input type="button" class="btn btn-secondary btn-lg" value="L1" [attr.disabled]="L1Clicked" (click)="level1OnClick()">
             <input type="button" class="btn btn-secondary btn-lg level-btn" value="L2" [attr.disabled]="L2Clicked" (click)="level2OnClick()">
             <input type="button" class="btn btn-secondary btn-lg level-btn" value="L3" [attr.disabled]="L3Clicked" (click)="level3OnClick()">
+         </div> 
+         <div *ngIf="readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
+            <input type="button" class="btn btn-secondary btn-lg" value="L1" [attr.disabled]="!L1Clicked">
+            <input type="button" class="btn btn-secondary btn-lg level-btn" value="L2" [attr.disabled]="!L2Clicked">
+            <input type="button" class="btn btn-secondary btn-lg level-btn" value="L3" [attr.disabled]="!L3Clicked">
          </div>  
          <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
            <label>Remark:</label>
@@ -96,6 +111,7 @@
      <div class="col-lg-offset-9 btns-grp">
        <input *ngIf="!readOnlyFlag" type="button" class="btn btn-info col-lg-3" value="Delete" (click)="onDeleteBtnClick(associateData.associateId)">
        <input *ngIf="!readOnlyFlag" type="button" class="btn btn-danger col-lg-3 btn-spacing" value="Cancel" (click)="onCancelBtnClick()">
+       <input *ngIf="readOnlyFlag" type="button" class="btn btn-danger btn-lg col-lg-6 btn-spacing" value="Back to Search" (click)="onCancelBtnClick()">
        <input *ngIf="!readOnlyFlag" type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Update">
      </div>
       </form>

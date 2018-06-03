@@ -1,0 +1,11 @@
+1. Remove todo and query from GIT
+2. DELETE update cascade in table
+3. search by strong skills
+4. Show/preview selected pic on upload
+5. Graph
+6. Populate other skills ,level , status & gender data on edit
+7. Delete associate from search page
+8. Remove trailing comma from search by strong skills 
+9. Pagination
+10. Form validations
+11. Display success & error message

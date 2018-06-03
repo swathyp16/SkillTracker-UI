@@ -16,6 +16,7 @@ export class IAddAssociate{
     level1: boolean = false;
     level2: boolean = false;
     level3: boolean = false;
+    gender:string;
 }
 
 

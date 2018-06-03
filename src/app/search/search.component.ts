@@ -16,6 +16,18 @@ export class SearchComponent implements OnInit {
   deleteAssociateStatus : Response;
   successMessage: string;
   errorMessage: string;
+  l1Candidates:number=0;
+  l2Candidates:number=0;
+  l3Candidates:number=0;
+  l1CandidatePercentage:number=0;
+  l2CandidatePercentage:number=0;
+  l3CandidatePercentage:number=0;
+  candidatesRegistered:number=0;
+  femaleCandidatesReg:number=0;
+  maleCandidatesReg:number=0;
+  femaleCandidatesPercentage:number=0;
+  maleCandidatesPercentage:number=0;
+  skillData:Array<any>;
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
 
@@ -23,12 +35,52 @@ export class SearchComponent implements OnInit {
     this._searchService.viewAllAssociates()
     .subscribe(data => {
       this.associateData = data;
+      this.candidatesRegistered = this.associateData.length;
+      this.calculateCandidateDetails();
+      this.displaySkillGraph();
     });
-    this.calculateCandidateLevels(this.associateData);
+    
   }
 
-  calculateCandidateLevels(data){
+  displaySkillGraph(){
+    this.skillData.push()
+  }
 
+  chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    // scales : {
+    //     xAxes: [{
+    //        ticks: {
+    //           //steps : 10,
+    //           stepValue : 200,
+    //           //max : 2000,
+    //         }
+    //     }] 
+    //   }
+}
+
+  calculateCandidateDetails(){
+    for(var i=0; i<this.associateData.length;i++){
+      if(this.associateData[i].level1 === true){
+        this.l1Candidates++;
+      } else if(this.associateData[i].level2 === true){
+        this.l2Candidates++;
+      } else if(this.associateData[i].level3 === true){
+        this.l3Candidates++;
+      }
+
+      if(this.associateData[i].gender == "male"){
+          this.maleCandidatesReg++;
+      } else if(this.associateData[i].gender == "female"){
+        this.femaleCandidatesReg++;
+      }
+    }
+    this.l1CandidatePercentage = Math.round((this.l1Candidates/this.associateData.length)*100);
+    this.l2CandidatePercentage = Math.round((this.l2Candidates/this.associateData.length)*100);
+    this.l3CandidatePercentage = Math.round((this.l3Candidates/this.associateData.length)*100);
+    this.maleCandidatesPercentage = Math.round((this.maleCandidatesReg/this.candidatesRegistered)*100);
+    this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
   }
 
   onDeleteBtnClick(associateData,index){
@@ -45,7 +97,7 @@ export class SearchComponent implements OnInit {
   }
 
   onEdit(associateData,event){
-    console.log("INSIDE EDIT FUNCTION");
+    console.log("INSIDE EDIT FUNCTION : "+ JSON.stringify(associateData));
     this._sharedService.saveAssociateData(associateData);
     var target = event.target || event.srcElement || event.currentTarget;
     var idAttr = target.value;
@@ -56,4 +108,5 @@ export class SearchComponent implements OnInit {
       }
   }
 
+   
 }

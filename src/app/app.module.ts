@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule , Routes} from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
+    ChartsModule
   ],
   exports: [RouterModule],
   providers: [SharedService],

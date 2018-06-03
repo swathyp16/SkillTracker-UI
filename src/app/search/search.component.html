@@ -7,22 +7,31 @@
       </h1>
     </div>
     <div class="skill-graph">
+        <canvas
+        baseChart
+        [chartType]="'bar'"
+        [datasets]="skillData"
+        [labels]="chartlabels"
+        [options]="chartOptions"
+        [legend]="true"
+        [colors]="chartcolor">
+        </canvas>
     </div>
     <div class="col-lg-offset-10 position2">
-      <div class="btn btn-primary percent-height">Level 2<br/>Candidates</div>
+      <div class="btn btn-info percent-height">{{l2CandidatePercentage}}%<br/>Level 2<br/>Candidates</div>
     </div>
     <div class="col-lg-offset-10 position2 m-t-10">
-        <div class="btn btn-primary percent-height">Level 3<br/>Candidates</div>
+        <div class="btn btn-info percent-height">{{l3CandidatePercentage}}%<br/>Level 3<br/>Candidates</div>
       </div>
     <div class="percent row">
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Registered<br/>Candidates</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Female<br/>Candidates</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Male<br/>Candidates</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Candidates<br/>Freshers</div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{candidatesRegistered}}<br/>Registered<br/>Candidates</div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{femaleCandidatesPercentage}}%<br/>Female<br/>Candidates</div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{maleCandidatesPercentage}}%<br/>Male<br/>Candidates</div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{l1CandidatePercentage}}%<br/>Candidates<br/>Freshers</div>
         <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Candidates<br/>Rated</div>
         <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Female<br/>Candidates<br/>Rated</div>
         <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Male<br/>Candidates<br/>Rated</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Level 1<br/>Candidates</div>
+        <div class="btn btn-lg btn-info col-sm-1 percent-height margin-l-10">{{l1CandidatePercentage}}%<br/>Level 1<br/>Candidates</div>
     </div>
     <div class="div-position">
     <table id="searchAssociates" class="table table-striped table-hover">
@@ -61,8 +70,8 @@
             <td>{{data.email}}</td>
             <td>{{data.mobileNum}}</td>
             <td>
-              <span *ngFor= "let associateSkills of data.associateSkills; let i = index">
-                {{associateSkills.skillName}}{{i === associateSkills.length - 1 ? '' : ', '}}
+              <span *ngFor= "let associateSkill of data.associateSkills; let i = index">
+                {{associateSkill.skillName}}{{i === data.associateSkills.length-1 ? '' : ', '}}
               </span>
             </td>
             <td class="td-style">
