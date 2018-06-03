@@ -16,6 +16,7 @@ export class EditAssociateComponent implements OnInit {
   associateData:IAddAssociate;
   selectedFiles: FileList;
   addedSkills : IAddSkills[];
+  skillToAdd : IAddSkills;
   associateDetails : IAddAssociate = new IAddAssociate();
   redStatusClicked: boolean = null;
   greenStatusClicked: boolean = null;
@@ -25,6 +26,7 @@ export class EditAssociateComponent implements OnInit {
   L3Clicked: boolean = null;
   addAssociateResponse: Response;
   deleteAssociateResponse: Response;
+  addSkillResponse: Response;
   successMessage: string;
   errorMessage: string;
   picture: File;
@@ -45,7 +47,7 @@ export class EditAssociateComponent implements OnInit {
     
   }
   mapSkillRating(){
-    debugger
+    //debugger
     for(var i=0; i<this.addedSkills.length; i++){
       this.addedSkills[i].skillRating = 0;
       for(var j=0; j<this.associateData.associateSkills.length; j++){
@@ -74,6 +76,21 @@ export class EditAssociateComponent implements OnInit {
       this.deleteAssociateResponse = data;
       if(this.deleteAssociateResponse.status == 200){
         this.successMessage = "Successfully added the Associate";
+      }
+    }, error =>{
+        this.errorMessage = "Oops !! Something went wrong";
+    });;
+  }
+
+  onAddSkillClick(addSkill){
+    this.skillToAdd = new IAddSkills();
+    this.skillToAdd.skillName = addSkill;
+    console.log("addSkill: " + JSON.stringify(this.skillToAdd));
+    this._addAssociateService.addSkillFromEditPage(this.skillToAdd).subscribe(data => {
+      this.addSkillResponse = data;
+      if(this.addSkillResponse.status == 200){
+        this.successMessage = "Successfully added the Skill";
+        this.addedSkills.splice( this.addedSkills.length, 0, this.skillToAdd);
       }
     }, error =>{
         this.errorMessage = "Oops !! Something went wrong";

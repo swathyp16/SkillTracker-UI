@@ -56,13 +56,13 @@
            <textarea name="remarks" [(ngModel)]="associateData.remark" [value]="associateData.remark" id="remarks" cols="59" rows="7" [attr.disabled]="readOnlyFlag"></textarea>
          </div> 
      </div> 
-     <div class="row m-top-10">
+     <div *ngIf="!readOnlyFlag" class="row m-top-10">
        <div>
          <label for="searchText" class="col-lg-1 label-m-left"><b>Skills</b></label>
           <input id="searchText" type="text" placeholder="Search here" class="input-m-left col-lg-3 col-md-9 col-sm-9 col-xs-10" name="searchText" [(ngModel)]="searchText">
           <label for="addSkill" class="col-lg-1 label-m1-left">Add Skill</label>
-          <input id="addSkill" type="text" class="col-lg-2 col-md-9 col-sm-9 col-xs-10 input-m1-left">
-          <input type="button" class="btn btn-info btn-sm addSkill-btn" value="Add" (click)="onAddSkillClick()"/>
+          <input id="addSkill" [(ngModel)]="addSkill" name="addSkill" type="text" class="col-lg-2 col-md-9 col-sm-9 col-xs-10 input-m1-left">
+          <input type="button" class="btn btn-info btn-sm addSkill-btn" value="Add" (click)="onAddSkillClick(addSkill)"/>
         </div>       
      </div>
      <div class="row m-top-10">
