@@ -24,6 +24,11 @@ export class SearchComponent implements OnInit {
     .subscribe(data => {
       this.associateData = data;
     });
+    this.calculateCandidateLevels(this.associateData);
+  }
+
+  calculateCandidateLevels(data){
+
   }
 
   onDeleteBtnClick(associateData,index){
