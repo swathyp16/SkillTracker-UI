@@ -9,3 +9,4 @@
 9. Pagination
 10. Form validations
 11. Display success & error message
+12. Add skill page & Home page styling
