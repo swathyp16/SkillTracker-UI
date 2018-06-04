@@ -7,31 +7,31 @@
         <!-- <h3><i>REGISTER ASSOCIATE DETAILS FORM</i></h3> -->
       </h1>
     </div>
-<form #addAssociateForm="ngForm" class="form-horizontal" (ngSubmit)="addAssociate(addAssociateForm)">    
+<form novalidate #addAssociateForm="ngForm" class="form-horizontal" (ngSubmit)="addAssociate(addAssociateForm)">    
 <div class="row">
   <div class="col-lg-4 col-md-4">
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Name</label>
         <div class="col-md-8 col-lg-8 col-xs-2">
-          <input type="text" class="form-control" name="associateName" [(ngModel)]="associateName">
+          <input type="text" class="form-control" name="associateName" [(ngModel)]="associateName" maxlength="20" required>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Associate ID</label>
         <div class="col-md-8 col-lg-8 col-xs-2">
-          <input type="text" class="form-control" name="associateId" [(ngModel)]="associateId">
+          <input type="text" class="form-control" name="associateId" [(ngModel)]="associateId" required>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Email</label>
         <div class="col-md-8 col-lg-8 col-xs-2">
-          <input type="text" class="form-control" name="email" [(ngModel)]="email">
+          <input type="text" class="form-control" name="email" [(ngModel)]="email" required>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Mobile</label>
         <div class="col-md-8 col-lg-8 col-xs-2">
-          <input type="text" class="form-control" name="mobile" [(ngModel)]="mobile">
+          <input type="text" class="form-control" name="mobile" [(ngModel)]="mobile" required>
         </div>
       </div>
       <div class="form-group">
@@ -60,7 +60,7 @@
        </div>  
        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
          <label>Remark:</label>
-         <textarea name="remarks" [(ngModel)]="remarks" id="remarks" cols="70" rows="7"></textarea>
+         <textarea name="remarks" [(ngModel)]="remarks" id="remarks" cols="70" rows="7" required></textarea>
        </div> 
    </div> 
    <div class="row">
@@ -81,20 +81,20 @@
     <div class="form-group col-lg-5">
         <label class="col-md-4 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Strength</label>
         <div class="col-md-8 col-lg-9 col-lg-offset-1 col-xs-2">
-          <input type="text" class="form-control" name="strength" [(ngModel)]="strength">
+          <input type="text" class="form-control" name="strength" [(ngModel)]="strength" required>
         </div>
     </div>
     <div class="form-group col-lg-5">
         <label class="col-md-4 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Weakness</label>
         <div class="col-md-8 col-lg-9 col-lg-offset-1 col-xs-2">
-          <input type="text" class="form-control" name="weakness" [(ngModel)]="weakness">
+          <input type="text" class="form-control" name="weakness" [(ngModel)]="weakness" required>
         </div>
     </div>
   </div>
    <div class="col-lg-offset-9 btns-grp">
      <input type="reset" class="btn btn-info col-lg-3" value="Reset">
      <input type="button" class="btn btn-danger col-lg-3 btn-spacing" value="Cancel" (click)="onCancelBtnClick()">
-     <input type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Save">
+     <input type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Save"  [disabled]="!addAssociateForm.form.valid" >
    </div>
     </form>
   </div>

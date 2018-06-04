@@ -5,7 +5,7 @@
 5. Graph
 6. Populate other skills ,level , status & gender data on edit
 7. Delete associate from search page
-8. Remove trailing comma from search by strong skills 
+8. Remove trailing comma from search by strong skills - done 
 9. Pagination
 10. Form validations
 11. Display success & error message

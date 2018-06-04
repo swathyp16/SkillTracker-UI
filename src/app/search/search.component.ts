@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from './search.service';
 import { IAddAssociate } from '../model/add-associate';
 import { SharedService } from '../shared.service';
+import Chart from 'chart.js'
 import { AddAssociateService } from '../add-associate/add-associate.service'
 
 @Component({
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
   maleCandidatesReg:number=0;
   femaleCandidatesPercentage:number=0;
   maleCandidatesPercentage:number=0;
-  //skillData:Array<any>;
+  skillData:Array<any>;
   //skillData : number[] = [10,20,30];
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
@@ -37,29 +38,78 @@ export class SearchComponent implements OnInit {
     .subscribe(data => {
       this.associateData = data;
       this.candidatesRegistered = this.associateData.length;
-      this.calculateCandidateDetails();
+      this.displaySkillGraph();
      // this.displaySkillGraph();
     });
     
   }
 
   displaySkillGraph(){
-    //this.skillData.push()
+    debugger
+    this.skillData = new Array<any>();
+    for(var j=0; j < this.associateData.length ;j++){
+    var index = 0;    
+      for(var i = 0; i < this.associateData[j].associateSkills.length; i++){
+       // if(j == 0){
+        if(this.skillData.length === 0){
+          this.skillData[index] ={
+            data: [0],
+            backgroundColor: "rgba(63,103,126,1)",
+            hoverBackgroundColor: "rgba(50,90,100,1)"
+          }
+       // }        
+      
+        //for(var k = 0; k < this.skillData.length; k++){
+          if(this.skillData[index].label === this.associateData[j].associateSkills[i].skillName){
+            this.skillData[index].data[0] = this.skillData[index].data[0] + 1;
+          } else {
+            this.skillData[index].data[0] = this.skillData[index].data[0] + 1;
+            this.skillData[index].label = this.associateData[j].associateSkills[i].skillName;
+          }
+       // }
+      } 
+      else{
+        for(var k = 0; k < this.skillData.length; k++){
+          this.skillData[this.skillData.length] ={
+              data: [0],
+              backgroundColor: "rgba(63,103,126,1)",
+              hoverBackgroundColor: "rgba(50,90,100,1)"
+          }
+          if(this.skillData[k].label === this.associateData[j].associateSkills[i].skillName){
+            this.skillData[k].data[0] = this.skillData[index].data[0] + 1;
+          } else {
+            this.skillData[index].data[0] = this.skillData[index].data[0] + 1;
+            this.skillData[index].label = this.associateData[j].associateSkills[i].skillName;
+          }
+        }
+      }
+      index++;
+    }          
+    }
+    console.log("this.skillData : " + JSON.stringify(this.skillData));
   }
 
-  skillData = [{
-    data: [727, 589, 537, 543, 574],
-    backgroundColor: "rgba(63,103,126,1)",
-    hoverBackgroundColor: "rgba(50,90,100,1)"
-},{
-    data: [238, 553, 746, 884, 903],
-    backgroundColor: "rgba(163,103,126,1)",
-    hoverBackgroundColor: "rgba(140,85,100,1)"
-},{
-    data: [1238, 553, 746, 884, 903],
-    backgroundColor: "rgba(63,203,226,1)",
-    hoverBackgroundColor: "rgba(46,185,235,1)"
-}]
+  checkIfSkillsExist(associateSkill,skillInArray){
+    if(skillInArray.label === associateSkill){
+
+    }
+  }
+
+  dataset = this.skillData;
+
+//   skillData = [{
+//     data: [727],
+//     backgroundColor: "rgba(63,103,126,1)",
+//     hoverBackgroundColor: "rgba(50,90,100,1)"
+// },{
+//     data: [238],
+//     backgroundColor: "rgba(163,103,126,1)",
+//     hoverBackgroundColor: "rgba(140,85,100,1)"
+// },{
+//     data: [1238],
+//     backgroundColor: "rgba(63,203,226,1)",
+//     hoverBackgroundColor: "rgba(46,185,235,1)"
+// }]
 
   chartcolor = [
     { 
@@ -86,6 +136,7 @@ export class SearchComponent implements OnInit {
                 display:false
             },
             gridLines: {
+				display:false
             }, 
             stacked: true
         }],
@@ -118,7 +169,7 @@ export class SearchComponent implements OnInit {
             Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
                 var meta = chartInstance.controller.getDatasetMeta(i);
                 Chart.helpers.each(meta.data.forEach(function (bar, index) {
-                    data = dataset.data[index];
+                    data = this.skillData.data[index];
                     if(i==0){
                         ctx.fillText(data, 50, bar._model.y+4);
                     } else {
@@ -130,6 +181,7 @@ export class SearchComponent implements OnInit {
     },
     pointLabelFontFamily : "Quadon Extra Bold",
     scaleFontFamily : "Quadon Extra Bold",
+  };
 
   calculateCandidateDetails(){
     for(var i=0; i<this.associateData.length;i++){
