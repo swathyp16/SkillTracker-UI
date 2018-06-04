@@ -43,7 +43,7 @@ h1{
 .skill-graph{
     width: 86%;
     height: 200px;
-    background-color: red;
+    /* background-color: red; */
     margin-top: -10px;
 }
 
@@ -55,11 +55,22 @@ h1{
     bottom: 188px;
 }
 
-.percent-height{
-    height: 90px;
-    cursor: auto;
-    width: 167px;
+@media(min-width:900px){
+    .percent-height{
+        height: 90px;
+        cursor: auto;
+        width: 151px;
+    }
 }
+
+@media(min-width:1400px){
+    .percent-height{
+        height: 90px;
+        cursor: auto;
+        width: 167px;
+    }
+}
+
 
 .margin-l-10{
     margin-left: 14px;
