@@ -37,13 +37,13 @@ export class SearchComponent implements OnInit {
       data: [0]
     }
 ];
-  skillsData : Array<any> = [
-      {
-        label: "HTML5",
-        data: [0],
-        backgroundColor: "#2e7ea9"
-      }
-  ];
+  // skillsData : Array<any> = [
+  //     {
+  //       label: "HTML5",
+  //       data: [0],
+  //       backgroundColor: "#2e7ea9"
+  //     }
+  // ];
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
 
@@ -95,38 +95,58 @@ export class SearchComponent implements OnInit {
            index++;
          }
        }
-      this.skillsData = compressed[0];
+       console.log("compressed[0] : "+ JSON.stringify(compressed[0]));
+      //this.skillsData = compressed[0];
 }
 
   
-  //this.skillsData =  [
-  //   {
-  //     label: "HTML5",
-  //     data: [3],
-  //     backgroundColor: "#2e7ea9"
-  //   },
-  //   {
-  //     label: "Bootstrap",
-  //     data: [1],
-  //     backgroundColor: "#c0f225"
-  //   },
-  //   {
-  //     label: "XML",
-  //     data: [1],
-  //     backgroundColor: "#090e69"
-  //   },
-  //   {
-  //     label: "JQuery",
-  //     data: [1],
-  //     backgroundColor: "#0c3a5d"
-  //   },
-  //   {
-  //     label: "PM",
-  //     data: [1],
-  //     backgroundColor: "#6823e2"
-  //   }
-  // ];
-
+skillsData =  [
+    {
+      label: "HTML5",
+      data: [3],
+      backgroundColor: "#ff4000"
+    },
+    {
+      label: "Bootstrap",
+      data: [1],
+      backgroundColor: "#842245"
+    },
+    {
+      label: "XML",
+      data: [1],
+      backgroundColor: "#802955"
+    },
+    {
+      label: "JQuery",
+      data: [1],
+      backgroundColor: "#141187"
+    },
+    {
+      label: "PM",
+      data: [2],
+      backgroundColor: "#030923"
+    },
+    {
+      label:"GIT",
+      data:[1],
+      backgroundColor: "#678673"
+    },
+    {
+      label:"Hibernate",
+      data:[1],
+      backgroundColor:"#304575"
+    },
+    {
+      label:"SVN",
+      data:[1],
+      backgroundColor:"#350295"
+    }
+  ];
+  chartColor = [
+    { 
+    backgroundColor: "#F5B22C"
+    }
+]
   chartOptions = {
 	responsive: true,
     tooltips: {
