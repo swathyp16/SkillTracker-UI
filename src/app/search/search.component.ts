@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SearchService } from './search.service';
 import { IAddAssociate } from '../model/add-associate';
 import { ISkillCount } from '../model/skill-occurance'
 import { SharedService } from '../shared.service';
-import Chart from 'chart.js'
-import { AddAssociateService } from '../add-associate/add-associate.service'
+import Chart from 'chart.js';
+import { AddAssociateService } from '../add-associate/add-associate.service';
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 
 @Component({
   selector: 'app-search',
@@ -13,6 +14,8 @@ import { AddAssociateService } from '../add-associate/add-associate.service'
   providers: [SearchService]
 })
 export class SearchComponent implements OnInit {
+  @ViewChild("baseChart")
+  public chart: BaseChartDirective;
   associateData: IAddAssociate[];
   associatePic: File;
   deleteAssociateStatus : Response;
@@ -31,19 +34,25 @@ export class SearchComponent implements OnInit {
   maleCandidatesPercentage:number=0;
   skillData:Array<any>;
   a : ISkillCount[] = [];
+  
   chartData:Array<any> = [
     {
       label: 'SkillName',
       data: [0]
     }
 ];
-  // skillsData : Array<any> = [
-  //     {
-  //       label: "HTML5",
-  //       data: [0],
-  //       backgroundColor: "#2e7ea9"
-  //     }
-  // ];
+  skillsData : Array<any> =  [
+    {
+      label: "HTML5",
+      data: [3],
+      backgroundColor: "#ff4000"
+    },
+    {
+      label: "Bootstrap",
+      data: [2],
+      backgroundColor: "#842245"
+    }];
+  compressed = [];
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
 
@@ -70,7 +79,7 @@ export class SearchComponent implements OnInit {
   }
 
   calculateSkillsPercentage(){      
-       var compressed = [];
+       debugger
        var index = 0;
        var copy = this.skillData.slice(0);
        for (var i = 0; i < this.skillData.length; i++) {      
@@ -91,57 +100,78 @@ export class SearchComponent implements OnInit {
            this.a[i].label = this.skillData[i];
            this.a[i].data[0] = myCount;
            this.a[i].backgroundColor = '#' + Math.random().toString(16).slice(2, 8);
-           compressed.push(this.a);
+           this.compressed.push(this.a);
            index++;
          }
        }
-       console.log("compressed[0] : "+ JSON.stringify(compressed[0]));
-      //this.skillsData = compressed[0];
+       console.log("compressed[0] : "+ JSON.stringify(this.compressed[0]));
+      this.skillsData =this.compressed[0];
+      
+      this.chart.chart.render();
 }
 
-  
-skillsData =  [
-    {
-      label: "HTML5",
-      data: [3],
-      backgroundColor: "#ff4000"
-    },
-    {
-      label: "Bootstrap",
-      data: [1],
-      backgroundColor: "#842245"
-    },
-    {
-      label: "XML",
-      data: [1],
-      backgroundColor: "#802955"
-    },
-    {
-      label: "JQuery",
-      data: [1],
-      backgroundColor: "#141187"
-    },
-    {
-      label: "PM",
-      data: [2],
-      backgroundColor: "#030923"
-    },
-    {
-      label:"GIT",
-      data:[1],
-      backgroundColor: "#678673"
-    },
-    {
-      label:"Hibernate",
-      data:[1],
-      backgroundColor:"#304575"
-    },
-    {
-      label:"SVN",
-      data:[1],
-      backgroundColor:"#350295"
-    }
-  ];
+public chartClicked(e:any):void {
+  console.log(e);
+}
+
+// refresh_chart() {
+//   setTimeout(() => {
+//       //console.log(this.datasets_lines_copy);
+//       //console.log(this.datasets_lines);
+//       if (this.chart && this.chart.chart && this.chart.chart.config) {
+//         for(var i =0 ;i<this.skillsData.length; i++){
+//           this.chart.chart.config.data.labels = this.skillsData[i].label;
+//           this.chart.chart.config.data.datasets.push(this.skillData[i].data[0]);
+//         }          
+//           this.chart.chart.update();
+//       }
+//   });
+// }
+ 
+//skillsData =  this.compressed[0];
+// [
+//     {
+//       label: "HTML5",
+//       data: [3],
+//       backgroundColor: "#ff4000"
+//     },
+//     {
+//       label: "Bootstrap",
+//       data: [1],
+//       backgroundColor: "#842245"
+//     },
+//     {
+//       label: "XML",
+//       data: [1],
+//       backgroundColor: "#802955"
+//     },
+//     {
+//       label: "JQuery",
+//       data: [1],
+//       backgroundColor: "#141187"
+//     },
+//     {
+//       label: "PM",
+//       data: [2],
+//       backgroundColor: "#030923"
+//     },
+//     {
+//       label:"GIT",
+//       data:[1],
+//       backgroundColor: "#678673"
+//     },
+//     {
+//       label:"Hibernate",
+//       data:[1],
+//       backgroundColor:"#304575"
+//     },
+//     {
+//       label:"SVN",
+//       data:[1],
+//       backgroundColor:"#350295"
+//     }
+//   ];
+
   chartColor = [
     { 
     backgroundColor: "#F5B22C"

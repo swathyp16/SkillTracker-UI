@@ -7,13 +7,15 @@
       </h1>
     </div>
     <div class="skill-graph">
-        <canvas class="canvas-styles"
+        <canvas baseChart #baseChart="base-chart"  
+        class="canvas-styles"
         baseChart
         [chartType]="'horizontalBar'"
         [datasets]="skillsData"
         [options]="chartOptions"
         [colors]="chartColor"
-        [legend]="true">
+        [legend]="true"
+        (chartClick)="chartClicked($event)">
         </canvas>
     </div>
     <div class="col-lg-offset-10 position2">
