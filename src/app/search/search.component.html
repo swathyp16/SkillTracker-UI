@@ -16,20 +16,70 @@
         </canvas>
     </div>
     <div class="col-lg-offset-10 position2">
-      <div class="btn btn-info percent-height">{{l2CandidatePercentage}}%<br/>Level 2<br/>Candidates</div>
+      <div class="btn btn-info percent-height">
+          <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+              <i class="fa fa-male fa-style"></i>
+            </button>
+        <span class="span-style"> {{l2CandidatePercentage}}% Level 1 Candidates</span>
+      </div>
     </div>
     <div class="col-lg-offset-10 position2 m-t-10">
-        <div class="btn btn-info percent-height">{{l3CandidatePercentage}}%<br/>Level 3<br/>Candidates</div>
+        <div class="btn btn-info percent-height">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-male fa-style"></i>
+              </button>
+          <span class="span-style"> {{l3CandidatePercentage}}% Level 1 Candidates</span>
+        </div>
       </div>
-    <div class="percent row">
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{candidatesRegistered}}<br/>Registered<br/>Candidates</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{femaleCandidatesPercentage}}%<br/>Female<br/>Candidates</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{maleCandidatesPercentage}}%<br/>Male<br/>Candidates</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">{{l1CandidatePercentage}}%<br/>Candidates<br/>Freshers</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Candidates<br/>Rated</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Female<br/>Candidates<br/>Rated</div>
-        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">Male<br/>Candidates<br/>Rated</div>
-        <div class="btn btn-lg btn-info col-sm-1 percent-height margin-l-10">{{l1CandidatePercentage}}%<br/>Level 1<br/>Candidates</div>
+    <div class="percent row">          
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-users fa-2x fa-style"></i>
+              </button>
+          <span class="span-style">{{candidatesRegistered}} Registered Candidates</span>    
+        </div>      
+        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style color2">
+                <i class="fa fa-female fa-2x"></i>
+              </button>
+          <span class="span-style">{{femaleCandidatesPercentage}}% Female Candidates</span>          
+        </div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-male fa-2x"></i>
+              </button>
+          <span class="span-style"> {{maleCandidatesPercentage}}% Male Candidates</span>         
+        </div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-graduation-cap fa-2x fa-style"></i>
+              </button>
+          <span class="span-style">  {{l1CandidatePercentage}}% Candidates Freshers</span>         
+        </div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-star fa-2x fa-style"></i>
+              </button>
+          <span class="span-style">Candidates Rated</span>          
+        </div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-female fa-style"></i>
+              </button>
+          <span class="span-style">Female Candidates Rated</span> 
+        </div>
+        <div class="btn btn-lg btn-primary col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-male fa-style"></i>
+              </button>
+          <span class="span-style">Male Candidates Rated</span>
+        </div>
+        <div class="btn btn-lg btn-info col-sm-1 percent-height margin-l-10">
+            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
+                <i class="fa fa-male fa-style"></i>
+              </button>
+          <span class="span-style"> {{l1CandidatePercentage}}% Level 1 Candidates</span>
+        </div>
     </div>
     <div class="div-position">
     <table id="searchAssociates" class="table table-striped table-hover">
@@ -44,7 +94,7 @@
               <th><input type="text" class="form-control" placeholder="Search By Strong Skills" name="searchByStrongskills" [(ngModel)]="searchByStrongskills"/></th>
               <th>
                 <button type="button" value="Add New Associate" class="btn btn-lg btn-success" [routerLink]="['/addAssociate']">
-                <span class="glyphicon glyphicon-plus"></span> Add New Associate 
+                <span class="fa fa-user-plus"></span> Add New Associate 
               </button>
               </th>
             </tr>

@@ -52,7 +52,7 @@ h1{
     height: 100px;
     display: inline-block;
     position: relative;
-    bottom: 188px;
+    bottom: 173px;
 }
 
 @media(min-width:900px){
@@ -107,4 +107,34 @@ h1{
     position: relative;
     bottom: 26px;
 }
+
+.circle-style{
+    position: relative;
+    width: 53px;
+    height: 51px;
+    border-radius: 75px;
+    bottom: 32px;
+    border: none;
+}
+
+.span-style{
+    display: block;
+    position: relative;
+    bottom: 26px;
+    white-space: normal;
+}
+.fa-style{
+    position: relative;
+    right: 9px;
+}
+
+.color1{
+    background-color: #F1948A;
+}
+
+.color2{
+    background-color:#F5B7B1;
+}
+
+
 

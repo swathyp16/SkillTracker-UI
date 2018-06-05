@@ -37,7 +37,13 @@ export class SearchComponent implements OnInit {
       data: [0]
     }
 ];
-  //skillData : number[] = [10,20,30];
+  skillsData : Array<any> = [
+      {
+        label: "HTML5",
+        data: [0],
+        backgroundColor: "#2e7ea9"
+      }
+  ];
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
 
@@ -46,7 +52,7 @@ export class SearchComponent implements OnInit {
     .subscribe(data => {
       this.associateData = data;
       this.candidatesRegistered = this.associateData.length;
-      //this.displaySkillGraph();
+      this.displaySkillGraph();
     });
     
   }
@@ -89,37 +95,39 @@ export class SearchComponent implements OnInit {
          }
        }
       console.log("compressed : " + JSON.stringify(compressed[0]));
-      this.chartData = compressed[0];
-      console.log("this.chartData : " + JSON.stringify(this.chartData));
+      //this.chartData = compressed[0];
+      //console.log("this.chartData : " + JSON.stringify(this.chartData));
+      this.skillsData = compressed[0];
 }
 
-  skillsData = [
-    {
-      label: "HTML5",
-      data: [3],
-      backgroundColor: "#2e7ea9"
-    },
-    {
-      label: "Bootstrap",
-      data: [1],
-      backgroundColor: "#c0f225"
-    },
-    {
-      label: "XML",
-      data: [1],
-      backgroundColor: "#090e69"
-    },
-    {
-      label: "JQuery",
-      data: [1],
-      backgroundColor: "#0c3a5d"
-    },
-    {
-      label: "PM",
-      data: [1],
-      backgroundColor: "#6823e2"
-    }
-  ];
+  
+  //this.skillsData =  [
+  //   {
+  //     label: "HTML5",
+  //     data: [3],
+  //     backgroundColor: "#2e7ea9"
+  //   },
+  //   {
+  //     label: "Bootstrap",
+  //     data: [1],
+  //     backgroundColor: "#c0f225"
+  //   },
+  //   {
+  //     label: "XML",
+  //     data: [1],
+  //     backgroundColor: "#090e69"
+  //   },
+  //   {
+  //     label: "JQuery",
+  //     data: [1],
+  //     backgroundColor: "#0c3a5d"
+  //   },
+  //   {
+  //     label: "PM",
+  //     data: [1],
+  //     backgroundColor: "#6823e2"
+  //   }
+  // ];
 
   chartOptions = {
 	responsive: true,
