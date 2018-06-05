@@ -102,3 +102,9 @@ h1{
     margin-top: 10px;
 }
 
+.canvas-styles{
+    height: 265px !important;
+    position: relative;
+    bottom: 26px;
+}
+

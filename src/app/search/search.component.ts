@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from './search.service';
 import { IAddAssociate } from '../model/add-associate';
+import { ISkillCount } from '../model/skill-occurance'
 import { SharedService } from '../shared.service';
 import Chart from 'chart.js'
 import { AddAssociateService } from '../add-associate/add-associate.service'
@@ -29,6 +30,13 @@ export class SearchComponent implements OnInit {
   femaleCandidatesPercentage:number=0;
   maleCandidatesPercentage:number=0;
   skillData:Array<any>;
+  a : ISkillCount[] = [];
+  chartData:Array<any> = [
+    {
+      label: 'SkillName',
+      data: [0]
+    }
+];
   //skillData : number[] = [10,20,30];
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
@@ -38,84 +46,80 @@ export class SearchComponent implements OnInit {
     .subscribe(data => {
       this.associateData = data;
       this.candidatesRegistered = this.associateData.length;
-      this.displaySkillGraph();
-     // this.displaySkillGraph();
+      //this.displaySkillGraph();
     });
     
   }
 
   displaySkillGraph(){
-    debugger
     this.skillData = new Array<any>();
     for(var j=0; j < this.associateData.length ;j++){
-    var index = 0;    
       for(var i = 0; i < this.associateData[j].associateSkills.length; i++){
-       // if(j == 0){
-        if(this.skillData.length === 0){
-          this.skillData[index] ={
-            data: [0],
-            backgroundColor: "rgba(63,103,126,1)",
-            hoverBackgroundColor: "rgba(50,90,100,1)"
-          }
-       // }        
-      
-        //for(var k = 0; k < this.skillData.length; k++){
-          if(this.skillData[index].label === this.associateData[j].associateSkills[i].skillName){
-            this.skillData[index].data[0] = this.skillData[index].data[0] + 1;
-          } else {
-            this.skillData[index].data[0] = this.skillData[index].data[0] + 1;
-            this.skillData[index].label = this.associateData[j].associateSkills[i].skillName;
-          }
-       // }
-      } 
-      else{
-        for(var k = 0; k < this.skillData.length; k++){
-          this.skillData[this.skillData.length] ={
-              data: [0],
-              backgroundColor: "rgba(63,103,126,1)",
-              hoverBackgroundColor: "rgba(50,90,100,1)"
-          }
-          if(this.skillData[k].label === this.associateData[j].associateSkills[i].skillName){
-            this.skillData[k].data[0] = this.skillData[index].data[0] + 1;
-          } else {
-            this.skillData[index].data[0] = this.skillData[index].data[0] + 1;
-            this.skillData[index].label = this.associateData[j].associateSkills[i].skillName;
-          }
-        }
-      }
-      index++;
-    }          
-    }
+       this.skillData.push(this.associateData[j].associateSkills[i].skillName);
+      }                   
+    }    
     console.log("this.skillData : " + JSON.stringify(this.skillData));
+    this.calculateSkillsPercentage();
   }
 
-  checkIfSkillsExist(associateSkill,skillInArray){
-    if(skillInArray.label === associateSkill){
+  calculateSkillsPercentage(){      
+       var compressed = [];
+       var index = 0;
+       var copy = this.skillData.slice(0);
+       for (var i = 0; i < this.skillData.length; i++) {      
+         var myCount = 0;	
+         for (var w = 0; w < copy.length; w++) {
+           if (this.skillData[i] == copy[w]) {
+             myCount++;
+             delete copy[w];
+           }
+         }
+      
+         if (myCount > 0) {
+         this.a[i] = {
+              label : "",
+              data:[0],
+              backgroundColor:""
+          }
+           this.a[i].label = this.skillData[i];
+           this.a[i].data[0] = myCount;
+           this.a[i].backgroundColor = '#' + Math.random().toString(16).slice(2, 8);
+           compressed.push(this.a);
+           index++;
+         }
+       }
+      console.log("compressed : " + JSON.stringify(compressed[0]));
+      this.chartData = compressed[0];
+      console.log("this.chartData : " + JSON.stringify(this.chartData));
+}
 
+  skillsData = [
+    {
+      label: "HTML5",
+      data: [3],
+      backgroundColor: "#2e7ea9"
+    },
+    {
+      label: "Bootstrap",
+      data: [1],
+      backgroundColor: "#c0f225"
+    },
+    {
+      label: "XML",
+      data: [1],
+      backgroundColor: "#090e69"
+    },
+    {
+      label: "JQuery",
+      data: [1],
+      backgroundColor: "#0c3a5d"
+    },
+    {
+      label: "PM",
+      data: [1],
+      backgroundColor: "#6823e2"
     }
-  }
-
-  dataset = this.skillData;
-
-//   skillData = [{
-//     data: [727],
-//     backgroundColor: "rgba(63,103,126,1)",
-//     hoverBackgroundColor: "rgba(50,90,100,1)"
-// },{
-//     data: [238],
-//     backgroundColor: "rgba(163,103,126,1)",
-//     hoverBackgroundColor: "rgba(140,85,100,1)"
-// },{
-//     data: [1238],
-//     backgroundColor: "rgba(63,203,226,1)",
-//     hoverBackgroundColor: "rgba(46,185,235,1)"
-// }]
-
-  chartcolor = [
-    { 
-    backgroundColor: 'rgba(30, 169, 224 , 0.8)'
-    }
-]
+  ];
 
   chartOptions = {
 	responsive: true,
@@ -158,27 +162,27 @@ export class SearchComponent implements OnInit {
         display:false
     },
     
-    animation: {
-        onComplete: function () {
-            var chartInstance = this.chart;
-            var ctx = chartInstance.ctx;
-            ctx.textAlign = "left";
-            ctx.font = "9px Open Sans";
-            ctx.fillStyle = "#fff";
+    // animation: {
+    //     onComplete: function () {
+    //         var chartInstance = this.chart;
+    //         var ctx = chartInstance.ctx;
+    //         ctx.textAlign = "left";
+    //         ctx.font = "9px Open Sans";
+    //         ctx.fillStyle = "#fff";
 
-            Chart.helpers.each(this.data.datasets.forEach(function (dataset, i) {
-                var meta = chartInstance.controller.getDatasetMeta(i);
-                Chart.helpers.each(meta.data.forEach(function (bar, index) {
-                    data = this.skillData.data[index];
-                    if(i==0){
-                        ctx.fillText(data, 50, bar._model.y+4);
-                    } else {
-                        ctx.fillText(data, bar._model.x-25, bar._model.y+4);
-                    }
-                }),this)
-            }),this);
-        }
-    },
+    //         Chart.helpers.each(this.chartData.forEach(function (dataset, i) {
+    //             var meta = chartInstance.controller.getDatasetMeta(i);
+    //             Chart.helpers.each(meta.data.forEach(function (bar, index) {
+    //                 let data = this.chartData.data[index];
+    //                 if(i==0){
+    //                     ctx.fillText(data, 50, bar._model.y+4);
+    //                 } else {
+    //                     ctx.fillText(data, bar._model.x-25, bar._model.y+4);
+    //                 }
+    //             }),this)
+    //         }),this);
+    //     }
+    // },
     pointLabelFontFamily : "Quadon Extra Bold",
     scaleFontFamily : "Quadon Extra Bold",
   };
