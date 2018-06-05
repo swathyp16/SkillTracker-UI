@@ -114,7 +114,7 @@ h1{
     height: 51px;
     border-radius: 75px;
     bottom: 32px;
-    border: none;
+    border-top-width: 2px;
 }
 
 .span-style{
@@ -128,13 +128,7 @@ h1{
     right: 9px;
 }
 
-.color1{
-    background-color: #F1948A;
-}
 
-.color2{
-    background-color:#F5B7B1;
-}
 
 
 

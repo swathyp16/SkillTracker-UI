@@ -31,6 +31,7 @@ export class AddAssociateService {
     .catch(this.handleErrorObservable);
   }
 
+  
   deleteAssociate(associateId): Observable<any>{
     debugger
     return this._http.get("http://localhost:8090/deleteAssociate/"+associateId)

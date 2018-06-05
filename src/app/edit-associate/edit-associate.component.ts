@@ -34,6 +34,7 @@ export class EditAssociateComponent implements OnInit {
   greenStatusView: boolean;
   blueStatusView: boolean;
   redStatusView: boolean;
+  gender:string;
   constructor(private _sharedService : SharedService,
   private _addAssociateService:AddAssociateService,private _addSkillService: AddSkillService,
   private route: ActivatedRoute,
@@ -42,6 +43,8 @@ export class EditAssociateComponent implements OnInit {
   ngOnInit() {
     this.readOnlyFlag = this._sharedService.getReadOnly();
     this.associateData = this._sharedService.fetchAssociateData();
+    console.log("fetchAssociateData : "+ JSON.stringify(this.associateData));
+    this.gender = this.associateData.gender;
     this.mapAssociateLevel();
     this.mapAssociateStatus();
     this._addSkillService.viewAllSkills()
@@ -65,13 +68,19 @@ export class EditAssociateComponent implements OnInit {
   mapAssociateStatus(){
     if(this.associateData.statusGreen === true){
       this.greenStatusClicked = true;
-      this.greenStatusView = false;
+      this.greenStatusView = true;
+      this.blueStatusView = false;
+      this.redStatusView = false;
     } else if(this.associateData.statusBlue === true){
       this.blueStatusClicked = true;
       this.blueStatusView = false;
+      this.greenStatusView = true;
+      this.redStatusView = true;
     } else if(this.associateData.statusRed === true){
       this.redStatusClicked = true;
       this.redStatusView = false;
+      this.greenStatusView = true;
+      this.blueStatusView = true;
     }
   }
 
@@ -183,17 +192,46 @@ export class EditAssociateComponent implements OnInit {
     this.associateDetails.otherSkill = editAssociateForm.value.otherSkill;
     this.associateDetails.strength = editAssociateForm.value.strength;
     this.associateDetails.weakness = editAssociateForm.value.weakness;
-    this.picture = this.selectedFiles.item(0);
+    this.associateDetails.gender = editAssociateForm.value.gender;
+    console.log("this.associateDetails.statusBlue : "+ this.blueStatusClicked +","+this.associateDetails.statusBlue);
+    console.log("this.associateDetails.statusGreen : "+ this.greenStatusClicked +","+this.associateDetails.statusGreen);
+    console.log("this.associateDetails.statusRed : "+ this.redStatusClicked+","+this.associateDetails.statusRed);
+    console.log("this.associateDetails.level1 : "+ this.L1Clicked+","+this.associateDetails.level1);
+    console.log("this.associateDetails.level2 : "+ this.L2Clicked+","+this.associateDetails.level2);
+    console.log("this.associateDetails.level3 : "+ this.L3Clicked+","+this.associateDetails.level3);
+    if(this.associateDetails.statusBlue === true || this.associateDetails.statusGreen === true || this.associateDetails.statusRed === true){
+      this.associateDetails.statusBlue = this.blueStatusClicked===true?false:true;
+      this.associateDetails.statusGreen =  this.greenStatusClicked===true?false:true;
+      this.associateDetails.statusRed = this.redStatusClicked==true?false:true;
+   } else{
+      this.associateDetails.statusBlue = this.blueStatusClicked===true?true:false;
+      this.associateDetails.statusGreen =  this.greenStatusClicked===true?true:false;
+      this.associateDetails.statusRed = this.redStatusClicked==true?true:false;
+   } 
+   if(this.associateDetails.level1 === true || this.associateDetails.level2 === true || this.associateDetails.level3 === true){  
+    this.associateDetails.level1 = this.L1Clicked==undefined?true:false;
+    this.associateDetails.level2 = this.L2Clicked==undefined?true:false;
+    this.associateDetails.level3 = this.L3Clicked==undefined?true:false;
+   } else{
+    this.associateDetails.level1 = this.L1Clicked===true?true:false;
+    this.associateDetails.level2 = this.L2Clicked===true?true:false;
+    this.associateDetails.level3 = this.L3Clicked===true?true:false;
+   }
+    if(this.selectedFiles != undefined && this.selectedFiles.item != undefined){
+      this.picture = this.selectedFiles.item(0);
+    }  
     console.log("associateDetails : " + JSON.stringify(this.associateDetails));
-    this._addAssociateService.addAssociate(this.associateDetails,this.picture)
-    .subscribe(data => {
-      this.addAssociateResponse = data;
-      if(this.addAssociateResponse.status == 200){
-        this.successMessage = "Successfully added the Associate";
-      }
-    }, error =>{
-        this.errorMessage = "Oops !! Something went wrong";
-    });
+   // if(this.picture != undefined && this.picture!=null){
+      this._addAssociateService.addAssociate(this.associateDetails,this.picture)
+      .subscribe(data => {
+        this.addAssociateResponse = data;
+        if(this.addAssociateResponse.status == 200){
+          this.successMessage = "Successfully added the Associate";
+        }
+      }, error =>{
+          this.errorMessage = "Oops !! Something went wrong";
+      });
+   // }   
   }
 
 
