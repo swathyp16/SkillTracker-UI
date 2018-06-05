@@ -43,7 +43,6 @@ export class EditAssociateComponent implements OnInit {
   ngOnInit() {
     this.readOnlyFlag = this._sharedService.getReadOnly();
     this.associateData = this._sharedService.fetchAssociateData();
-    console.log("fetchAssociateData : "+ JSON.stringify(this.associateData));
     this.gender = this.associateData.gender;
     this.mapAssociateLevel();
     this.mapAssociateStatus();
@@ -85,7 +84,6 @@ export class EditAssociateComponent implements OnInit {
   }
 
   mapSkillRating(){
-    //debugger
     for(var i=0; i<this.addedSkills.length; i++){
       this.addedSkills[i].skillRating = 0;
       for(var j=0; j<this.associateData.associateSkills.length; j++){
@@ -178,7 +176,6 @@ export class EditAssociateComponent implements OnInit {
   }
 
   editAssociate(editAssociateForm : NgForm) : void{
-    console.log("editAssociateForm : "+ JSON.stringify(editAssociateForm.value));
     this.associateDetails.name = editAssociateForm.value.associateName;
     this.associateDetails.associateId = editAssociateForm.value.associateId;
     this.associateDetails.email = editAssociateForm.value.email;
@@ -193,12 +190,6 @@ export class EditAssociateComponent implements OnInit {
     this.associateDetails.strength = editAssociateForm.value.strength;
     this.associateDetails.weakness = editAssociateForm.value.weakness;
     this.associateDetails.gender = editAssociateForm.value.gender;
-    console.log("this.associateDetails.statusBlue : "+ this.blueStatusClicked +","+this.associateDetails.statusBlue);
-    console.log("this.associateDetails.statusGreen : "+ this.greenStatusClicked +","+this.associateDetails.statusGreen);
-    console.log("this.associateDetails.statusRed : "+ this.redStatusClicked+","+this.associateDetails.statusRed);
-    console.log("this.associateDetails.level1 : "+ this.L1Clicked+","+this.associateDetails.level1);
-    console.log("this.associateDetails.level2 : "+ this.L2Clicked+","+this.associateDetails.level2);
-    console.log("this.associateDetails.level3 : "+ this.L3Clicked+","+this.associateDetails.level3);
     if(this.associateDetails.statusBlue === true || this.associateDetails.statusGreen === true || this.associateDetails.statusRed === true){
       this.associateDetails.statusBlue = this.blueStatusClicked===true?false:true;
       this.associateDetails.statusGreen =  this.greenStatusClicked===true?false:true;
@@ -219,19 +210,16 @@ export class EditAssociateComponent implements OnInit {
    }
     if(this.selectedFiles != undefined && this.selectedFiles.item != undefined){
       this.picture = this.selectedFiles.item(0);
-    }  
-    console.log("associateDetails : " + JSON.stringify(this.associateDetails));
-   // if(this.picture != undefined && this.picture!=null){
-      this._addAssociateService.addAssociate(this.associateDetails,this.picture)
-      .subscribe(data => {
-        this.addAssociateResponse = data;
-        if(this.addAssociateResponse.status == 200){
-          this.successMessage = "Successfully added the Associate";
-        }
-      }, error =>{
-          this.errorMessage = "Oops !! Something went wrong";
-      });
-   // }   
+    } 
+    this._addAssociateService.addAssociate(this.associateDetails,this.picture)
+    .subscribe(data => {
+      this.addAssociateResponse = data;
+      if(this.addAssociateResponse.status == 200){
+        this.successMessage = "Successfully added the Associate";
+      }
+    }, error =>{
+        this.errorMessage = "Oops !! Something went wrong";
+    });
   }
 
 

@@ -53,6 +53,7 @@ export class SearchComponent implements OnInit {
       this.associateData = data;
       this.candidatesRegistered = this.associateData.length;
       this.displaySkillGraph();
+      this.calculateCandidateDetails();
     });
     
   }
@@ -94,9 +95,6 @@ export class SearchComponent implements OnInit {
            index++;
          }
        }
-      console.log("compressed : " + JSON.stringify(compressed[0]));
-      //this.chartData = compressed[0];
-      //console.log("this.chartData : " + JSON.stringify(this.chartData));
       this.skillsData = compressed[0];
 }
 
@@ -214,7 +212,9 @@ export class SearchComponent implements OnInit {
     this.l1CandidatePercentage = Math.round((this.l1Candidates/this.associateData.length)*100);
     this.l2CandidatePercentage = Math.round((this.l2Candidates/this.associateData.length)*100);
     this.l3CandidatePercentage = Math.round((this.l3Candidates/this.associateData.length)*100);
+    console.log("this.maleCandidatesReg : "+ this.maleCandidatesReg);
     this.maleCandidatesPercentage = Math.round((this.maleCandidatesReg/this.candidatesRegistered)*100);
+    console.log("this.maleCandidatesPercentage : "+ this.maleCandidatesPercentage);
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
   }
 

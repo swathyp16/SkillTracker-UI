@@ -114,7 +114,8 @@ h1{
     height: 51px;
     border-radius: 75px;
     bottom: 32px;
-    border-top-width: 2px;
+    border-width: 1.5px;
+    border-color: #64cbd8;
 }
 
 .span-style{
@@ -122,10 +123,22 @@ h1{
     position: relative;
     bottom: 26px;
     white-space: normal;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    color: white;
+    font-size: 15px;
 }
 .fa-style{
     position: relative;
     right: 9px;
+}
+
+.color1{
+    border:none;
+    background: linear-gradient(#7dbbc7,#5bcbda,#88a1d2);
+}
+
+.fa-color{
+    color: #3a9ca9;
 }
 
 
