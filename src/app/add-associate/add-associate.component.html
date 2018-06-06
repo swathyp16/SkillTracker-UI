@@ -40,13 +40,17 @@
           <input type="radio" name="gender" [(ngModel)]="gender" value="female">Female
       </div>
     </div>
-      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field upload-pic">
-          <label for="upload" class="fileUpload-label">Upload Pic
-              <a class="btn btn-info btn-lg upload-area">
-              <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-              <input type="file" id="upload" name="pic" accept="image/*" class="files" (change)="selectFile($event)">
-              </a>
-            </label>
+      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2 input-field upload-pic">
+		<div>
+		<label for="upload" class="fileUpload-label">
+		  <a class="btn btn-outline-info btn-lg upload-area">
+		  <span *ngIf="!localUrl" class="glyphicon glyphicon-download-alt" aria-hidden="true"></span><br/>
+		  <input type="file" id="upload" name="pic" accept="image/*" class="files" (change)="selectFile($event)">
+		  <img [src]="localUrl" *ngIf="localUrl" class="preview-image">
+		  </a>
+		 <!-- Upload Pic Here -->
+		  </label>
+		</div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
           <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn" (click)="statusGreenOnClick()">Status<br/>Green</button>

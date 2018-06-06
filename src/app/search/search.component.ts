@@ -45,13 +45,54 @@ export class SearchComponent implements OnInit {
     {
       label: "HTML5",
       data: [3],
-      backgroundColor: "#ff4000"
+      backgroundColor: "#ABEBC6"
     },
     {
-      label: "Bootstrap",
+      label: "CSS3",
       data: [2],
-      backgroundColor: "#842245"
-    }];
+      backgroundColor: "#16BEC1"
+    },
+    {
+      label: "Java",
+      data: [2],
+      backgroundColor: "#16B5D1"
+    },
+    {
+      label: "Spring",
+      data: [2],
+      backgroundColor: "#12ABC5"
+    },
+    {
+      label: "Restful",
+      data: [2],
+      backgroundColor: "#0EA3DC"
+    },
+    {
+      label: "Angular 1",
+      data: [2],
+      backgroundColor: "#0E90C1"
+    },
+    {
+      label: "Angular 2",
+      data: [2],
+      backgroundColor: "#2A85D1"
+    },
+    {
+      label: "React",
+      data: [2],
+      backgroundColor: "#1466AB"
+    },
+    {
+      label: "Xml",
+      data: [2],
+      backgroundColor: "#3558F0"
+    },
+    {
+      label: "JSON",
+      data: [2],
+      backgroundColor: "#1D3AB7"
+    }
+  ];
   compressed = [];
   constructor(private _searchService : SearchService,
     private _sharedService : SharedService,private _addAssociateService : AddAssociateService) { }
@@ -107,7 +148,7 @@ export class SearchComponent implements OnInit {
        console.log("compressed[0] : "+ JSON.stringify(this.compressed[0]));
       this.skillsData =this.compressed[0];
       
-      this.chart.chart.render();
+      //this.chart.chart.render();
 }
 
 public chartClicked(e:any):void {
@@ -174,7 +215,7 @@ public chartClicked(e:any):void {
 
   chartColor = [
     { 
-    backgroundColor: "#F5B22C"
+    backgroundColor: "#3DECE3"
     }
 ]
   chartOptions = {

@@ -2,20 +2,32 @@
     display: none;
 }
 
+span.glyphicon-download-alt {
+    font-size: 3.8em;
+    color: #00000059;
+}
+
 .upload-pic{
-    background-color: #ccc;
+    background-color: #e0dcdc82;
     height: 180px;
     border-radius: 5px;
+    outline: 2px dashed black;
+    outline-offset: -10px;
+    outline-color: #bfb5b5;
 }
 
 .upload-area{
-    top: 18px;
     position: relative;
-    left: 17px;
+    margin: auto;
+    top: 24px;
+    left: 6px;
+	margin-bottom: 15px;
 }
 
 .fileUpload-label{
-    margin-top: 33px;
+    margin-left: 49px;
+    margin-top: 15px;
+    color: grey;
 }
 
 .slider{
@@ -113,4 +125,12 @@ h3{
 
 h1{
     display: inline-block;
+}
+
+.preview-image{
+	width: 212px;
+    height: 161px;
+    position: relative;
+    bottom: 64px;
+    right: 78px;
 }

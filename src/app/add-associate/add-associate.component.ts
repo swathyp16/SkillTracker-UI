@@ -26,6 +26,7 @@ export class AddAssociateComponent implements OnInit {
   L1Clicked: boolean = null;
   L2Clicked: boolean = null;
   L3Clicked: boolean = null;
+  localUrl: any[];
   constructor(private _addSkillService: AddSkillService,
   private _addAssociateService: AddAssociateService,private route: ActivatedRoute,
   private router: Router) { }
@@ -74,6 +75,11 @@ export class AddAssociateComponent implements OnInit {
 
   selectFile(event){
     this.selectedFiles = event.target.files;
+	var reader = new FileReader();
+	reader.onload = (event: any) => {
+                this.localUrl = event.target.result;
+            }
+	reader.readAsDataURL(event.target.files[0]);
   }
 
   onCancelBtnClick(){

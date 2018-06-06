@@ -97,6 +97,11 @@ export class EditAssociateComponent implements OnInit {
 
   selectFile(event){
     this.selectedFiles = event.target.files;
+	var reader = new FileReader();
+	reader.onload = (event: any) => {
+                this.localUrl = event.target.result;
+            }
+	reader.readAsDataURL(event.target.files[0]);
   }
 
   selectedSkillRating(skillRating,index){

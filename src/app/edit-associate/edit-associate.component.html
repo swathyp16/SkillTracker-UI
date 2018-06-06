@@ -42,7 +42,8 @@
       </div>
         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2">   
           <div class="input-field upload-pic">
-              <img src="http://localhost:8090/getAssociatePic/{{associateData.associateId}}" width="200px" height="180px">
+              <img *ngIf="!localUrl" src="http://localhost:8090/getAssociatePic/{{associateData.associateId}}" width="200px" height="180px">
+			  <img [src]="localUrl" *ngIf="localUrl" width="200px" height="180px">
           </div>  
           <input *ngIf="!readOnlyFlag" type="file" class="m-top-7" id="upload" name="pic" accept="image/*" (change)="selectFile($event)">
       </div>

@@ -26,7 +26,7 @@
 }
 
 .header-div{
-    background-image: url(../images/header-icon-1.png);
+    /* background-image: url(../images/background-0.png); */
     margin-top: -20px;
     margin-left: -16px;
     height: 120px;
@@ -106,6 +106,7 @@ h1{
     height: 265px !important;
     position: relative;
     bottom: 26px;
+    width: 1212px;
 }
 
 .circle-style{
