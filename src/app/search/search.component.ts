@@ -148,7 +148,7 @@ export class SearchComponent implements OnInit {
        console.log("compressed[0] : "+ JSON.stringify(this.compressed[0]));
       this.skillsData =this.compressed[0];
       
-      //this.chart.chart.render();
+      this.chart.chart.render();
 }
 
 public chartClicked(e:any):void {
