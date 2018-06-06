@@ -1,5 +1,6 @@
 <html>
   <body>
+    <section class="content">
     <div class="search-container container-fluid">
     <div class="header-div">
       <h1 class="header col-lg-offset-1">
@@ -18,30 +19,122 @@
         (chartClick)="chartClicked($event)">
         </canvas>
     </div>
-    <div class="col-lg-offset-10 position2">
-      <div class="btn color1 percent-height">
-          <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-              <i class="fa fa-male fa-style fa-color"></i>
-            </button>
-        <span class="span-style"> {{l2CandidatePercentage}}% Level 1 Candidates</span>
-      </div>
-    </div>
-    <div class="col-lg-offset-10 position2 m-t-10">
-        <div class="btn color1 percent-height">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-male fa-style fa-color"></i>
-              </button>
-          <span class="span-style"> {{l3CandidatePercentage}}% Level 1 Candidates</span>
+   <div class="row">
+    <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-7 position1 m-r-20">
+        <div class="info-box">
+          <span class="info-box-icon bg-info elevation-1">
+              <i class="fa fa-users"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Male Candidates Rated</span>
+            <span class="info-box-text info-box-number">{{l2CandidatePercentage}}%</span>           
+          </div>
         </div>
-      </div>
-    <div class="percent row">          
-        <div class="btn btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-users fa-2x fa-style fa-color"></i>
-              </button>
-          <span class="span-style">{{candidatesRegistered}} Registered Candidates</span>    
-        </div>      
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
+      </div> 
+    <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-9 position2 m-r-20">
+        <div class="info-box">
+          <span class="info-box-icon bg-info elevation-1">
+              <i class="fa fa-users"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Level 1 Candidates</span>
+            <span class="info-box-text info-box-number">{{l1CandidatePercentage}}%</span>           
+          </div>
+        </div>
+     </div> 
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-7 position3 m-r-20">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1">
+                  <i class="fa fa-users"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Female Candidates Rated</span>
+                <span class="info-box-text info-box-number">{{l2CandidatePercentage}}%</span>           
+              </div>
+            </div>
+         </div> 
+     <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-9 position4 m-r-20">
+        <div class="info-box">
+          <span class="info-box-icon bg-info elevation-1">
+              <i class="fa fa-users"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Level 2 Candidates</span>
+            <span class="info-box-text info-box-number">{{l2CandidatePercentage}}%</span>           
+          </div>
+        </div>
+     </div> 
+    </div>
+    <div class="percent row">   
+        <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1">
+                  <i class="fa fa-users"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Registered Candidates</span>
+                <span class="info-box-text info-box-number">{{candidatesRegistered}}</span>           
+              </div>
+            </div>
+       </div>       
+        <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
+        <div class="info-box">
+          <span class="info-box-icon bg-info elevation-1">
+              <i class="fa fa-female"></i>
+          </span>
+          <div class="info-box-content">
+            <span class="info-box-text">Female Candidates</span>
+            <span class="info-box-text info-box-number">{{femaleCandidatesPercentage}}%</span>           
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1">
+                  <i class="fa fa-male"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Male Candidates</span>
+                <span class="info-box-text info-box-number">{{maleCandidatesPercentage}}%</span>           
+              </div>
+            </div>
+          </div>
+         <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1">
+                  <i class="fa fa-graduation-cap"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Candidates Freshers</span>
+                <span class="info-box-text info-box-number">{{l1CandidatePercentage}}%</span>           
+              </div>
+            </div>
+         </div>    
+         <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1">
+                  <i class="fa fa-star"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Candidates Rated</span>
+                <span class="info-box-text info-box-number">{{l1CandidatePercentage}}%</span>           
+              </div>
+            </div>
+         </div> 
+         <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1">
+                  <i class="fa fa-users"></i>
+              </span>
+              <div class="info-box-content">
+                <span class="info-box-text">Level 3 Candidates</span>
+                <span class="info-box-text info-box-number">{{l3CandidatePercentage}}%</span>           
+              </div>
+            </div>
+         </div>      
+        <!-- <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
             <button type="button" class="btn btn-default btn-circle btn-lg circle-style color2">
                 <i class="fa fa-female fa-2x fa-color"></i>
               </button>
@@ -82,7 +175,7 @@
                 <i class="fa fa-male fa-style fa-color"></i>
               </button>
           <span class="span-style"> {{l1CandidatePercentage}}% Level 1 Candidates</span>
-        </div>
+        </div> -->
     </div>
     <div class="div-position">
     <table id="searchAssociates" class="table table-dark table-hover">
@@ -141,5 +234,6 @@
       </table>
     </div>
   </div>
+    </section>
   </body>
 </html>

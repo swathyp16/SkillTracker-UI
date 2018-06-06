@@ -35,6 +35,7 @@ export class EditAssociateComponent implements OnInit {
   blueStatusView: boolean;
   redStatusView: boolean;
   gender:string;
+  localUrl: any[];
   constructor(private _sharedService : SharedService,
   private _addAssociateService:AddAssociateService,private _addSkillService: AddSkillService,
   private route: ActivatedRoute,

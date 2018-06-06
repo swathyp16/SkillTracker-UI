@@ -1,6 +1,67 @@
 .search-container{
     position: relative;
     top: 0px;
+    background: #f4f6f9;
+}
+
+.info-box-content {
+    padding: 5px 10px;
+    flex: 1;
+}
+div {
+    display: block;
+}
+
+body{
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+
+.info-box{
+    box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+    border-radius: .25rem;
+    padding: .5rem;
+    min-height: 105px;
+    background: #fff;
+    display: inline-flex !important;
+}
+
+.info-box-text {
+    display: block;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+
+.info-box-number{
+    display: block;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.bg-info{
+    color: #fff!important;
+    background-color: #17a2b8!important;
+}
+
+.elevation-1{
+    box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
+}
+
+.info-box-icon {
+    border-radius: .25rem;
+    display: flex!important;
+    width: 82px;
+    height: 71px;
+    text-align: center;
+    font-size: 30px;
+    align-items: center!important;
+    justify-content: center!important;
 }
 
 .status-green{
@@ -49,13 +110,13 @@ h1{
 
 .percent{
     width: 100%;
-    height: 100px;
+    height: 135px;
     display: inline-block;
     position: relative;
-    bottom: 173px;
+    bottom: 455px;
 }
 
-@media(min-width:900px){
+/* @media(min-width:900px){
     .percent-height{
         height: 90px;
         cursor: auto;
@@ -65,15 +126,17 @@ h1{
 
 @media(min-width:1400px){
     .percent-height{
-        height: 90px;
+        height: 122px;
         cursor: auto;
         width: 167px;
     }
+} */
+
+.row1{
+    display: inline-block;
 }
-
-
 .margin-l-10{
-    margin-left: 14px;
+    /* margin-left: 14px; */
     margin-top: 5px;
 }
 
@@ -83,15 +146,36 @@ h1{
 }
 
 .position2{
-    float: right;
-    margin-right: 20px;
+    float: right;    
     position: relative;
-    bottom: 194px;
+    bottom: 367px;
+}
+
+.position4{
+    float: right;    
+    position: relative;
+    bottom: 470px;
+}
+
+.position1{
+    position: relative;
+    bottom: 258px;
+    left: 97px;  
+}
+
+.position3{
+    position: relative;
+    bottom: 361px;
+    left: 97px;  
+}
+
+.m-r-20{
+    margin-right: 20px;
 }
 
 .div-position{
     position: relative;
-    bottom: 183px;
+    bottom: 452px;
 }
 
 .td-style {
@@ -105,8 +189,8 @@ h1{
 .canvas-styles{
     height: 265px !important;
     position: relative;
-    bottom: 26px;
-    width: 1212px;
+    bottom: 93px;
+    width: 935px !important;
 }
 
 .circle-style{
@@ -145,6 +229,7 @@ h1{
 .table>tbody>tr>td{
     vertical-align: middle;
     text-align: center;
+    font-size: 14px;
 }
 
 
