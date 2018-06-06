@@ -119,8 +119,7 @@ export class SearchComponent implements OnInit {
     this.calculateSkillsPercentage();
   }
 
-  calculateSkillsPercentage(){      
-       debugger
+  calculateSkillsPercentage(){
        var index = 0;
        var copy = this.skillData.slice(0);
        for (var i = 0; i < this.skillData.length; i++) {      
