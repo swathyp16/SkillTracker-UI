@@ -3,13 +3,13 @@
     <section class="content">
     <div class="search-container container-fluid">
     <div class="header-div">
-      <h1 class="header col-lg-offset-1">
+      <h1 class="header col-lg-5">
       Search Associate
       </h1>
     </div>
     <div class="skill-graph">
         <canvas baseChart #baseChart="base-chart"  
-        class="canvas-styles"
+        class="canvas-styles info-box"
         baseChart
         [chartType]="'horizontalBar'"
         [datasets]="skillsData"
@@ -22,7 +22,7 @@
    <div class="row">
     <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-7 position1 m-r-20">
         <div class="info-box">
-          <span class="info-box-icon bg-info elevation-1">
+          <span class="info-box-icon bg-male-rated elevation-1">
               <i class="fa fa-users"></i>
           </span>
           <div class="info-box-content">
@@ -33,7 +33,7 @@
       </div> 
     <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-9 position2 m-r-20">
         <div class="info-box">
-          <span class="info-box-icon bg-info elevation-1">
+          <span class="info-box-icon bg-level1 elevation-1">
               <i class="fa fa-users"></i>
           </span>
           <div class="info-box-content">
@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-7 position3 m-r-20">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1">
+              <span class="info-box-icon bg-female-rated elevation-1">
                   <i class="fa fa-users"></i>
               </span>
               <div class="info-box-content">
@@ -57,7 +57,7 @@
          </div> 
      <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10 col-lg-offset-9 position4 m-r-20">
         <div class="info-box">
-          <span class="info-box-icon bg-info elevation-1">
+          <span class="info-box-icon bg-level2 elevation-1">
               <i class="fa fa-users"></i>
           </span>
           <div class="info-box-content">
@@ -81,7 +81,7 @@
        </div>       
         <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
         <div class="info-box">
-          <span class="info-box-icon bg-info elevation-1">
+          <span class="info-box-icon bg-female elevation-1">
               <i class="fa fa-female"></i>
           </span>
           <div class="info-box-content">
@@ -92,7 +92,7 @@
         </div>
         <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1">
+              <span class="info-box-icon bg-male elevation-1">
                   <i class="fa fa-male"></i>
               </span>
               <div class="info-box-content">
@@ -103,7 +103,7 @@
           </div>
          <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1">
+              <span class="info-box-icon bg-fresher elevation-1">
                   <i class="fa fa-graduation-cap"></i>
               </span>
               <div class="info-box-content">
@@ -114,7 +114,7 @@
          </div>    
          <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1">
+              <span class="info-box-icon bg-rated elevation-1">
                   <i class="fa fa-star"></i>
               </span>
               <div class="info-box-content">
@@ -125,7 +125,7 @@
          </div> 
          <div class="col-sm-6 col-md-3 col-lg-2 margin-l-10">
             <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1">
+              <span class="info-box-icon bg-level3 elevation-1">
                   <i class="fa fa-users"></i>
               </span>
               <div class="info-box-content">
@@ -134,50 +134,8 @@
               </div>
             </div>
          </div>      
-        <!-- <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style color2">
-                <i class="fa fa-female fa-2x fa-color"></i>
-              </button>
-          <span class="span-style">{{femaleCandidatesPercentage}}% Female Candidates</span>          
-        </div>
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-male fa-2x fa-color"></i>
-              </button>
-          <span class="span-style"> {{maleCandidatesPercentage}}% Male Candidates</span>         
-        </div>
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-graduation-cap fa-2x fa-style fa-color"></i>
-              </button>
-          <span class="span-style">  {{l1CandidatePercentage}}% Candidates Freshers</span>         
-        </div>
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-star fa-2x fa-style fa-color"></i>
-              </button>
-          <span class="span-style">Candidates Rated</span>          
-        </div>
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-female fa-style fa-color"></i>
-              </button>
-          <span class="span-style">Female Candidates Rated</span> 
-        </div>
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-male fa-style fa-color"></i>
-              </button>
-          <span class="span-style">Male Candidates Rated</span>
-        </div>
-        <div class="btn btn-lg col-sm-1 percent-height margin-l-10 color1">
-            <button type="button" class="btn btn-default btn-circle btn-lg circle-style">
-                <i class="fa fa-male fa-style fa-color"></i>
-              </button>
-          <span class="span-style"> {{l1CandidatePercentage}}% Level 1 Candidates</span>
-        </div> -->
     </div>
-    <div class="div-position">
+    <div class="div-position info-box">
     <table id="searchAssociates" class="table table-dark table-hover">
         <thead>
             <tr>
@@ -223,7 +181,7 @@
                 <span class="glyphicon glyphicon-edit"></span> Edit
               </button>
               <button type="button" value="Delete" class="btn btn-primary btn-md btn-style" (click)="onDeleteBtnClick(data,i)">
-                  <span class="glyphicon glyphicon-remove"></span> Delete 
+                  <span class="fa fa-trash"></span> Delete 
               </button>
               <button type="button" value="View" class="btn btn-primary btn-md btn-style" [routerLink]="['/editAssociate']" (click)="onEdit(data,$event)">
                 <span class="glyphicon glyphicon-eye-open"></span> View 

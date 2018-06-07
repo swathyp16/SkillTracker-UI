@@ -1,6 +1,6 @@
 .search-container{
     position: relative;
-    top: 0px;
+    top: -16px;
     background: #f4f6f9;
 }
 
@@ -47,7 +47,52 @@ body{
 .bg-info{
     color: #fff!important;
     background-color: #17a2b8!important;
+} 
+
+.bg-female{
+    color: #fff!important;
+    background-color: #c73939c2 !important;
 }
+
+.bg-male{
+    color: #fff!important;
+    background-color: #ffae00 !important;
+}
+
+.bg-fresher{
+    color: #fff!important;
+    background-color: #078c05d9 !important;
+}
+
+.bg-rated{
+	color: #fff!important;
+    background-color: #f57202db !important;
+}
+
+.bg-level1{
+	color: #fff!important;
+    background-color: #755a5a !important;
+}
+
+.bg-level2{
+	color: #fff!important;
+    background-color: #85dc5dcc !important;
+}
+
+.bg-level3{
+	color: #fff!important;
+    background-color: #6260e2 !important;
+}
+
+.bg-female-rated{
+	color: #fff!important;
+    background-color: #9a1ca9d1 !important;
+}
+.bg-male-rated{
+	color: #fff!important;
+    background-color: #58a5e6 !important;
+}
+
 
 .elevation-1{
     box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
@@ -91,14 +136,15 @@ body{
     margin-top: -20px;
     margin-left: -16px;
     height: 120px;
-    margin-bottom: 15px;
+    margin-bottom: 68px;
 }
 
 h1{
     display: inline-block;
     color: white;
-    font-family: Verdana;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     margin-top: 47px;
+	color: black;
 }
 
 .skill-graph{
@@ -187,10 +233,10 @@ h1{
 }
 
 .canvas-styles{
-    height: 265px !important;
+    height: 238px !important;
     position: relative;
-    bottom: 93px;
-    width: 935px !important;
+    bottom: 58px;
+    width: 840px !important;
 }
 
 .circle-style{
@@ -229,7 +275,7 @@ h1{
 .table>tbody>tr>td{
     vertical-align: middle;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 

@@ -96,9 +96,15 @@
     </div>
   </div>
    <div class="col-lg-offset-9 btns-grp">
-     <input type="reset" class="btn btn-info col-lg-3" value="Reset">
-     <input type="button" class="btn btn-danger col-lg-3 btn-spacing" value="Cancel" (click)="onCancelBtnClick()">
-     <input type="submit"  class="btn btn-success col-lg-3 btn-spacing" value="Save"  [disabled]="!addAssociateForm.form.valid" >
+     <button type="reset" class="btn btn-primary btn-md col-lg-3" value="Reset">
+        <span class="fa fa-refresh"></span> Reset 	 
+	 </button>
+     <button type="button" class="btn btn-primary btn-md col-lg-3 btn-spacing" value="Cancel" (click)="onCancelBtnClick()">
+		<span class="fa fa-times"></span> Cancel
+	 </button>
+     <button type="submit"  class="btn btn-primary btn-md col-lg-3 btn-spacing" value="Save"  [disabled]="!addAssociateForm.form.valid" >
+		<span class="fa fa-floppy-o"></span> Save
+	 </button>
    </div>
     </form>
   </div>

@@ -1,7 +1,7 @@
 1. Remove todo and query from GIT
 2. DELETE update cascade in table
-3. search by strong skills
-4. Show/preview selected pic on upload
+3. search by strong skills - done
+4. Show/preview selected pic on upload - done
 5. Graph
 6. Populate other skills ,level , status & gender data on edit
 7. Delete associate from search page
