@@ -1,5 +1,7 @@
 .skill-container{
 	background: #f4f6f9;
+	height: 100vh;
+    margin-top: -18px;
 }
 
 .header{
@@ -13,8 +15,18 @@
     border-radius: .25rem;
     padding: .5rem;
     background: #fff;
+	margin-top: 20px;
 }
 
 .div-style{
-	display: inline-block;	
+	display: inline-flex;
+}
+
+.add-btn{
+	padding-right: 26px;
+    margin-left: 20px;	
+}
+
+.td-style{
+    padding: 10px;
 }
