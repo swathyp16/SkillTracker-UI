@@ -32,19 +32,60 @@ span.glyphicon-download-alt {
 
 .slider{
     width: 326px;
-	display: inline-flex;
+	display: block;
+}
+
+.b-1{
+	position: relative;
+	bottom: 1px !important;
+}
+
+.t-10{
+	position: relative;
+	top: 18px !important;
+}
+
+.m-t-10{
+	margin-top: 10px;
+	margin-right: -15px;
+}
+
+.margin-t-10{
+	margin-top: 10px;
 }
 
 .slider-range{
 	position: relative;
-    top: 6px;
 	color: #748eda;
     font-weight: bold;
+	display: grid;
 }
 
 .slider-input{
-	margin-left: 5px;
+	margin-left: 12px;
     margin-right: 5px;
+	-webkit-appearance: none;
+	border-radius: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+    height: 5px;
+}
+
+.slider-input:hover {
+    opacity: 1;
+}
+
+.slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #147EC7;
+    cursor: pointer;
 }
 
 .btns-grp{

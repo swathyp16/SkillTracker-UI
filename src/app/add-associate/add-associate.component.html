@@ -69,12 +69,12 @@
    </div> 
    <div class="row">
      <div *ngFor="let skill of addedSkills; let i = index">
-       <label for="skills" class="col-md-0 col-lg-0 col-xs-1 control-label">{{skill.skillName}}</label>
+       <label for="skills" class="col-md-0 col-lg-0 col-xs-1 control-label m-t-10">{{skill.skillName}}</label>
       <div class="col-md-3 col-lg-5 col-xs-2 slider" data-role="rangeslider">
-        <span class="slider-range">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-lg-4 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
+        <span class="slider-range t-10">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-lg-4 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
       </div>
      </div>
-     <div class="col-md-3 col-lg-4 col-xs-2">
+     <div class="col-md-3 col-lg-4 col-xs-2 margin-t-10">
         <label for="other" class="col-md-0 col-lg-0 col-xs-1 control-label col-lg-offset-1">Other</label>
         <div class="col-md-3 col-lg-9 col-lg-offset-1 col-xs-2">
           <input type="text" id="other" name="otherSkill" [(ngModel)]="otherSkill" class="form-control"/>
