@@ -54,7 +54,7 @@ export class SearchComponent implements OnInit {
     },
     {
       label: "Java",
-      data: [2],
+      data: [1],
       backgroundColor: "#16B5D1"
     },
     {
@@ -64,32 +64,32 @@ export class SearchComponent implements OnInit {
     },
     {
       label: "Restful",
-      data: [2],
+      data: [4],
       backgroundColor: "#0EA3DC"
     },
     {
       label: "Angular 1",
-      data: [2],
+      data: [5],
       backgroundColor: "#0E90C1"
     },
     {
       label: "Angular 2",
-      data: [2],
+      data: [7],
       backgroundColor: "#2A85D1"
     },
     {
       label: "React",
-      data: [2],
+      data: [8],
       backgroundColor: "#1466AB"
     },
     {
       label: "Xml",
-      data: [2],
+      data: [9],
       backgroundColor: "#3558F0"
     },
     {
       label: "JSON",
-      data: [2],
+      data: [3],
       backgroundColor: "#1D3AB7"
     }
   ];

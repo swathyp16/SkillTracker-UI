@@ -31,7 +31,20 @@ span.glyphicon-download-alt {
 }
 
 .slider{
-    width: 170px;
+    width: 326px;
+	display: inline-flex;
+}
+
+.slider-range{
+	position: relative;
+    top: 6px;
+	color: #748eda;
+    font-weight: bold;
+}
+
+.slider-input{
+	margin-left: 5px;
+    margin-right: 5px;
 }
 
 .btns-grp{
