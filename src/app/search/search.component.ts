@@ -43,54 +43,69 @@ export class SearchComponent implements OnInit {
 ];
   skillsData : Array<any> =  [
     {
-      label: "HTML5",
-      data: [3],
+      label: "HTML",
+      data: [0],
       backgroundColor: "#ABEBC6"
     },
     {
       label: "CSS3",
-      data: [2],
+      data: [0],
       backgroundColor: "#16BEC1"
     },
     {
       label: "Java",
-      data: [1],
+      data: [0],
       backgroundColor: "#16B5D1"
     },
     {
       label: "Spring",
-      data: [2],
+      data: [0],
       backgroundColor: "#12ABC5"
     },
     {
       label: "Restful",
-      data: [4],
+      data: [0],
       backgroundColor: "#0EA3DC"
     },
     {
       label: "Angular 1",
-      data: [5],
+      data: [0],
       backgroundColor: "#0E90C1"
     },
     {
       label: "Angular 2",
-      data: [7],
+      data: [0],
       backgroundColor: "#2A85D1"
     },
     {
       label: "React",
-      data: [8],
+      data: [0],
       backgroundColor: "#1466AB"
     },
     {
-      label: "Xml",
-      data: [9],
+      label: "xml",
+      data: [0],
       backgroundColor: "#3558F0"
     },
     {
       label: "JSON",
-      data: [3],
+      data: [0],
       backgroundColor: "#1D3AB7"
+    },
+    {
+      label: "PM",
+      data: [0],
+      backgroundColor: "#0A2B95"
+    },
+    {
+      label: "Scrum",
+      data: [0],
+      backgroundColor: "#5015C6"
+    },
+    {
+      label: "Bootstrap",
+      data: [0],
+      backgroundColor: "#25F5C0"
     }
   ];
   compressed = [];
@@ -122,6 +137,7 @@ export class SearchComponent implements OnInit {
   calculateSkillsPercentage(){
        var index = 0;
        var copy = this.skillData.slice(0);
+       debugger
        for (var i = 0; i < this.skillData.length; i++) {      
          var myCount = 0;	
          for (var w = 0; w < copy.length; w++) {
@@ -145,77 +161,34 @@ export class SearchComponent implements OnInit {
          }
        }
        console.log("compressed[0] : "+ JSON.stringify(this.compressed[0]));
-      this.skillsData =this.compressed[0];
       
-      this.chart.chart.render();
+      for(var j = 0; j < this.skillsData.length; j++){
+        var flag = 0;
+        for(var k = 0; k < this.compressed[0].length; k++){
+          if(this.compressed[0][k] !== null && this.compressed[0][k] !== undefined){
+            if(this.skillsData[j].label === this.compressed[0][k].label){
+              this.skillsData[j].data[0] = this.compressed[0][k].data[0];
+              flag = flag + 1;
+              break;
+            }
+          }          
+        }
+        if(flag == 0){
+          this.skillsData.splice(j,1);
+        } 
+      }       
+      console.log("this.skillsData : "+ JSON.stringify(this.skillsData));
+      this.chart.chart.update();
 }
 
 public chartClicked(e:any):void {
   console.log(e);
 }
 
-// refresh_chart() {
-//   setTimeout(() => {
-//       //console.log(this.datasets_lines_copy);
-//       //console.log(this.datasets_lines);
-//       if (this.chart && this.chart.chart && this.chart.chart.config) {
-//         for(var i =0 ;i<this.skillsData.length; i++){
-//           this.chart.chart.config.data.labels = this.skillsData[i].label;
-//           this.chart.chart.config.data.datasets.push(this.skillData[i].data[0]);
-//         }          
-//           this.chart.chart.update();
-//       }
-//   });
-// }
- 
-//skillsData =  this.compressed[0];
-// [
-//     {
-//       label: "HTML5",
-//       data: [3],
-//       backgroundColor: "#ff4000"
-//     },
-//     {
-//       label: "Bootstrap",
-//       data: [1],
-//       backgroundColor: "#842245"
-//     },
-//     {
-//       label: "XML",
-//       data: [1],
-//       backgroundColor: "#802955"
-//     },
-//     {
-//       label: "JQuery",
-//       data: [1],
-//       backgroundColor: "#141187"
-//     },
-//     {
-//       label: "PM",
-//       data: [2],
-//       backgroundColor: "#030923"
-//     },
-//     {
-//       label:"GIT",
-//       data:[1],
-//       backgroundColor: "#678673"
-//     },
-//     {
-//       label:"Hibernate",
-//       data:[1],
-//       backgroundColor:"#304575"
-//     },
-//     {
-//       label:"SVN",
-//       data:[1],
-//       backgroundColor:"#350295"
-//     }
-//   ];
-
-  chartColor = [
-    { 
-    backgroundColor: "#3DECE3"
-    }
+chartColor = [
+  { 
+  backgroundColor: "#3DECE3"
+  }
 ]
   chartOptions = {
 	responsive: true,
