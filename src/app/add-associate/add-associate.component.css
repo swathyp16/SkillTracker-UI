@@ -30,10 +30,27 @@ span.glyphicon-download-alt {
     color: grey;
 }
 
-.slider{
-    width: 326px;
-	display: block;
+@media(min-width:992px)and(max-width:1199px){
+    .slider{
+        width: 300px !important;
+        display: block !important;
+    }
+} 
+
+@media(min-width:1200px)and(max-width:1241px){
+    .slider{
+        width: 313px !important;
+        display: block !important;
+    }
+} 
+
+@media(min-width:1242px){
+    .slider{
+        width: 326px !important;
+        display: block !important;
+    }
 }
+
 
 .b-1{
 	position: relative;

@@ -70,7 +70,7 @@
    <div class="row">
      <div *ngFor="let skill of addedSkills; let i = index">
        <label for="skills" class="col-md-0 col-lg-0 col-xs-1 control-label m-t-10">{{skill.skillName}}</label>
-      <div class="col-md-3 col-lg-5 col-xs-2 slider" data-role="rangeslider">
+      <div class="col-xs-2 slider" data-role="rangeslider">
         <span class="slider-range t-10">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-lg-4 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
       </div>
      </div>
