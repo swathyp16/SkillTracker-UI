@@ -7,6 +7,7 @@ span.glyphicon-download-alt {
     color: #00000059;
 }
 
+@media(min-width:992px){
 .upload-pic{
     background-color: #e0dcdc82;
     height: 180px;
@@ -14,8 +15,32 @@ span.glyphicon-download-alt {
     outline: 2px dashed black;
     outline-offset: -10px;
     outline-color: #bfb5b5;
+	margin-left: -4% !important;
+}
 }
 
+
+@media(min-width:1025px){
+	.upload-pic{
+    background-color: #e0dcdc82;
+    height: 180px;
+    border-radius: 5px;
+    outline: 2px dashed black;
+	 outline-offset: -10px;
+    outline-color: #bfb5b5;
+}
+}
+
+@media(min-width:992px){
+	.upload-area{
+    position: relative;
+    margin: auto;
+    top: 24px;
+    left: -34px;
+	margin-bottom: 15px;
+}	
+}
+@media(min-width:1025px){
 .upload-area{
     position: relative;
     margin: auto;
@@ -23,6 +48,9 @@ span.glyphicon-download-alt {
     left: 6px;
 	margin-bottom: 15px;
 }
+}
+
+
 
 .fileUpload-label{
     margin-left: 49px;
@@ -145,9 +173,18 @@ span.glyphicon-download-alt {
     margin-left: 1%;
 }
 
+@media(min-width: 1020px){
 .input-level{
     margin-left: -30px;
 }
+}
+
+@media(min-width: 992px){
+.input-level{
+    margin-left: 8px;
+}
+}
+
 
 .margin-t-20{
     margin-top: 20px;

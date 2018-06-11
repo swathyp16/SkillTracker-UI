@@ -12,25 +12,25 @@
   <div class="col-lg-4 col-md-4">
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Name</label>
-        <div class="col-md-8 col-lg-8 col-xs-2">
+        <div class="col-md-6 col-lg-8 col-xs-2">
           <input type="text" class="form-control" name="associateName" [(ngModel)]="associateName" maxlength="20" required>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Associate ID</label>
-        <div class="col-md-8 col-lg-8 col-xs-2">
+        <div class="col-md-6 col-lg-8 col-xs-2">
           <input type="text" class="form-control" name="associateId" [(ngModel)]="associateId" required>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Email</label>
-        <div class="col-md-8 col-lg-8 col-xs-2">
+        <div class="col-md-6 col-lg-8 col-xs-2">
           <input type="text" class="form-control" name="email" [(ngModel)]="email" required>
         </div>
       </div>
       <div class="form-group">
         <label class="col-md-4 col-lg-4 col-xs-1 control-label">Mobile</label>
-        <div class="col-md-8 col-lg-8 col-xs-2">
+        <div class="col-md-6 col-lg-8 col-xs-2">
           <input type="text" class="form-control" name="mobile" [(ngModel)]="mobile" required>
         </div>
       </div>
@@ -40,7 +40,7 @@
           <input type="radio" name="gender" [(ngModel)]="gender" value="female">Female
       </div>
     </div>
-      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-2 input-field upload-pic">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 input-field upload-pic">
 		<div>
 		<label for="upload" class="fileUpload-label">
 		  <a class="btn btn-outline-info btn-lg upload-area">
@@ -70,8 +70,8 @@
    <div class="row">
      <div *ngFor="let skill of addedSkills; let i = index">
        <label for="skills" class="col-md-0 col-lg-0 col-xs-1 control-label m-t-10">{{skill.skillName}}</label>
-      <div class="col-xs-2 slider" data-role="rangeslider">
-        <span class="slider-range t-10">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-lg-4 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
+      <div class="col-xs-2 col-md-3 slider" data-role="rangeslider">
+        <span class="slider-range t-10">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-md-3 col-lg-4 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
       </div>
      </div>
      <div class="col-md-3 col-lg-4 col-xs-2 margin-t-10">
@@ -83,14 +83,14 @@
     </div>
     <div class="row margin-t-20">
     <div class="form-group col-lg-5">
-        <label class="col-md-4 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Strength</label>
-        <div class="col-md-8 col-lg-9 col-lg-offset-1 col-xs-2">
+        <label class="col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Strength</label>
+        <div class="col-md-3 col-lg-9 col-lg-offset-1 col-xs-2">
           <input type="text" class="form-control" name="strength" [(ngModel)]="strength" required>
         </div>
     </div>
     <div class="form-group col-lg-5">
-        <label class="col-md-4 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Weakness</label>
-        <div class="col-md-8 col-lg-9 col-lg-offset-1 col-xs-2">
+        <label class="col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Weakness</label>
+        <div class="col-md-3 col-lg-9 col-lg-offset-1 col-xs-2">
           <input type="text" class="form-control" name="weakness" [(ngModel)]="weakness" required>
         </div>
     </div>

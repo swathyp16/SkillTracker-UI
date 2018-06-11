@@ -73,7 +73,7 @@ export class SearchComponent implements OnInit {
       backgroundColor: "#0E90C1"
     },
     {
-      label: "Angular 2",
+      label: "angular 2",
       data: [0],
       backgroundColor: "#2A85D1"
     },
@@ -88,7 +88,7 @@ export class SearchComponent implements OnInit {
       backgroundColor: "#3558F0"
     },
     {
-      label: "JSON",
+      label: "Json",
       data: [0],
       backgroundColor: "#1D3AB7"
     },
@@ -166,7 +166,7 @@ export class SearchComponent implements OnInit {
         var flag = 0;
         for(var k = 0; k < this.compressed[0].length; k++){
           if(this.compressed[0][k] !== null && this.compressed[0][k] !== undefined){
-            if(this.skillsData[j].label === this.compressed[0][k].label){
+            if(this.skillsData[j].label.toLowerCase() === this.compressed[0][k].label.toLowerCase()){
               this.skillsData[j].data[0] = this.compressed[0][k].data[0];
               flag = flag + 1;
               break;
@@ -231,7 +231,7 @@ chartColor = [
     //     display:false
     // },
     
-    animation: {
+    /*animation: {
         onComplete: function () {
             var chartInstance = this.chart;
             var ctx = chartInstance.ctx;
@@ -251,7 +251,7 @@ chartColor = [
                 }),this)
             }),this);
         }
-    },
+    },*/
     pointLabelFontFamily : "Quadon Extra Bold",
     scaleFontFamily : "Quadon Extra Bold",
   };
