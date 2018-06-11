@@ -50,4 +50,6 @@ const appRoutes: Routes = [
   providers: [SharedService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  //export routing = RouterModule.forRoot(appRoutes);
+ }

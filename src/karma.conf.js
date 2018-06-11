@@ -5,11 +5,22 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
+	//files: [
+    //{
+    //    pattern: "./app/**/*spec.ts",
+    //    watched: false
+   // }
+	//],
+	//preprocessors: {
+	//	"./app/**/*spec.ts": ["coverage"]
+	//},
+
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
+	  require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
@@ -18,14 +29,20 @@ module.exports = function (config) {
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage'),
       reports: ['html', 'lcovonly'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+	  instrumenterOptions: { istanbul: { noCompact: true } }
     },
-    reporters: ['progress', 'kjhtml'],
+	//coverageReporter: {
+    //        type: 'html',
+    //        dir: path.join(ROOT, 'coverage'),
+           
+     //   },
+    reporters: ['progress', 'kjhtml','coverage'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false
+    singleRun: true
   });
 };
