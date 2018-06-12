@@ -18,8 +18,7 @@ describe('EditAssociateComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule,HttpModule,FormsModule,RouterTestingModule.withRoutes([{ path: 'editAssociate', component: EditAssociateComponent }])],
       declarations: [ EditAssociateComponent,SearchSkillPipe]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

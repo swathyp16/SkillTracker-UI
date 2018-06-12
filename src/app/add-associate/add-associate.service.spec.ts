@@ -27,7 +27,7 @@ describe('AddAssociateService', () => {
   "weakness":"node", "associateSkills":[{"skillId":1,"skillName":"HTML5","skillRating":12},
   {"skillId":10,"skillName":"Spring","skillRating":9,"isEdit":false},
   {"skillId":11,"skillName":"Spring MVC","skillRating":17},
-  {"skillId":17,"skillName":"Hidernate","skillRate":20}],"otherSkill":"Other"}];
+  {"skillId":17,"skillName":"Hibernate","skillRating":20}],"otherSkill":"Other"}];
   
   const associate: any = {
     "associateId":145261,"name":"Arun",
@@ -64,6 +64,12 @@ it('should be able to add associates ', () => {
     spyHttp.post.and.returnValue(Observable.of(String));
     service.addAssociate(file, associate);
     expect(spyHttp.post.calls.count()).toBeGreaterThan(0);
+});
+
+it('should be able to edit associate details ', () => {
+  spyHttp.post.and.returnValue(Observable.of(String));
+  service.addSkillFromEditPage(associate);
+  expect(spyHttp.post.calls.count()).toBeGreaterThan(0);
 });
 
 });
