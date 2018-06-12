@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.08% </span>
+        <span class="strong">57.78% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>33/89</span>
+        <span class='fraction'>52/90</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">17.65% </span>
+        <span class="strong">29.41% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/17</span>
+        <span class='fraction'>5/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">34.94% </span>
+        <span class="strong">55.95% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>29/83</span>
+        <span class='fraction'>47/84</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -177,7 +177,9 @@
 <a name='L129'></a><a href='#L129'>129</a>
 <a name='L130'></a><a href='#L130'>130</a>
 <a name='L131'></a><a href='#L131'>131</a>
-<a name='L132'></a><a href='#L132'>132</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -218,27 +220,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -348,28 +352,30 @@ export class AddAssociateComponent implements OnInit {
     });
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  addAssociate(</span>addAssociateForm : NgForm) : void{</span>
-<span class="cstat-no" title="statement not covered" >    console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.name = addAssociateForm.value.associateName;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.associateId = addAssociateForm.value.associateId;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.email = addAssociateForm.value.email;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.mobileNum = addAssociateForm.value.mobile;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.remark = addAssociateForm.value.remarks;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.gender = addAssociateForm.value.gender;</span>
-<span class="cstat-no" title="statement not covered" >    for(var i= 0 ; i &lt; this.addedSkills.length ; i++){</span>
-<span class="cstat-no" title="statement not covered" >      if(this.addedSkills[i].skillRating !== null){</span>
-<span class="cstat-no" title="statement not covered" >        this.associateDetails.associateSkills.push(this.addedSkills[i]);</span>
+  addAssociate(addAssociateForm : NgForm) : void{
+    console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));
+    this.associateDetails.name = addAssociateForm.value.associateName;
+    this.associateDetails.associateId = addAssociateForm.value.associateId;
+    this.associateDetails.email = addAssociateForm.value.email;
+    this.associateDetails.mobileNum = addAssociateForm.value.mobile;
+    this.associateDetails.remark = addAssociateForm.value.remarks;
+    this.associateDetails.gender = addAssociateForm.value.gender;
+    for(var i= 0 ; i &lt; this.addedSkills.length ; i++){
+      <span class="missing-if-branch" title="else path not taken" >E</span>if(this.addedSkills[i].skillRating !== null){
+        this.associateDetails.associateSkills.push(this.addedSkills[i]);
       }      
     }  
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.otherSkill = addAssociateForm.value.otherSkill;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.strength = addAssociateForm.value.strength;</span>
-<span class="cstat-no" title="statement not covered" >    this.associateDetails.weakness = addAssociateForm.value.weakness;</span>
-<span class="cstat-no" title="statement not covered" >    this.picture = this.selectedFiles.item(0);</span>
-<span class="cstat-no" title="statement not covered" >    console.log("associateDetails : " + JSON.stringify(this.associateDetails));</span>
-<span class="cstat-no" title="statement not covered" >    this._addAssociateService.addAssociate(this.associateDetails,this.picture)</span>
-    .subscribe(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      this.addAssociateResponse = data;</span>
-<span class="cstat-no" title="statement not covered" >      if(this.addAssociateResponse.status == 200){</span>
+    this.associateDetails.otherSkill = addAssociateForm.value.otherSkill;
+    this.associateDetails.strength = addAssociateForm.value.strength;
+    this.associateDetails.weakness = addAssociateForm.value.weakness;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(this.selectedFiles){
+<span class="cstat-no" title="statement not covered" >      this.picture = this.selectedFiles.item(0);</span>
+    }    
+    console.log("associateDetails : " + JSON.stringify(this.associateDetails));
+    this._addAssociateService.addAssociate(this.associateDetails,this.picture)
+    .subscribe(data =&gt; {
+      this.addAssociateResponse = data;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(this.addAssociateResponse.status == 200){
 <span class="cstat-no" title="statement not covered" >        this.successMessage = "Successfully added the Associate";</span>
       }
     }, <span class="fstat-no" title="function not covered" >error =&gt;{</span>
@@ -445,7 +451,7 @@ export class AddAssociateComponent implements OnInit {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 12 2018 18:59:34 GMT+0530 (India Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 13 2018 02:58:57 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

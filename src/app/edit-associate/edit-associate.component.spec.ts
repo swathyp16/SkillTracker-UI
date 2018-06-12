@@ -15,6 +15,8 @@ describe('EditAssociateComponent', () => {
   let searchSkill: SearchSkillPipe;
 
   beforeEach(async(() => {
+    const addAssociateServiceSpy = jasmine.createSpyObj('AddAssociateService', ['addAssociate','deleteAssociate', 'addSkillFromEditPage']);
+    const addSkillServiceSpy = jasmine.createSpyObj('AddSkillService', ['viewAllSkills']);
     TestBed.configureTestingModule({
       imports: [HttpClientModule,HttpModule,FormsModule,RouterTestingModule.withRoutes([{ path: 'editAssociate', component: EditAssociateComponent }])],
       declarations: [ EditAssociateComponent,SearchSkillPipe]

@@ -24,53 +24,34 @@ describe('AddAssociateComponent', () => {
   {"skillId":10,"skillName":"Spring","skillRating":9,"isEdit":false},
   {"skillId":11,"skillName":"Spring MVC","skillRating":17},
   {"skillId":17,"skillName":"Hibernate","skillRating":20}];
-  
-  const associateList = new FormGroup({
-      associateId: new FormControl(14526),
-      name: new FormControl("Arun"),
-      email: new FormControl("arun.naik@gmail.com"),
-      mobile: new FormControl("8745999854"),
-      gender: new FormControl("male"),
-      statusGreen: new FormControl(true),
-      statusBlue: new FormControl(false),
-      statusRed: new FormControl(false),
-      level1: new FormControl(true),
-      level2: new FormControl(false),
-      level3: new FormControl(false),
-      remark: new FormControl("Good"),
-      weakness: new FormControl("Java"),
-      strength: new FormControl("UI"),
-      otherSkill: new FormControl("jquery"),
-      associateSkills: new FormGroup({
-        skillId: new FormControl(1),
-        skillName: new FormControl("HTML5"),
-        skillRating: new FormControl(15),
-        isEdit: new FormControl(false),
-      })
-  });
-  // { 
-  // "value": {
-  //       "associateId":14526,
-  //       "name":"Arun",
-  //       "email":"arun.naik@gmail.com",
-  //       "mobile":"8745999854",
-  //       "gender":"male",
-  //       "statusGreen":true,
-  //       "statusBlue":false,
-  //       "statusRed":false,
-  //       "level1":true,
-  //       "level2":false,
-  //       "level3":false,
-  //       "remark":"Good",
-  //       "strength":"UI",
-  //       "weakness":"java",
-  //       "associateSkills":[
-  //         {"skillId":1,"skillName":"HTML5","skillRating":16,"isEdit":false},
-  //         {"skillId":2,"skillName":"CSS3","skillRating":15,"isEdit":false}
-  //       ],
-  //       "otherSkill":"jquery"
-  //     }
-  //   };
+  var oneBlob = new Blob([]);
+  const file = new File([oneBlob], 'test-image.png', {
+    lastModified: 1449505890000,
+    type: "image/png"});
+  const associateList = <NgForm>{ 
+  value : {
+        associateId:14526,
+        name:"Arun",
+        email:"arun.naik@gmail.com",
+        mobile:"8745999854",
+        gender:"male",
+        statusGreen:true,
+        statusBlue:false,
+        statusRed:false,
+        level1:true,
+        level2:false,
+        level3:false,
+        remark:"Good",
+        strength:"UI",
+        weakness:"java",
+        associateSkills:[
+          {skillId:1,skillName:"HTML5",skillRating:16,isEdit:false},
+          {skillId:2,skillName:"CSS3",skillRating:15,isEdit:false}
+        ],
+        otherSkill:"jquery",
+        submitted: true
+      }
+    };
 
   beforeEach(async(() => {
 	 const associateServiceSpy = jasmine.createSpyObj('AddAssociateService', ['addAssociate', 'deleteAssociate','addSkillFromEditPage']);
@@ -104,23 +85,23 @@ describe('AddAssociateComponent', () => {
     fixture = TestBed.createComponent(AddAssociateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-	spyAssociateService = TestBed.get(AddAssociateService);
+	  spyAssociateService = TestBed.get(AddAssociateService);
     spySkillService = TestBed.get(AddSkillService);
     spySkillService.viewAllSkills.and.returnValue(Observable.of(skillsList));
+    component.addedSkills = <IAddSkills[]>skillsList;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
   
-  // it('should add associate details', () => {
-  //   component.ngOnInit();
-  //   spyAssociateService.addAssociate.and.returnValue(Observable.of({
-  //     'status': 'success'
-  //   }));    
-	// spyOn(fixture.componentInstance, 'addAssociate').and.callThrough();
-	// expect(fixture.componentInstance.addAssociate).toHaveBeenCalledWith(instanceof NgForm);
-  //   expect(spyAssociateService.addAssociate.calls.count()).toBe(0);
-  // });
+  it('should add associate details', () => {
+    component.ngOnInit();
+    spyAssociateService.addAssociate.and.returnValue(Observable.of('Success'));
+    component.addAssociate(associateList);
+    expect(spyAssociateService.addAssociate.calls.count()).toBe(1);
+  });
+
+  
 
 });

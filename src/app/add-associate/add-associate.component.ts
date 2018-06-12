@@ -54,7 +54,9 @@ export class AddAssociateComponent implements OnInit {
     this.associateDetails.otherSkill = addAssociateForm.value.otherSkill;
     this.associateDetails.strength = addAssociateForm.value.strength;
     this.associateDetails.weakness = addAssociateForm.value.weakness;
-    this.picture = this.selectedFiles.item(0);
+    if(this.selectedFiles){
+      this.picture = this.selectedFiles.item(0);
+    }    
     console.log("associateDetails : " + JSON.stringify(this.associateDetails));
     this._addAssociateService.addAssociate(this.associateDetails,this.picture)
     .subscribe(data => {
