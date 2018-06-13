@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">27.56% </span>
+        <span class="strong">17.31% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>43/156</span>
+        <span class='fraction'>27/156</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/62</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">11.54% </span>
+        <span class="strong">3.85% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/26</span>
+        <span class='fraction'>1/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">26.35% </span>
+        <span class="strong">16.89% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>39/148</span>
+        <span class='fraction'>25/148</span>
       </div>
     </div>
     <p class="quiet">
@@ -297,13 +297,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,15 +316,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -529,13 +529,13 @@ export class EditAssociateComponent implements OnInit {
   selectedFiles: FileList;
   addedSkills : IAddSkills[];
   skillToAdd : IAddSkills;
-  associateDetails : IAddAssociate = new IAddAssociate();
-  redStatusClicked: boolean = null;
-  greenStatusClicked: boolean = null;
-  blueStatusClicked: boolean = null;
-  L1Clicked: boolean = null;
-  L2Clicked: boolean = null;
-  L3Clicked: boolean = null;
+<span class="cstat-no" title="statement not covered" >  associateDetails : IAddAssociate = new IAddAssociate();</span>
+<span class="cstat-no" title="statement not covered" >  redStatusClicked: boolean = null;</span>
+<span class="cstat-no" title="statement not covered" >  greenStatusClicked: boolean = null;</span>
+<span class="cstat-no" title="statement not covered" >  blueStatusClicked: boolean = null;</span>
+<span class="cstat-no" title="statement not covered" >  L1Clicked: boolean = null;</span>
+<span class="cstat-no" title="statement not covered" >  L2Clicked: boolean = null;</span>
+<span class="cstat-no" title="statement not covered" >  L3Clicked: boolean = null;</span>
   addAssociateResponse: Response;
   deleteAssociateResponse: Response;
   addSkillResponse: Response;
@@ -548,15 +548,15 @@ export class EditAssociateComponent implements OnInit {
   redStatusView: boolean;
   gender: string;
   localUrl: any[];
-  constructor(private _sharedService : SharedService,
-  private _addAssociateService:AddAssociateService,private _addSkillService: AddSkillService,
-  private route: ActivatedRoute,
-  private router: Router) { }
+<span class="fstat-no" title="function not covered" >  constructor(private <span class="cstat-no" title="statement not covered" ></span>_sharedService : SharedService,</span>
+  private <span class="cstat-no" title="statement not covered" >_addAssociateService:AddAssociateService,</span>private <span class="cstat-no" title="statement not covered" >_addSkillService: AddSkillService,</span>
+  private <span class="cstat-no" title="statement not covered" >route: ActivatedRoute,</span>
+  private <span class="cstat-no" title="statement not covered" >router: Router)</span> { }
 &nbsp;
-  ngOnInit() {
-    this.readOnlyFlag = this._sharedService.getReadOnly();
-    this.associateData = this._sharedService.fetchAssociateData();
-    this.gender = this.associateData.gender;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  ngOnInit() {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.readOnlyFlag = this._sharedService.getReadOnly();</span>
+<span class="cstat-no" title="statement not covered" >    this.associateData = this._sharedService.fetchAssociateData();</span>
+<span class="cstat-no" title="statement not covered" >    this.gender = this.associateData.gender;</span>
 <span class="cstat-no" title="statement not covered" >    this.mapAssociateLevel();</span>
 <span class="cstat-no" title="statement not covered" >    this.mapAssociateStatus();</span>
 <span class="cstat-no" title="statement not covered" >    this._addSkillService.viewAllSkills()</span>
@@ -748,7 +748,7 @@ export class EditAssociateComponent implements OnInit {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 13 2018 10:11:05 GMT+0530 (India Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Jun 14 2018 01:04:34 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

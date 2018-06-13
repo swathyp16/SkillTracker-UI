@@ -48,14 +48,14 @@
           <input *ngIf="!readOnlyFlag" type="file" class="m-top-7" id="upload" name="pic" accept="image/*" (change)="selectFile($event)">
       </div>
         <div *ngIf="!readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
-            <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn" (click)="statusGreenOnClick()">Status<br/>Green</button>
-            <button type="button" [attr.disabled]="blueStatusClicked"  class="btn btn-primary level-btn status-btn" (click)="statusBlueOnClick()">Status<br/>Blue</button>
-            <button type="button" [attr.disabled]="redStatusClicked"   class="btn btn-danger level-btn status-btn" (click)="statusRedOnClick()">Status<br/>Red</button>
+            <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn green" (click)="statusGreenOnClick()">Status<br/>Green</button>
+            <button type="button" [attr.disabled]="blueStatusClicked"  class="btn btn-primary level-btn status-btn blue" (click)="statusBlueOnClick()">Status<br/>Blue</button>
+            <button type="button" [attr.disabled]="redStatusClicked"   class="btn btn-danger level-btn status-btn red" (click)="statusRedOnClick()">Status<br/>Red</button>
          </div>
          <div *ngIf="readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
-            <button type="button" [attr.disabled]="!greenStatusView" class="btn btn-success status-btn">Status<br/>Green</button>
-            <button type="button" [attr.disabled]="!blueStatusView" class="btn btn-primary level-btn status-btn">Status<br/>Blue</button>
-            <button type="button" [attr.disabled]="!redStatusView" class="btn btn-danger level-btn status-btn">Status<br/>Red</button>
+            <button type="button" [attr.disabled]="!greenStatusView" class="btn btn-success status-btn green">Status<br/>Green</button>
+            <button type="button" [attr.disabled]="!blueStatusView" class="btn btn-primary level-btn status-btn blue">Status<br/>Blue</button>
+            <button type="button" [attr.disabled]="!redStatusView" class="btn btn-danger level-btn status-btn red">Status<br/>Red</button>
          </div>
          <div *ngIf="!readOnlyFlag" class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
             <input type="button" class="btn btn-secondary btn-lg" value="L1"  [attr.disabled]="L1Clicked" (click)="level1OnClick()">

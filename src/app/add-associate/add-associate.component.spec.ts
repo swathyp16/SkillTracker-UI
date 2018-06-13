@@ -6,16 +6,24 @@ import { FormsModule, FormGroup,FormControl,NgForm } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule , Routes,Router, ActivatedRoute} from '@angular/router';
 import { AddAssociateComponent } from './add-associate.component';
+import { SearchComponent } from '../search/search.component';
 import { AddAssociateService } from './add-associate.service';
 import { AddSkillService } from '../add-skill/add-skill.service';
 import { Observable } from 'rxjs/Observable';
 import { IAddSkills } from '../model/add-skill';
+import { By } from '@angular/platform-browser';
+import { DebugElement }    from '@angular/core';
 
 describe('AddAssociateComponent', () => {
   let component: AddAssociateComponent;
   let fixture: ComponentFixture<AddAssociateComponent>;
   let spyAssociateService: jasmine.SpyObj<AddAssociateService>;
   let spySkillService: jasmine.SpyObj<AddSkillService>;
+  // let component1: SearchComponent;
+  // let fixture1: ComponentFixture<SearchComponent>;
+  // let mockRouter = {
+  //   navigate: jasmine.createSpy('navigate')
+  // };
   
   const routes: Routes = [
     { path: 'addAssociate', component: AddAssociateComponent }
@@ -62,21 +70,7 @@ describe('AddAssociateComponent', () => {
 	    providers: [AddAssociateComponent,
         { provide: AddAssociateService, useValue: associateServiceSpy },
         { provide: AddSkillService, useValue: skillsServiceSpy },
-        { provide: ActivatedRoute
-         /* useValue: {
-            snapshot: {
-              paramMap: {
-                get(name: string): string {
-                  if (name === 'mode') {
-                    return 'edit';
-                  } else if (name === 'data') {
-                    return JSON.stringify(associateObj);
-                  }
-                }
-              }
-            }
-          }*/
-        }]
+        { provide: ActivatedRoute }]
     })
     .compileComponents();
   }));
@@ -102,6 +96,69 @@ describe('AddAssociateComponent', () => {
     expect(spyAssociateService.addAssociate.calls.count()).toBe(1);
   });
 
-  
+  it('should set value on status green button click', async(() => {
+    let button = fixture.debugElement.query(By.css('.green'));
+    button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.redStatusClicked).toBeTruthy();
+    expect(component.blueStatusClicked).toBeTruthy();
+    expect(component.greenStatusClicked).toBeUndefined();
+  }));
+
+  it('should set value on status blue button click', async(() => {
+    let button = fixture.debugElement.query(By.css('.blue'));
+    button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.redStatusClicked).toBeTruthy();
+    expect(component.greenStatusClicked).toBeTruthy();
+    expect(component.blueStatusClicked).toBeUndefined();
+  }));
+
+  it('should set value on status red button click', async(() => {
+    let button = fixture.debugElement.query(By.css('.red'));
+    button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.blueStatusClicked).toBeTruthy();
+    expect(component.greenStatusClicked).toBeTruthy();
+    expect(component.redStatusClicked).toBeUndefined();
+  }));
+
+  it('should set value on level 1 button click', async(() => {
+    let button = fixture.debugElement.query(By.css('.level1'));
+    button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.L2Clicked).toBeTruthy();
+    expect(component.L3Clicked).toBeTruthy();
+    expect(component.L1Clicked).toBeUndefined();
+  }));
+
+  it('should set value on level 2 button click', async(() => {
+    let button = fixture.debugElement.query(By.css('.level2'));
+    button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(component.L1Clicked).toBeTruthy();
+    expect(component.L3Clicked).toBeTruthy();
+    expect(component.L2Clicked).toBeUndefined();
+  }));
+
+  // it('should set value on level 3 button click', async(() => {
+  //   let button = fixture.debugElement.query(By.css('.level3'));
+  //   button.triggerEventHandler('click', null);
+  //   fixture.detectChanges();
+  //   expect(component.L1Clicked).toBeTruthy();
+  //   expect(component.L2Clicked).toBeTruthy();
+  //   expect(component.L3Clicked).toBeUndefined();
+  // }));
+
+  // it('should route to search associate on cancel button click', async(() => {
+  //   let button = fixture.debugElement.query(By.css('.cancel'));
+  //   button.triggerEventHandler('click', null);
+  //   fixture.detectChanges();
+  //    let navigateSpy = spyOn((<any>component1).router, 'navigate');
+  //    expect(navigateSpy).toHaveBeenCalledWith(['/searchAssociate']);
+  //   //component.goSomewhere();
+  // //  expect(mockRouter.navigate).toHaveBeenCalledWith(['searchAssociate']);
+   
+  // }));
 
 });

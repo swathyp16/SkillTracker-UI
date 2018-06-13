@@ -53,14 +53,14 @@
 		</div>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
-          <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn" (click)="statusGreenOnClick()">Status<br/>Green</button>
-          <button type="button" [attr.disabled]="blueStatusClicked" class="btn btn-primary level-btn status-btn" (click)="statusBlueOnClick()">Status<br/>Blue</button>
-          <button type="button" [attr.disabled]="redStatusClicked" class="btn btn-danger level-btn status-btn" (click)="statusRedOnClick()">Status<br/>Red</button>
+          <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn green" (click)="statusGreenOnClick()">Status<br/>Green</button>
+          <button type="button" [attr.disabled]="blueStatusClicked" class="btn btn-primary level-btn status-btn blue" (click)="statusBlueOnClick()">Status<br/>Blue</button>
+          <button type="button" [attr.disabled]="redStatusClicked" class="btn btn-danger level-btn status-btn red" (click)="statusRedOnClick()">Status<br/>Red</button>
        </div>
        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
-          <input type="button" class="btn btn-secondary btn-lg" value="L1" [attr.disabled]="L1Clicked" (click)="level1OnClick()">
-          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L2" [attr.disabled]="L2Clicked" (click)="level2OnClick()">
-          <input type="button" class="btn btn-secondary btn-lg level-btn" value="L3" [attr.disabled]="L3Clicked" (click)="level3OnClick()">
+          <input type="button" class="btn btn-secondary btn-lg level1" value="L1" [attr.disabled]="L1Clicked" (click)="level1OnClick()">
+          <input type="button" class="btn btn-secondary btn-lg level-btn level2" value="L2" [attr.disabled]="L2Clicked" (click)="level2OnClick()">
+          <input type="button" class="btn btn-secondary btn-lg level-btn level3" value="L3" [attr.disabled]="L3Clicked" (click)="level3OnClick()">
        </div>  
        <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
          <label>Remark:</label>
@@ -99,7 +99,7 @@
      <button type="reset" class="btn btn-primary btn-md col-lg-3" value="Reset">
         <span class="fa fa-refresh"></span> Reset 	 
 	 </button>
-     <button type="button" class="btn btn-primary btn-md col-lg-3 btn-spacing" value="Cancel" (click)="onCancelBtnClick()">
+     <button type="button" class="btn btn-primary btn-md col-lg-3 btn-spacing cancel" value="Cancel" (click)="onCancelBtnClick()">
 		<span class="fa fa-times"></span> Cancel
 	 </button>
      <button type="submit"  class="btn btn-primary btn-md col-lg-3 btn-spacing" value="Save"  [disabled]="!addAssociateForm.form.valid" >
