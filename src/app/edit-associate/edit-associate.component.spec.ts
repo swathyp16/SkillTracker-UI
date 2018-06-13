@@ -23,6 +23,7 @@ describe('EditAssociateComponent', () => {
   let spyAddAssociateService: jasmine.SpyObj<AddAssociateService>;
   //let spySharedService;// jasmine.SpyObj<SharedService>;
 
+  const searchText ="Java";
   const skillsList = [{"skillId":1,"skillName":"HTML5","skillRating":12},
   {"skillId":10,"skillName":"Spring","skillRating":9,"isEdit":false},
   {"skillId":11,"skillName":"Spring MVC","skillRating":17},
@@ -85,6 +86,7 @@ describe('EditAssociateComponent', () => {
       providers: [ { provide: AddSkillService, useValue: addSkillServiceSpy },{ provide: AddAssociateService, useValue: addAssociateServiceSpy },
         { provide: ActivatedRoute},SharedService]
     }).compileComponents();
+    searchSkill = new SearchSkillPipe();
   }));
 
   beforeEach(() => {
@@ -98,6 +100,7 @@ describe('EditAssociateComponent', () => {
     component.addedSkills = <IAddSkills[]>skillsList;
   });
 
+  
   // it('should create', () => {
   //   expect(component).toBeTruthy();
   // });
