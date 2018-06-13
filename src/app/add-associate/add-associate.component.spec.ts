@@ -21,9 +21,9 @@ describe('AddAssociateComponent', () => {
   let spySkillService: jasmine.SpyObj<AddSkillService>;
   // let component1: SearchComponent;
   // let fixture1: ComponentFixture<SearchComponent>;
-  // let mockRouter = {
-  //   navigate: jasmine.createSpy('navigate')
-  // };
+  let mockRouter = {
+    navigate: jasmine.createSpy('navigate')
+  };
   
   const routes: Routes = [
     { path: 'addAssociate', component: AddAssociateComponent }
@@ -67,7 +67,7 @@ describe('AddAssociateComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule,HttpModule,FormsModule,RouterTestingModule.withRoutes([{ path: 'addAssociate', component: AddAssociateComponent }])],
       declarations: [ AddAssociateComponent ],
-	    providers: [AddAssociateComponent,
+	    providers: [AddAssociateComponent,{ provide: Router, useValue: mockRouter},
         { provide: AddAssociateService, useValue: associateServiceSpy },
         { provide: AddSkillService, useValue: skillsServiceSpy },
         { provide: ActivatedRoute }]
@@ -150,15 +150,12 @@ describe('AddAssociateComponent', () => {
   //   expect(component.L3Clicked).toBeUndefined();
   // }));
 
-  // it('should route to search associate on cancel button click', async(() => {
-  //   let button = fixture.debugElement.query(By.css('.cancel'));
-  //   button.triggerEventHandler('click', null);
-  //   fixture.detectChanges();
-  //    let navigateSpy = spyOn((<any>component1).router, 'navigate');
-  //    expect(navigateSpy).toHaveBeenCalledWith(['/searchAssociate']);
-  //   //component.goSomewhere();
-  // //  expect(mockRouter.navigate).toHaveBeenCalledWith(['searchAssociate']);
+  it('should route to search associate on cancel button click', async(() => {
+    let button = fixture.debugElement.query(By.css('.cancel'));
+    button.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(mockRouter.navigate).toHaveBeenCalledWith (['/searchAssociate']);
    
-  // }));
+  }));
 
 });
