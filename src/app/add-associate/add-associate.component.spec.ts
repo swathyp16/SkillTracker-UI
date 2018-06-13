@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
+import { HttpModule, ResponseOptions } from '@angular/http';
 import { FormsModule, FormGroup,FormControl,NgForm } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule , Routes,Router, ActivatedRoute} from '@angular/router';
@@ -24,6 +24,7 @@ describe('AddAssociateComponent', () => {
   let mockRouter = {
     navigate: jasmine.createSpy('navigate')
   };
+  let response: Response;
   
   const routes: Routes = [
     { path: 'addAssociate', component: AddAssociateComponent }
@@ -60,6 +61,28 @@ describe('AddAssociateComponent', () => {
         submitted: true
       }
     };
+    const associateDetails = {
+      associateId:14526,
+      name:"Arun",
+      email:"arun.naik@gmail.com",
+      mobile:"8745999854",
+      gender:"male",
+      statusGreen:true,
+      statusBlue:false,
+      statusRed:false,
+      level1:true,
+      level2:false,
+      level3:false,
+      remark:"Good",
+      strength:"UI",
+      weakness:"java",
+      associateSkills:[
+        {skillId:1,skillName:"HTML5",skillRating:16,isEdit:false},
+        {skillId:2,skillName:"CSS3",skillRating:15,isEdit:false}
+      ],
+      otherSkill:"jquery",
+      submitted: true
+    };
 
   beforeEach(async(() => {
 	 const associateServiceSpy = jasmine.createSpyObj('AddAssociateService', ['addAssociate', 'deleteAssociate','addSkillFromEditPage']);
@@ -83,6 +106,13 @@ describe('AddAssociateComponent', () => {
     spySkillService = TestBed.get(AddSkillService);
     spySkillService.viewAllSkills.and.returnValue(Observable.of(skillsList));
     component.addedSkills = <IAddSkills[]>skillsList;
+    response = new Response(
+      new ResponseOptions({
+          body: [
+            {
+              status: 200
+            }]
+        }));
   });
 
   it('should create', () => {
@@ -91,9 +121,12 @@ describe('AddAssociateComponent', () => {
   
   it('should add associate details', () => {
     component.ngOnInit();
-    spyAssociateService.addAssociate.and.returnValue(Observable.of('Success'));
+    spyAssociateService.addAssociate.and.returnValue(Observable.of(response));
     component.addAssociate(associateList);
-    expect(spyAssociateService.addAssociate.calls.count()).toBe(1);
+    spyAssociateService.addAssociate(associateDetails,null).subscribe(response => { 
+      expect(response.status).toEqual(200);
+    });
+    expect(spyAssociateService.addAssociate.calls.count()).toBeGreaterThan(0);
   });
 
   it('should set value on status green button click', async(() => {

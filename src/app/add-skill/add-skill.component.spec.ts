@@ -7,6 +7,7 @@ import { AddSkillService } from './add-skill.service';
 import { AddSkillComponent } from './add-skill.component';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
+import { IAddSkills } from '../model/add-skill';
 
 describe('AddSkillComponent', () => {
   let component: AddSkillComponent;
@@ -14,10 +15,11 @@ describe('AddSkillComponent', () => {
   let spyAddSkillService: jasmine.SpyObj<AddSkillService>;
   let mockEvent:Event;
   let response : Response;
+  let addSkillList : IAddSkills[];
 
   const skill =  {"skillId":2,"skillName":"CSS3","skillRating":15,"isEdit":false};
   const skillList =  [{"skillId":2,"skillName":"CSS3","skillRating":15,"isEdit":false},
-  {"skillId":3,"skillName":"Bootstrap","skillRating":4,"isEdit":false}];
+  {"skillId":3,"skillName":"Bootstrap","skillRating":4,"isEdit":false}];  
   const index = 0;
   const skillId = 2;
   const skillName = "CSS3";
@@ -51,16 +53,21 @@ describe('AddSkillComponent', () => {
     fixture = TestBed.createComponent(AddSkillComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();  
+    response = new Response(
+      new ResponseOptions({
+          body: [
+            {
+              status: 200
+            }]
+        }));
     spyAddSkillService = TestBed.get(AddSkillService);
     spyAddSkillService.viewAllSkills.and.returnValue(Observable.of(skillList));
+    // spyAddSkillService.viewAllSkills().subscribe(skillList => { 
+    //   expect(skillList.length).toEqual(2);
+    // });
+    component.ngOnInit();
     component.addedSkills = skillList;
-    response = new Response(
-          new ResponseOptions({
-              body: [
-                {
-                  status: 200
-                }]
-            }));
+    
   });
 
   it('should create', () => {
