@@ -16,3 +16,8 @@ https://codecraft.tv/courses/angular/unit-testing/model-driven-forms/
 https://github.com/lathonez/clicker/issues/187
 
 ng test --watch --code-coverage
+
+let spy = spyOn(router, 'navigate');
+
+      service.checkLoginState(calledUrl);
+      expect(spy).toHaveBeenCalledWith(['/login']);
