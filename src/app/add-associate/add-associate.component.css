@@ -363,11 +363,77 @@ h3{
 h1{
     display: inline-block;
 }
+@media(max-width:568px){
+    .preview-image{
+        width: 96px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 16px;
+    }
+}
+@media(min-width:569px){
+    .preview-image{
+        width: 176px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 59px;
+    }
+}
 
-.preview-image{
-	width: 212px;
-    height: 161px;
-    position: relative;
-    bottom: 64px;
-    right: 78px;
+@media (min-width: 768px){
+    .preview-image {
+        width: 114px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 35px;
+    }
+}
+@media(min-width:840px){
+    .preview-image{
+        width: 114px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 35px;
+    }
+}
+@media(min-width:1000px){
+    .preview-image{
+        width: 142px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 35px;
+    }
+}
+@media(min-width:1165px){
+    .preview-image{
+        width: 174px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 35px;
+    }
+}
+@media(min-width:1181px){
+    .preview-image{
+        width: 187px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 81px;
+    }
+}
+
+@media(min-width:1350px){
+    .preview-image{
+        width: 205px;
+        height: 161px;
+        position: relative;
+        bottom: 64px;
+        right: 81px;
+    }
 }
