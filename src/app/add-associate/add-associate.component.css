@@ -7,51 +7,137 @@ span.glyphicon-download-alt {
     color: #00000059;
 }
 
-@media(min-width:992px){
-.upload-pic{
-    background-color: #e0dcdc82;
-    height: 180px;
-    border-radius: 5px;
-    outline: 2px dashed black;
-    outline-offset: -10px;
-    outline-color: #bfb5b5;
-	margin-left: -4% !important;
+@media(max-width:567px){
+    .upload-pic{
+        position: relative;
+        background-color: #e0dcdc82;
+        height: 180px;
+        border-radius: 5px;
+        outline: 2px dashed black;
+        outline-offset: -10px;
+        outline-color: #bfb5b5;
+        margin-left: 1% !important;
+        width: 123px !important;
+    }
 }
+@media(max-width:767px){
+    .upload-pic{
+        position: relative;
+        background-color: #e0dcdc82;
+        height: 180px;
+        border-radius: 5px;
+        outline: 2px dashed black;
+        outline-offset: -10px;
+        outline-color: #bfb5b5;
+        margin-left: 1% !important;
+        width: 200px;
+    }
+}
+
+@media(min-width:768px){
+    .upload-pic{
+        position: relative;
+        background-color: #e0dcdc82;
+        height: 180px;
+        border-radius: 5px;
+        outline: 2px dashed black;
+        outline-offset: -10px;
+        outline-color: #bfb5b5;
+        margin-left: 1% !important;
+    }
+}
+
+@media(min-width:992px){
+    .upload-pic{
+        position: relative;
+        background-color: #e0dcdc82;
+        height: 180px;
+        border-radius: 5px;
+        outline: 2px dashed black;
+        outline-offset: -10px;
+        outline-color: #bfb5b5;
+        margin-left: 1% !important;
+    }
 }
 
 
 @media(min-width:1025px){
 	.upload-pic{
-    background-color: #e0dcdc82;
-    height: 180px;
-    border-radius: 5px;
-    outline: 2px dashed black;
-	 outline-offset: -10px;
-    outline-color: #bfb5b5;
+        position: relative;
+        background-color: #e0dcdc82;
+        height: 180px;
+        border-radius: 5px;
+        outline: 2px dashed black;
+        outline-offset: -10px;
+        outline-color: #bfb5b5;
+    }
 }
+
+@media(max-width:567px){
+    .upload-area{
+        position: relative;
+        margin: auto;
+        top: 24px;
+        left: -52px !important;
+        margin-bottom: 15px;
+    }
+}
+@media(max-width:767px){
+	.upload-area{
+        position: relative;
+        margin: auto;
+        top: 24px;
+        left: -10px;
+        margin-bottom: 15px;
+    }	
+}
+
+
+@media(min-width:768px){
+	.upload-area{
+        position: relative;
+        margin: auto;
+        top: 24px;
+        left: -34px;
+        margin-bottom: 15px;
+    }	
 }
 
 @media(min-width:992px){
 	.upload-area{
-    position: relative;
-    margin: auto;
-    top: 24px;
-    left: -34px;
-	margin-bottom: 15px;
-}	
+        position: relative;
+        margin: auto;
+        top: 24px;
+        left: -34px;
+        margin-bottom: 15px;
+    }	
 }
 @media(min-width:1025px){
-.upload-area{
-    position: relative;
-    margin: auto;
-    top: 24px;
-    left: 6px;
-	margin-bottom: 15px;
+    .upload-area{
+        position: relative;
+        margin: auto;
+        top: 24px;
+        margin-bottom: 15px;
+        right: 27px;
+    }
 }
+
+@media(min-width:1181px){
+    .upload-area{
+        position: relative;
+        margin: auto;
+        top: 24px;
+        margin-bottom: 15px;
+        right: 0px;
+        left: 10px;
+    }
 }
-
-
-
+@media(min-width:567px)and(max-width:766px){
+    .fileUpload-label{
+        margin-top: 15px;
+        color: grey;
+    }
+}
 .fileUpload-label{
     margin-left: 49px;
     margin-top: 15px;
@@ -134,8 +220,9 @@ span.glyphicon-download-alt {
 }
 
 .btns-grp{
-    top: 30px;
+    /* top: 13px; */
     position: relative;
+    padding-bottom: 44px;
 }
 
 .btn-spacing{
@@ -168,24 +255,68 @@ span.glyphicon-download-alt {
     background-color: #f11f01;
     text-align: center;
 }
+@media(max-width: 567px){
+    .input-field{
+        margin-left: -1%;
+        margin-right: 10px;
+    }
+}
+
+@media(min-width: 767px){
+    .input-field{
+        margin-left: -1%;
+    }
+}
+
 
 .input-field{
     margin-left: 1%;
 }
 
-@media(min-width: 1020px){
+@media(max-width:655px){
+    .gender-radio{
+      margin-left: 20px;  
+    }
+}
+
+@media(max-width: 567px){
+    .input-level{
+        margin-left: 38px !important;
+        margin-right: 20px;
+    }
+}
+
+@media(max-width: 767px){
+    .input-level{
+        margin-left: 27px !important;
+        margin-right: 20px;
+    }
+}
+
 .input-level{
-    margin-left: -30px;
-}
-}
-
-@media(min-width: 992px){
-.input-level{
-    margin-left: 8px;
-}
+    margin-left: 13px;
 }
 
+@media(max-width: 767px){
+    .remark-style{
+        position: relative;
+        display: block;
+        float: inherit;
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+}
+@media(max-width: 767px){
+    .remark-textarea{
+        width: 371px;
+    }
+}
 
+@media(min-width: 900px){
+    .remark-textarea{
+        width: 230px;
+    }   
+}
 .margin-t-20{
     margin-top: 20px;
 }

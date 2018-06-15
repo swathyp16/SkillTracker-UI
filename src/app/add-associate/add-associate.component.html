@@ -9,34 +9,34 @@
     </div>
 <form novalidate #addAssociateForm="ngForm" class="form-horizontal" (ngSubmit)="addAssociate(addAssociateForm)">    
 <div class="row">
-  <div class="col-lg-4 col-md-4">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
       <div class="form-group">
-        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Name</label>
-        <div class="col-md-6 col-lg-8 col-xs-2">
+        <label class="col-md-4 col-lg-4  col-sm-4 col-xs-4 control-label">Name</label>
+        <div class="col-md-6 col-lg-8 col-sm-8 col-xs-8">
           <input type="text" class="form-control" name="associateName" [(ngModel)]="associateName" maxlength="20" required>
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Associate ID</label>
-        <div class="col-md-6 col-lg-8 col-xs-2">
+        <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Associate ID</label>
+        <div class="col-md-6 col-lg-8 col-sm-8 col-xs-8">
           <input type="text" class="form-control" name="associateId" [(ngModel)]="associateId" required>
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Email</label>
-        <div class="col-md-6 col-lg-8 col-xs-2">
+        <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Email</label>
+        <div class="col-md-6 col-lg-8 col-sm-8 col-xs-8">
           <input type="text" class="form-control" name="email" [(ngModel)]="email" required>
         </div>
       </div>
       <div class="form-group">
-        <label class="col-md-4 col-lg-4 col-xs-1 control-label">Mobile</label>
-        <div class="col-md-6 col-lg-8 col-xs-2">
+        <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 control-label">Mobile</label>
+        <div class="col-md-6 col-lg-8 col-sm-8 col-xs-8">
           <input type="text" class="form-control" name="mobile" [(ngModel)]="mobile" required>
         </div>
       </div>
-      <div class="form-group">
-        <label class="col-md-4 col-lg-2 col-lg-offset-2 col-xs-1">Gender</label>
-          <input type="radio" name="gender" [(ngModel)]="gender" value="male">Male
+      <div class="form-group col-sm-24 col-md-0 col-lg-0">
+        <label class="col-md-4 col-md-offset-0 col-lg-2 col-lg-offset-2 col-sm-4 col-sm-offset-1 col-xs-4">Gender</label>
+          <input type="radio" name="gender" [(ngModel)]="gender" class="gender-radio" value="male">Male
           <input type="radio" name="gender" [(ngModel)]="gender" value="female">Female
       </div>
     </div>
@@ -52,45 +52,45 @@
 		  </label>
 		</div>
       </div>
-      <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-field">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 input-field">
           <button type="button" [attr.disabled]="greenStatusClicked" class="btn btn-success status-btn green" (click)="statusGreenOnClick()">Status<br/>Green</button>
           <button type="button" [attr.disabled]="blueStatusClicked" class="btn btn-primary level-btn status-btn blue" (click)="statusBlueOnClick()">Status<br/>Blue</button>
           <button type="button" [attr.disabled]="redStatusClicked" class="btn btn-danger level-btn status-btn red" (click)="statusRedOnClick()">Status<br/>Red</button>
        </div>
-       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 input-level">
+       <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 input-level">
           <input type="button" class="btn btn-secondary btn-lg level1" value="L1" [attr.disabled]="L1Clicked" (click)="level1OnClick()">
           <input type="button" class="btn btn-secondary btn-lg level-btn level2" value="L2" [attr.disabled]="L2Clicked" (click)="level2OnClick()">
           <input type="button" class="btn btn-secondary btn-lg level-btn level3" value="L3" [attr.disabled]="L3Clicked" (click)="level3OnClick()">
        </div>  
-       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+       <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 remark-style">
          <label>Remark:</label>
-         <textarea name="remarks" [(ngModel)]="remarks" id="remarks" cols="70" rows="7" required></textarea>
+         <textarea name="remarks" [(ngModel)]="remarks" id="remarks" class="remark-textarea" rows="7" required></textarea>
        </div> 
    </div> 
    <div class="row">
      <div *ngFor="let skill of addedSkills; let i = index">
        <label for="skills" class="col-md-0 col-lg-0 col-xs-1 control-label m-t-10">{{skill.skillName}}</label>
-      <div class="col-xs-2 col-md-3 slider" data-role="rangeslider">
-        <span class="slider-range t-10">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-md-3 col-lg-4 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
+      <div class="col-xs-5 col-md-3 col-sm-3 slider" data-role="rangeslider">
+        <span class="slider-range t-10">0</span><input id="skills" type="range" #ref (change)="selectedSkillRating(ref.value,i)" class="form-control col-xs-3 col-md-3 col-lg-4 col-sm-2 slider-input" min="0" max="20" value="0"><span class="slider-range">20</span>
       </div>
      </div>
-     <div class="col-md-3 col-lg-4 col-xs-2 margin-t-10">
-        <label for="other" class="col-md-0 col-lg-0 col-xs-1 control-label col-lg-offset-1">Other</label>
-        <div class="col-md-3 col-lg-9 col-lg-offset-1 col-xs-2">
+     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5 margin-t-10">
+        <label for="other" class="col-xs-2 col-sm-2 col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 control-label">Other</label>
+        <div class="col-sm-8 col-sm-offset-0 col-md-8 col-md-offset-0 col-lg-9 col-lg-offset-1 col-xs-8 col-xs-offset-1">
           <input type="text" id="other" name="otherSkill" [(ngModel)]="otherSkill" class="form-control"/>
         </div>
       </div>
     </div>
     <div class="row margin-t-20">
-    <div class="form-group col-lg-5">
-        <label class="col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Strength</label>
-        <div class="col-md-3 col-lg-9 col-lg-offset-1 col-xs-2">
+    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-5">
+        <label class="col-xs-2 ol-sm-2 col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 control-label">Strength</label>
+        <div class="col-sm-8 col-sm-offset-0 col-md-8 col-md-offset-0 col-lg-9 col-lg-offset-1 col-xs-8 col-xs-offset-1">
           <input type="text" class="form-control" name="strength" [(ngModel)]="strength" required>
         </div>
     </div>
-    <div class="form-group col-lg-5">
-        <label class="col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 col-xs-1 control-label">Weakness</label>
-        <div class="col-md-3 col-lg-9 col-lg-offset-1 col-xs-2">
+    <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-5">
+        <label class="col-xs-2 col-sm-2 col-md-2 col-md-offset-0 col-lg-1 col-lg-offset-1 control-label">Weakness</label>
+        <div class="col-sm-8 col-sm-offset-0 col-md-8 col-md-offset-0 col-lg-9 col-lg-offset-1 col-xs-8 col-xs-offset-1">
           <input type="text" class="form-control" name="weakness" [(ngModel)]="weakness" required>
         </div>
     </div>

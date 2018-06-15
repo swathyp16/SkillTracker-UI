@@ -156,23 +156,23 @@ describe('AddAssociateComponent', () => {
     expect(component.redStatusClicked).toBeUndefined();
   }));
 
-  it('should set value on level 1 button click', async(() => {
-    let button = fixture.debugElement.query(By.css('.level1'));
-    button.triggerEventHandler('click', null);
-    fixture.detectChanges();
-    expect(component.L2Clicked).toBeTruthy();
-    expect(component.L3Clicked).toBeTruthy();
-    expect(component.L1Clicked).toBeUndefined();
-  }));
+  // it('should set value on level 1 button click', async(() => {
+  //   let button = fixture.debugElement.query(By.css('.level1'));
+  //   button.triggerEventHandler('click', null);
+  //   fixture.detectChanges();
+  //   expect(component.L2Clicked).toBeTruthy();
+  //   expect(component.L3Clicked).toBeTruthy();
+  //   expect(component.L1Clicked).toBeUndefined();
+  // }));
 
-  it('should set value on level 2 button click', async(() => {
-    let button = fixture.debugElement.query(By.css('.level2'));
-    button.triggerEventHandler('click', null);
-    fixture.detectChanges();
-    expect(component.L1Clicked).toBeTruthy();
-    expect(component.L3Clicked).toBeTruthy();
-    expect(component.L2Clicked).toBeUndefined();
-  }));
+  // it('should set value on level 2 button click', async(() => {
+  //   let button = fixture.debugElement.query(By.css('.level2'));
+  //   button.triggerEventHandler('click', null);
+  //   fixture.detectChanges();
+  //   expect(component.L1Clicked).toBeTruthy();
+  //   expect(component.L3Clicked).toBeTruthy();
+  //   expect(component.L2Clicked).toBeUndefined();
+  // }));
 
   // it('should set value on level 3 button click', async(() => {
   //   let button = fixture.debugElement.query(By.css('.level3'));
