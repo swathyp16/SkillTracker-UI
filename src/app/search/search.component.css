@@ -212,11 +212,61 @@ h1{
 .row1{
     display: inline-block;
 }
-.margin-l-10{
-    /* margin-left: 14px; */
-    margin-top: 5px;
+
+@media(max-width:960px){
+	.margin-l-10{
+		margin-top: 5px;
+		margin-right: 60px;
+	}
 }
 
+@media(min-width:961px){
+	.margin-l-10{
+		margin-top: 5px;
+	}
+}
+
+@media(max-width:767px){
+	.rated-margin{
+		margin-top: 5px;		
+		margin-right: 0px;
+	}
+}
+
+@media(min-width:768px){
+	.rated-margin{
+		margin-top: 5px;
+		margin-right: 60px;
+	}
+}
+
+@media(min-width:961px){
+	.rated-margin{
+		margin-top: 5px;
+		margin-right: 0px;
+	}
+}
+@media(max-width:618px){
+	.freshers{
+		margin-top: 5px;		
+		margin-right: 0px !important;
+	}
+}
+@media(min-width:619px){
+	.freshers{
+		margin-top: 5px;		
+		margin-right: 60px !important;
+	}
+}
+@media(min-width:768px){
+	.freshers{
+		margin-top: 5px;		
+		margin-right: 0px !important;
+	}
+}
+.margin-left-10{
+	margin-top: 5px;
+}
 .btn-position{
     position: relative;
     bottom: 180px;
@@ -234,7 +284,14 @@ h1{
 		right: 50px;
 	}
 }
-
+@media (min-width: 768px){
+	.position2 {
+		float: right;
+		position: relative;
+		bottom: 221px;
+		right: 37px;
+	}
+}
 @media(min-width:961px){
 	.position2{
 		float: right;    
@@ -272,8 +329,8 @@ h1{
 	.position4{
 		float: right;    
 		position: relative;
-		bottom: 356px;
-		right: 0px;
+		bottom: 199px;
+		right: 35px;
 	}
 }
 @media(min-width:961px){
@@ -322,7 +379,13 @@ h1{
 		left: 56px;  
 	}
 }
-
+@media (min-width: 768px){
+	.position1 {
+		position: relative;
+		bottom: 228px;
+		left: -20px;
+	}
+}
 @media(min-width:961px){
 	.position1{
 		position: relative;
@@ -366,6 +429,13 @@ h1{
 		left: 56px;  
 	}
 }
+@media (min-width: 768px){
+	.position3 {
+		position: relative;
+		bottom: 202px;
+		left: -20px;
+	}
+}
 @media(min-width:961px){
 	.position3{
 		position: relative;
@@ -402,10 +472,15 @@ h1{
 @media(min-width:641px){
 	.div-position{
 		position: relative;
-		bottom: 99px !important;
+		bottom: 0px !important;
 	}	
 }
-
+@media(min-width:768px){
+	.div-position{
+		position: relative;
+		bottom: 90px !important;
+	}	
+}
 @media(min-width:961px){
 	.div-position{
 		position: relative;
@@ -453,10 +528,17 @@ h1{
 		height: 292px !important;
 		position: relative;
 		bottom: 58px;
-		width: 584px !important;
+		width: 406px !important;
 	}
 }
-
+@media(min-width: 880px){
+	.canvas-styles{
+		height: 292px !important;
+		position: relative;
+		bottom: 58px;
+		width: 475px !important;
+	}
+}
 @media(min-width: 961px){
 	.canvas-styles{
 		height: 238px !important;
@@ -548,8 +630,6 @@ h1{
     text-align: center;
     font-size: 15px;
 }
-
-
 
 
 
