@@ -153,35 +153,55 @@ h1{
     /* background-color: red; */
     margin-top: -10px;
 }
- @media(min-width:641px)and(max-width:960px){
+ @media(min-width:641px){
     .percent{
 		width: 100%;
 		height: 135px;
 		display: inline-block;
 		position: relative;
-		bottom: 348px !important;
+		bottom: 195px !important;
 	}
 }
 
-@media(min-width:961px){
-.percent{
-    width: 100%;
-    height: 135px;
-    display: inline-block;
-    position: relative;
-    bottom: 344px;
-}
+@media(min-width:962px){
+	.percent{
+		width: 100%;
+		height: 135px;
+		display: inline-block;
+		position: relative;
+		bottom: 248px !important;
+	}
 }
 
-@media(min-width:1025px){
-.percent{
-    width: 100%;
-    height: 135px;
-    display: inline-block;
-    position: relative;
-    bottom: 455px;
+@media(min-width:992px){
+	.percent{
+		width: 100%;
+		height: 135px;
+		display: inline-block;
+		position: relative;
+		bottom: 344px !important;
+	}
 }
+
+@media (min-width: 1025px){
+	.percent {
+		width: 100%;
+		height: 135px;
+		display: inline-block;
+		position: relative;
+		bottom: 349px !important;
+	}
 }
+@media(min-width:1200px){
+	.percent{
+		width: 100%;
+		height: 135px;
+		display: inline-block;
+		position: relative;
+		bottom: 455px !important;
+	}
+}
+
 
 @media(min-width:961px) and (max-width:1025px){
 	.info-width{
@@ -201,12 +221,17 @@ h1{
     position: relative;
     bottom: 180px;
 }
-
+@media(max-width:640px){
+	.position2{		
+		margin-top: 60px;
+	}
+}
 @media(min-width:641px){
 	.position2{
 		float: right;    
 		position: relative;
-		bottom: 248px;
+		bottom: 221px;
+		right: 50px;
 	}
 }
 
@@ -215,46 +240,86 @@ h1{
 		float: right;    
 		position: relative;
 		bottom: 251px;
+		right: 0px;
 	}
 }
-
-@media(min-width:1025px){
+@media (min-width: 1025px){
+	.position2 {
+		float: right;
+		position: relative;
+		bottom: 252px;
+		right: 0px;
+	}
+}
+@media(min-width:1200px){
 	.position2{
 		float: right;    
 		position: relative;
 		bottom: 367px;
+		right: 0px;
 	}
 }
 
 @media(min-width:641px){
+	.position4{
+		float: right;    
+		position: relative;
+		bottom: 196px;
+		right: 50px;
+	}
+}
+@media(min-width:768px){
 	.position4{
 		float: right;    
 		position: relative;
 		bottom: 356px;
+		right: 0px;
 	}
 }
-
 @media(min-width:961px){
+	.position4{
+		float: right;    
+		position: relative;
+		bottom: 246px;
+		right: 0px;
+	}
+}
+@media(min-width:992px){
 	.position4{
 		float: right;    
 		position: relative;
 		bottom: 364px;
+		right: 0px;
 	}
 }
-
-@media(min-width:1025px){
+@media (min-width: 1025px){
+	.position4 {
+		float: right;
+		position: relative;
+		bottom: 362px;
+		right: 0px;
+	}
+}
+@media(min-width:1200px){
 	.position4{
 		float: right;    
 		position: relative;
 		bottom: 470px;
+		right: 0px;
 	}
 }
-
+@media(max-width:640px){
+	.position1{
+		margin-right: 87px !important;
+		margin-left: 14px;		
+		margin-top: 60px;
+	}
+}
 @media(min-width:641px){
 	.position1{
 		position: relative;
-		bottom: 253px;
-		left: 77px;  
+		bottom: 228px;
+		left: 56px;  
 	}
 }
 
@@ -266,14 +331,21 @@ h1{
 	}
 }
 
-@media(min-width:1025px){
-	.position1{
+@media (min-width: 1025px){
+	.position1 {
 		position: relative;
 		bottom: 258px;
-		left: 69px;  
+		left: 57px;
 	}
 }
 
+@media (min-width: 1200px){
+	.position1{
+		position: relative;
+		bottom: 258px;
+		left: 85px;
+	}
+}
 @media(min-width:1281px){
 	.position1{
 		position: relative;
@@ -281,12 +353,17 @@ h1{
 		left: 97px;  
 	}
 }
-
+@media(max-width:640px){
+	.position3{
+		margin-right: 87px !important;
+		margin-left: 14px;
+	}
+}
 @media(min-width:641px){
 	.position3{
 		position: relative;
-		bottom: 242px;
-		left: 76px;  
+		bottom: 202px;
+		left: 56px;  
 	}
 }
 @media(min-width:961px){
@@ -296,12 +373,19 @@ h1{
 		left: 74px;  
 	}
 }
-
-@media(min-width:1025px){
-	.position3{
+@media (min-width: 1025px){
+	.position3 {
 		position: relative;
 		bottom: 251px;
-		left: 74px;  
+		left: 57px;
+	}
+}
+
+@media(min-width:1200px){
+	.position3{
+		position: relative;
+		bottom: 356px;
+		left: 93px;  
 	}
 }
 
@@ -309,20 +393,39 @@ h1{
     margin-right: 20px;
 }
 
-@media(min-width:641px)and(max-width:960px){
-		.div-position{
+@media(max-width:640px){
+	.div-position{
 		position: relative;
-		bottom: 356px !important;
+		bottom: 90px;
+	}
+}
+@media(min-width:641px){
+	.div-position{
+		position: relative;
+		bottom: 99px !important;
 	}	
 }
 
 @media(min-width:961px){
 	.div-position{
 		position: relative;
-		bottom: 352px !important;
+		bottom: 261px !important;
 	}
 }
-@media(min-width:1025px){
+@media(min-width:992px){
+	.div-position{
+		position: relative;
+		bottom: 358px !important;
+	}
+}
+@media (min-width: 1025px){
+	.div-position {
+		position: relative;
+		bottom: 359px !important;
+	}
+}
+
+@media(min-width:1200px){
 	.div-position{
 		position: relative;
 		bottom: 452px !important;
@@ -342,11 +445,28 @@ h1{
 		height: 292px !important;
 		position: relative;
 		bottom: 58px;
+		width: 351px !important;
+	}
+}
+@media(min-width: 768px){
+	.canvas-styles{
+		height: 292px !important;
+		position: relative;
+		bottom: 58px;
 		width: 584px !important;
 	}
 }
 
 @media(min-width: 961px){
+	.canvas-styles{
+		height: 238px !important;
+		position: relative;
+		bottom: 58px;
+		width: 596px !important;
+	}
+}
+
+@media(min-width: 992px){
 	.canvas-styles{
 		height: 238px !important;
 		position: relative;
@@ -363,15 +483,32 @@ h1{
 		width: 638px !important;
 	}
 }
-
-/*@media(min-width: 980px){
+@media(min-width: 1200px){
 	.canvas-styles{
 		height: 238px !important;
 		position: relative;
 		bottom: 58px;
-		width: 840px !important;
+		width: 744px !important;
 	}
-}*/
+}
+
+@media(max-width: 640px){
+	.level3-style{
+		position: relative;
+		bottom: 103px;
+		float: left;
+		display: table-column;
+		margin-right: 10px;
+	}
+}
+@media(max-width: 640px){
+	.malecandidate{
+		position: relative;
+		top: 224px;
+		float: left;
+		display: contents;
+	}
+}
 
 .circle-style{
     position: relative;
