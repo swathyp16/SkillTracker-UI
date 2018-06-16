@@ -21,3 +21,8 @@ let spy = spyOn(router, 'navigate');
 
       service.checkLoginState(calledUrl);
       expect(spy).toHaveBeenCalledWith(['/login']);
+
+ng e2e
+
+var imagePath = 'http://placehold.it/120x120&text=image1';
+element(by.id('fileUpload')).sendKeys(imagePath);

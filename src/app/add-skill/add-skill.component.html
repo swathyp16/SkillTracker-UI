@@ -13,16 +13,16 @@
 			<span class="fa fa-plus"></span>
 		</button>
       </div> -->
-	  <div class="form-group">
+	  <div class="form-group" id="add-skill-div">
         <label class="col-sm-4 col-md-4 col-lg-2 col-xs-2 control-label">Add Skill </label>
         <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 div-style">
-          <input type="text" class="form-control" name="associateId" [(ngModel)]="associateId" required>
+          <input type="text" id="skill-name" class="form-control" name="skillName" [(ngModel)]="skillName" required>
 		  <button type="submit" class="col-lg-1 btn btn-default add-btn">
 			<span class="fa fa-plus"></span>
 		  </button>
         </div>
       </div>
-      <table class="col-xs-offset-2 col-sm-offset-4 col-md-offset-4 col-lg-offset-2">
+      <table class="add-skill-table col-xs-offset-2 col-sm-offset-4 col-md-offset-4 col-lg-offset-2">
         <tr *ngFor = "let skill of addedSkills; let i = index">
           <td class="td-style">
             <div>
@@ -30,7 +30,7 @@
             </div>
           </td>
           <td class="td-style">
-            <input class="btn btn-info"  type="button" [attr.id]="'editBtn' + i" value="Edit" (click)="editSkill(skill.skillId,skill.skillName,$event,i)">
+            <input class="btn btn-info edit-btn"  type="button" [attr.id]="'editBtn' + i" value="Edit" (click)="editSkill(skill.skillId,skill.skillName,$event,i)">
         </td>
         <td class="td-style">
             <button class="btn btn-primary btn-md" type="button" value="Delete" (click)="deleteSkill(skill,i)">

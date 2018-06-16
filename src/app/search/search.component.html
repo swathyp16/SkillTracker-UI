@@ -147,7 +147,7 @@
               <th><input type="text" class="form-control" placeholder="Search By Mobile Number" name="searchByMobile" [(ngModel)]="searchByMobile"/></th>
               <th><input type="text" class="form-control" placeholder="Search By Strong Skills" name="searchByStrongskills" [(ngModel)]="searchByStrongskills"/></th>
               <th>
-                <button type="button" value="Add New Associate" class="btn btn-lg btn-success" [routerLink]="['/addAssociate']">
+                <button type="button" id="add-associate-btn" value="Add New Associate" class="btn btn-lg btn-success" [routerLink]="['/addAssociate']">
                 <span class="fa fa-user-plus"></span> Add New Associate 
               </button>
               </th>
@@ -177,13 +177,13 @@
               </span>
             </td>
             <td class="td-style">
-              <button type="button" value="Edit" class="btn btn-primary btn-md" [routerLink]="['/editAssociate']" (click)="onEdit(data,$event)">
+              <button type="button" id="edit-associate" value="Edit" class="btn btn-primary btn-md" [routerLink]="['/editAssociate']" (click)="onEdit(data,$event)">
                 <span class="glyphicon glyphicon-edit"></span> Edit
               </button>
               <button type="button" value="Delete" class="btn btn-primary btn-md btn-style" (click)="onDeleteBtnClick(data,i)">
                   <span class="fa fa-trash"></span> Delete 
               </button>
-              <button type="button" value="View" class="btn btn-primary btn-md btn-style" [routerLink]="['/editAssociate']" (click)="onEdit(data,$event)">
+              <button type="button" id="view-associate" value="View" class="btn btn-primary btn-md btn-style" [routerLink]="['/editAssociate']" (click)="onEdit(data,$event)">
                 <span class="glyphicon glyphicon-eye-open"></span> View 
               </button>
             </td>
