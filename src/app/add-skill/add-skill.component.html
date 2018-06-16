@@ -4,6 +4,14 @@
       <h1 class="header">
           Add Skill
       </h1>
+      <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade in">
+          <strong>Success! </strong>{{successMessage}}
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade in">
+          <strong>Server Error! </strong>{{errorMessage}}
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        </div>
 	  <div class="form-div col-lg-8 col-lg-offset-2">
       <form #addSkillForm="ngForm" class="form-horizontal form-container" (ngSubmit)="addSkills(addSkillForm)">
       <!--<div class="form-group col-lg-6 div-style">

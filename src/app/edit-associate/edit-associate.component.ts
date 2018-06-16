@@ -117,7 +117,7 @@ export class EditAssociateComponent implements OnInit {
     this._addAssociateService.deleteAssociate(associateId).subscribe(data => {
       this.deleteAssociateResponse = data;
       if(this.deleteAssociateResponse.status == 200){
-        this.successMessage = "Successfully added the Associate";
+        this.successMessage = "Successfully deleted the Associate";
       }
     }, error =>{
         this.errorMessage = "Oops !! Something went wrong";

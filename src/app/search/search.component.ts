@@ -281,8 +281,8 @@ chartColor = [
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
   }
 
-  onDeleteBtnClick(associateData,index){
-    this._addAssociateService.deleteAssociate(associateData.associateId)
+  onDeleteBtnClick(data,index){
+    this._addAssociateService.deleteAssociate(data.associateId)
     .subscribe(data =>{
       this.deleteAssociateStatus = data;
       if(this.deleteAssociateStatus.status == 200){

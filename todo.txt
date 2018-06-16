@@ -1,15 +1,21 @@
 1. Remove todo and query from GIT
-2. DELETE update cascade in table
+2. DELETE update cascade in table - done
 3. search by strong skills - done
 4. Show/preview selected pic on upload - done
-5. Graph
+5. Graph - done
 6. Populate other skills ,level , status & gender data on edit
 7. Delete associate from search page
 8. Remove trailing comma from search by strong skills - done 
 9. Pagination
 10. Form validations
 11. Display success & error message
-12. Add skill page & Home page styling
+12. Add skill page & Home page styling, edit & view assoictae responsive design
+13. Phone number & email validation
+14. Should accept Phone number 10digits
+15.Save other skills in db
+16. Jenkins
+17.Pending karma testcases
+18.delete associate from search page reflects only upon refresh
 
 https://github.com/dhanaraj-s
 https://codecraft.tv/courses/angular/unit-testing/model-driven-forms/
