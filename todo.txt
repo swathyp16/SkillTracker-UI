@@ -7,13 +7,13 @@
 7. Delete associate from search page
 8. Remove trailing comma from search by strong skills - done
 10. Form validations
-11. Display success & error message
+11. Display success & error message - done
 12. Add skill page & Home page styling, edit & view assoictae responsive design
 13. Phone number & email validation
 14. Should accept Phone number 10digits
 15.Save other skills in db
 16. Jenkins
-17.Pending karma testcases
+17.Pending karma testcases 
 18.delete associate from search page reflects only upon refresh
 19. correct the % calculation for rated
 

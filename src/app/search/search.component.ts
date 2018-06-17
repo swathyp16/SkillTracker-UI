@@ -129,15 +129,13 @@ export class SearchComponent implements OnInit {
       for(var i = 0; i < this.associateData[j].associateSkills.length; i++){
        this.skillData.push(this.associateData[j].associateSkills[i].skillName);
       }                   
-    }    
-    console.log("this.skillData : " + JSON.stringify(this.skillData));
+    }   
     this.calculateSkillsPercentage();
   }
 
   calculateSkillsPercentage(){
        var index = 0;
        var copy = this.skillData.slice(0);
-       debugger
        for (var i = 0; i < this.skillData.length; i++) {      
          var myCount = 0;	
          for (var w = 0; w < copy.length; w++) {
@@ -160,7 +158,6 @@ export class SearchComponent implements OnInit {
            index++;
          }
        }
-       console.log("compressed[0] : "+ JSON.stringify(this.compressed[0]));
       
       for(var j = 0; j < this.skillsData.length; j++){
         var flag = 0;
@@ -176,8 +173,7 @@ export class SearchComponent implements OnInit {
         if(flag == 0){
           this.skillsData.splice(j,1);
         } 
-      }       
-      console.log("this.skillsData : "+ JSON.stringify(this.skillsData));
+      }  
       this.chart.chart.update();
 }
 
@@ -275,9 +271,7 @@ chartColor = [
     this.l1CandidatePercentage = Math.round((this.l1Candidates/this.associateData.length)*100);
     this.l2CandidatePercentage = Math.round((this.l2Candidates/this.associateData.length)*100);
     this.l3CandidatePercentage = Math.round((this.l3Candidates/this.associateData.length)*100);
-    console.log("this.maleCandidatesReg : "+ this.maleCandidatesReg);
     this.maleCandidatesPercentage = Math.round((this.maleCandidatesReg/this.candidatesRegistered)*100);
-    console.log("this.maleCandidatesPercentage : "+ this.maleCandidatesPercentage);
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
   }
 
@@ -295,7 +289,6 @@ chartColor = [
   }
 
   onEdit(associateData,event){
-    console.log("INSIDE EDIT FUNCTION : "+ JSON.stringify(associateData));
     this._sharedService.saveAssociateData(associateData);
     var target = event.target || event.srcElement || event.currentTarget;
     var idAttr = target.value;

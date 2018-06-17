@@ -24,8 +24,7 @@ export class AddAssociateService {
     var params = JSON.stringify(associateDetails);
     let formData: FormData = new FormData();
     formData.append('file',picture);
-    formData.append('data',params);    
-    console.log("params : " + formData);
+    formData.append('data',params);  
     return this._http.post("http://localhost:8090/addAssociate",formData)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
@@ -33,7 +32,6 @@ export class AddAssociateService {
 
   
   deleteAssociate(associateId): Observable<any>{
-    debugger
     return this._http.get("http://localhost:8090/deleteAssociate/"+associateId)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
@@ -41,7 +39,6 @@ export class AddAssociateService {
 
   addSkillFromEditPage(skillData): Observable<any>{
     var params = JSON.stringify(skillData);
-    console.log("params : " + params);
     return this._http.post("http://localhost:8090/addSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);

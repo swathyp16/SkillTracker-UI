@@ -24,7 +24,6 @@ export class AddSkillService {
   
   addSkill(addSkillForm : NgForm): Observable<any>{
     var params = JSON.stringify(addSkillForm.value);
-    console.log("params : " + params);
     return this._http.post("http://localhost:8090/addSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
@@ -45,7 +44,6 @@ export class AddSkillService {
 
   editSkill(editSkillData):Observable<any>{
     var params = JSON.stringify(editSkillData);
-    console.log("params : "+ params);
     return this._http.post("http://localhost:8090/addSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);

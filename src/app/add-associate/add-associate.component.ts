@@ -39,7 +39,6 @@ export class AddAssociateComponent implements OnInit {
   }
 
   addAssociate(addAssociateForm : NgForm) : void{
-    console.log("addAssociateForm : "+ JSON.stringify(addAssociateForm.value));
     this.associateDetails.name = addAssociateForm.value.associateName;
     this.associateDetails.associateId = addAssociateForm.value.associateId;
     this.associateDetails.email = addAssociateForm.value.email;
@@ -56,8 +55,7 @@ export class AddAssociateComponent implements OnInit {
     this.associateDetails.weakness = addAssociateForm.value.weakness;
     if(this.selectedFiles){
       this.picture = this.selectedFiles.item(0);
-    }    
-    console.log("associateDetails : " + JSON.stringify(this.associateDetails));
+    }  
     this._addAssociateService.addAssociate(this.associateDetails,this.picture)
     .subscribe(data => {
       this.addAssociateResponse = data;
@@ -70,9 +68,7 @@ export class AddAssociateComponent implements OnInit {
   }
 
   selectedSkillRating(skillRating,index){
-    console.log("skillRating: "+ skillRating);
     this.addedSkills[index].skillRating = skillRating;
-    console.log("addedSkills: "+ JSON.stringify(this.addedSkills));
   }
 
   selectFile(event){
@@ -89,7 +85,6 @@ export class AddAssociateComponent implements OnInit {
   }
 
   isFieldValid(field: string) {
-    //return !this.form.get(field).valid && this.form.get(field).touched;
     if(field.length != 10){
       return false;
     }else{

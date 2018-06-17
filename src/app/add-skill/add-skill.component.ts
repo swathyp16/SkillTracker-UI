@@ -25,7 +25,6 @@ export class AddSkillComponent implements OnInit {
     this._addSkillService.viewAllSkills()
     .subscribe(data => {
       this.addedSkills = data; 
-      console.log("addedSkills : "+ JSON.stringify(this.addedSkills));
     });
   }
 
@@ -57,7 +56,6 @@ export class AddSkillComponent implements OnInit {
   }
 
   editSkill(skillId,skillName,event,index){
-    console.log("skillId : "+ skillId + "skillName : " +skillName);
     var target = event.target || event.srcElement || event.currentTarget;
     var idValue = target.value;
     if(idValue == "Edit"){

@@ -127,7 +127,6 @@ export class EditAssociateComponent implements OnInit {
   onAddSkillClick(addSkill){
     this.skillToAdd = new IAddSkills();
     this.skillToAdd.skillName = addSkill;
-    console.log("addSkill: " + JSON.stringify(this.skillToAdd));
     this._addAssociateService.addSkillFromEditPage(this.skillToAdd).subscribe(data => {
       this.addSkillResponse = data;
       if(this.addSkillResponse.status == 200){
