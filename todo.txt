@@ -1,12 +1,8 @@
 1. Remove todo and query from GIT
-2. Populate other skills on edit
-3. Delete associate from search page
 4. Form validations(Phone number & email validation)
-5. Should accept Phone number 10digits
-6. Save other skills in db
 7.Jenkins
 8. Pending karma testcases 
-9.delete associate from search page 7 add skill from edit page reflects only upon refresh
+9.delete associate from search page & add skill from edit page reflects only upon refresh
 10.correct the % calculation for rated
 
 https://github.com/dhanaraj-s

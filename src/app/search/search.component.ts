@@ -33,6 +33,10 @@ export class SearchComponent implements OnInit {
   femaleCandidatesPercentage:number=0;
   maleCandidatesPercentage:number=0;
   skillData:Array<any>;
+  femaleRatedCandidates: number = 0;
+  maleRatedCandidates: number = 0;
+  ratedCandidates: number = 0;
+  freshersCandidates: number = 0;
   a : ISkillCount[] = [];
   
   chartData:Array<any> = [
@@ -228,6 +232,10 @@ chartColor = [
   };
 
   calculateCandidateDetails(){
+    var female = 0;
+    var male = 0;
+    var ratedMale = 0;
+    var ratedFemale = 0;
     for(var i=0; i<this.associateData.length;i++){
       if(this.associateData[i].level1 === true){
         this.l1Candidates++;
@@ -239,15 +247,29 @@ chartColor = [
 
       if(this.associateData[i].gender == "male"){
           this.maleCandidatesReg++;
+          if (this.associateData[i].statusRed === true) {
+            this.ratedCandidates++;
+            ratedMale++;
+          }
       } else if(this.associateData[i].gender == "female"){
         this.femaleCandidatesReg++;
+        if (this.associateData[i].statusRed === true) {
+          this.ratedCandidates++;
+          ratedFemale++;
+        }
       }
     }
-    this.l1CandidatePercentage = Math.round((this.l1Candidates/this.associateData.length)*100);
-    this.l2CandidatePercentage = Math.round((this.l2Candidates/this.associateData.length)*100);
-    this.l3CandidatePercentage = Math.round((this.l3Candidates/this.associateData.length)*100);
+    this.l1CandidatePercentage = Math.round((this.l1Candidates/this.candidatesRegistered)*100);
+    this.l2CandidatePercentage = Math.round((this.l2Candidates/this.candidatesRegistered)*100);
+    this.l3CandidatePercentage = Math.round((this.l3Candidates/this.candidatesRegistered)*100);
     this.maleCandidatesPercentage = Math.round((this.maleCandidatesReg/this.candidatesRegistered)*100);
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
+    this.femaleRatedCandidates = (ratedFemale/this.ratedCandidates)*100;
+    this.femaleRatedCandidates = Math.round(this.femaleRatedCandidates * 100) / 100;
+    this.maleRatedCandidates = (ratedMale/this.ratedCandidates)*100;
+    this.maleRatedCandidates = Math.round(this.maleRatedCandidates * 100) / 100;
+    this.freshersCandidates = (this.l1Candidates/this.candidatesRegistered)*100;
+    this.freshersCandidates = Math.round(this.freshersCandidates * 100) / 100;
   }
 
   onDeleteBtnClick(data,index){
