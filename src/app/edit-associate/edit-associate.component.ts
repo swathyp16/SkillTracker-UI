@@ -118,6 +118,7 @@ export class EditAssociateComponent implements OnInit {
       this.deleteAssociateResponse = data;
       if(this.deleteAssociateResponse.status == 200){
         this.successMessage = "Successfully deleted the Associate";
+        //this.router.navigate(['/searchAssociate']);
       }
     }, error =>{
         this.errorMessage = "Oops !! Something went wrong";
@@ -220,7 +221,7 @@ export class EditAssociateComponent implements OnInit {
     .subscribe(data => {
       this.addAssociateResponse = data;
       if(this.addAssociateResponse.status == 200){
-        this.successMessage = "Successfully added the Associate";
+        this.successMessage = "Successfully updated the Associate details";
       }
     }, error =>{
         this.errorMessage = "Oops !! Something went wrong";
