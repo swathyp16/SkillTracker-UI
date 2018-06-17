@@ -1,8 +1,8 @@
 import { AppPage } from './app.po';
 import { browser, element, by, WebDriver }from 'protractor';
-
 describe('angular js home page', () => {
   browser.get('/');
+  var path = require('path');
   // let page: AppPage;
 
   // beforeEach(() => {
@@ -64,6 +64,34 @@ describe('angular js home page', () => {
     // expect(element(by.css('level1')).isPresent()).toBe(true);
     // expect(element(by.css('level2')).isPresent()).toBe(true);
     // expect(element(by.css('level3')).isPresent()).toBe(true);
+     // element(by.id('upload')).click();
+   // });
+  });
+
+  it('should add associate', () => {
+    element(by.id('associate-name')).sendKeys("Tom");
+    element(by.id('associate-id')).sendKeys(45896);
+    element(by.id('email')).sendKeys("tom.thomas@gmail.com");
+    element(by.id('mobile')).sendKeys(9874563120);
+    element(by.id('remarks')).sendKeys("Good");
+   // element(by.id('skills')).sendKeys(10);
+    element(by.id('weakness')).sendKeys("UI");
+    element(by.id('strength')).sendKeys("Backend");
+    var fileToUpload = '../../src/app/images/test-icon.png';
+    var absolutePath = path.resolve(__dirname, fileToUpload);  
+    element(by.css('input[type="file"]')).sendKeys(absolutePath);
+    //element(by.id('div.skills')).sendKeys(10);
+    var slider = element(by.id('skills'));// ptor.findElement(protractor.By.xpath(".//*[@id='leftcolumn']/div[2]/div/a[1]"));
+    //ptor.actions().dragAndDrop(slider,{x:dx,y:0}).perform();
+    browser.actions().dragAndDrop(slider, {
+      x: 15,
+      y: 0
+  }).perform();
+    browser.sleep(3000);
+   // element(by.id('radio-grp')).all(by.tagName('md-radio-button')).get(0).click();   
+  // element(by.css('.radio-grp input[type="radio"]')).click();  
+   element(by.css('.radio-grp')).all(by.tagName('input[type="radio"]')).get(0).click();
+   browser.sleep(10000);
   });
 
   it('should display skill graph on search page', () => {

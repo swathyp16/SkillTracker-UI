@@ -88,6 +88,15 @@ export class AddAssociateComponent implements OnInit {
     this.router.navigate(['/searchAssociate']);
   }
 
+  isFieldValid(field: string) {
+    //return !this.form.get(field).valid && this.form.get(field).touched;
+    if(field.length != 10){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
   statusGreenOnClick(){
     this.redStatusClicked = true;
     this.blueStatusClicked = true;
