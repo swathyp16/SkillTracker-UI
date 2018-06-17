@@ -3,19 +3,13 @@ import { browser, element, by, WebDriver }from 'protractor';
 describe('angular js home page', () => {
   browser.get('/');
   var path = require('path');
-  // let page: AppPage;
-
-  // beforeEach(() => {
-  //   page = new AppPage();
-  // });
-
-  //it('should display welcome message', () => {
-    // page.navigateTo();
-    // expect(page.getParagraphText()).toEqual('Welcome to app!');
- // });
-
+  
   it('should display the home page', () => {
     expect(element(by.id('home-page')).isPresent()).toBe(true);
+  });
+  
+  it('should display welcome message', () => {
+    expect(element(by.css('span.heading')).getText()).toEqual("WELCOME TO SKILL TRACKER");
   });
 
   it('should click add skill button on the nav bar', () => {
@@ -58,14 +52,6 @@ describe('angular js home page', () => {
     expect(element(by.id('weakness')).isPresent()).toBe(true);
     expect(element(by.id('strength')).isPresent()).toBe(true);
     expect(element(by.id('other')).isPresent()).toBe(true);
-    // expect(element(by.css('green')).isPresent()).toBe(true);
-    // expect(element(by.css('red')).isPresent()).toBe(true);
-    // expect(element(by.css('blue')).isPresent()).toBe(true);
-    // expect(element(by.css('level1')).isPresent()).toBe(true);
-    // expect(element(by.css('level2')).isPresent()).toBe(true);
-    // expect(element(by.css('level3')).isPresent()).toBe(true);
-     // element(by.id('upload')).click();
-   // });
   });
 
   it('should add associate', () => {
@@ -73,31 +59,32 @@ describe('angular js home page', () => {
     element(by.id('associate-id')).sendKeys(45896);
     element(by.id('email')).sendKeys("tom.thomas@gmail.com");
     element(by.id('mobile')).sendKeys(9874563120);
+    element(by.css('.radio-grp')).all(by.tagName('input[type="radio"]')).get(0).click();
+    element(by.css('.status-div')).all(by.tagName('button[type=button]')).get(0).click();
+    element(by.css('.input-level')).all(by.tagName('input[type=button]')).get(0).click();
     element(by.id('remarks')).sendKeys("Good");
-   // element(by.id('skills')).sendKeys(10);
     element(by.id('weakness')).sendKeys("UI");
     element(by.id('strength')).sendKeys("Backend");
     var fileToUpload = '../../src/app/images/test-icon.png';
     var absolutePath = path.resolve(__dirname, fileToUpload);  
     element(by.css('input[type="file"]')).sendKeys(absolutePath);
-    //element(by.id('div.skills')).sendKeys(10);
-    var slider = element(by.id('skills'));// ptor.findElement(protractor.By.xpath(".//*[@id='leftcolumn']/div[2]/div/a[1]"));
-    //ptor.actions().dragAndDrop(slider,{x:dx,y:0}).perform();
+    var slider = element(by.id('skills'));
     browser.actions().dragAndDrop(slider, {
       x: 15,
       y: 0
-  }).perform();
-    browser.sleep(3000);
-   // element(by.id('radio-grp')).all(by.tagName('md-radio-button')).get(0).click();   
-  // element(by.css('.radio-grp input[type="radio"]')).click();  
-   element(by.css('.radio-grp')).all(by.tagName('input[type="radio"]')).get(0).click();
-   browser.sleep(10000);
+    }).perform();
+    browser.sleep(3000); 
+    element(by.buttonText("Save")).click();
   });
 
   it('should display skill graph on search page', () => {
     element(by.id('search-navbar')).click();
     browser.sleep(3000);
     expect(element(by.css('div.skill-graph')).isPresent()).toBe(true);
+  });
+
+  it('should view all associates', () => {    
+    expect(element.all(by.tagName('table tbody tr')).count()).toBeGreaterThan(0);
   });
 
   it('should display edit associate page on edit button click', () => {
