@@ -346,27 +346,7 @@
 <a name='L298'></a><a href='#L298'>298</a>
 <a name='L299'></a><a href='#L299'>299</a>
 <a name='L300'></a><a href='#L300'>300</a>
-<a name='L301'></a><a href='#L301'>301</a>
-<a name='L302'></a><a href='#L302'>302</a>
-<a name='L303'></a><a href='#L303'>303</a>
-<a name='L304'></a><a href='#L304'>304</a>
-<a name='L305'></a><a href='#L305'>305</a>
-<a name='L306'></a><a href='#L306'>306</a>
-<a name='L307'></a><a href='#L307'>307</a>
-<a name='L308'></a><a href='#L308'>308</a>
-<a name='L309'></a><a href='#L309'>309</a>
-<a name='L310'></a><a href='#L310'>310</a>
-<a name='L311'></a><a href='#L311'>311</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L301'></a><a href='#L301'>301</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -701,6 +681,10 @@ export class SearchComponent implements OnInit {
   femaleCandidatesPercentage:number=0;
   maleCandidatesPercentage:number=0;
   skillData:Array&lt;any&gt;;
+  femaleRatedCandidates: number = 0;
+  maleRatedCandidates: number = 0;
+  ratedCandidates: number = 0;
+  freshersCandidates: number = 0;
   a : ISkillCount[] = [];
   
   chartData:Array&lt;any&gt; = [
@@ -797,15 +781,13 @@ export class SearchComponent implements OnInit {
       for(var i = 0; i &lt; this.associateData[j].associateSkills.length; i++){
        this.skillData.push(this.associateData[j].associateSkills[i].skillName);
       }                   
-    }    
-    console.log("this.skillData : " + JSON.stringify(this.skillData));
+    }   
     this.calculateSkillsPercentage();
   }
 &nbsp;
   calculateSkillsPercentage(){
        var index = 0;
        var copy = this.skillData.slice(0);
-       debugger
        for (var i = 0; i &lt; this.skillData.length; i++) {      
          var myCount = 0;	
          for (var w = 0; w &lt; copy.length; w++) {
@@ -828,7 +810,6 @@ export class SearchComponent implements OnInit {
            index++;
          }
        }
-       console.log("compressed[0] : "+ JSON.stringify(this.compressed[0]));
       
       for(var j = 0; j &lt; this.skillsData.length; j++){
         var flag = 0;
@@ -844,8 +825,7 @@ export class SearchComponent implements OnInit {
         if(flag == 0){
           this.skillsData.splice(j,1);
         } 
-      }       
-      console.log("this.skillsData : "+ JSON.stringify(this.skillsData));
+      }  
       this.chart.chart.update();
 }
 &nbsp;
@@ -895,36 +875,15 @@ chartColor = [
             stacked: true
         }]
     },
-    // legend:{
-    //     display:false
-    // },
-    
-    /*animation: {
-        onComplete: function () {
-            var chartInstance = this.chart;
-            var ctx = chartInstance.ctx;
-            ctx.textAlign = "left";
-            ctx.font = "9px Open Sans";
-            ctx.fillStyle = "#fff";
-&nbsp;
-            Chart.helpers.each(this.skillsData.forEach(function (dataset, i) {
-                var meta = chartInstance.controller.getDatasetMeta(i);
-                Chart.helpers.each(meta.data.forEach(function (bar, index) {
-                    let data = this.skillsData.data[index];
-                    if(i==0){
-                        ctx.fillText(data, 50, bar._model.y+4);
-                    } else {
-                        ctx.fillText(data, bar._model.x-25, bar._model.y+4);
-                    }
-                }),this)
-            }),this);
-        }
-    },*/
     pointLabelFontFamily : "Quadon Extra Bold",
     scaleFontFamily : "Quadon Extra Bold",
   };
 &nbsp;
   calculateCandidateDetails(){
+    var female = 0;
+    var male = 0;
+    var ratedMale = 0;
+    var ratedFemale = 0;
     for(var i=0; i&lt;this.associateData.length;i++){
       if(this.associateData[i].level1 === true){
         this.l1Candidates++;
@@ -936,21 +895,33 @@ chartColor = [
 &nbsp;
       if(this.associateData[i].gender == "male"){
           this.maleCandidatesReg++;
+          if (this.associateData[i].statusRed === true) {
+            this.ratedCandidates++;
+            ratedMale++;
+          }
       } else if(this.associateData[i].gender == "female"){
         this.femaleCandidatesReg++;
+        if (this.associateData[i].statusRed === true) {
+          this.ratedCandidates++;
+          ratedFemale++;
+        }
       }
     }
-    this.l1CandidatePercentage = Math.round((this.l1Candidates/this.associateData.length)*100);
-    this.l2CandidatePercentage = Math.round((this.l2Candidates/this.associateData.length)*100);
-    this.l3CandidatePercentage = Math.round((this.l3Candidates/this.associateData.length)*100);
-    console.log("this.maleCandidatesReg : "+ this.maleCandidatesReg);
+    this.l1CandidatePercentage = Math.round((this.l1Candidates/this.candidatesRegistered)*100);
+    this.l2CandidatePercentage = Math.round((this.l2Candidates/this.candidatesRegistered)*100);
+    this.l3CandidatePercentage = Math.round((this.l3Candidates/this.candidatesRegistered)*100);
     this.maleCandidatesPercentage = Math.round((this.maleCandidatesReg/this.candidatesRegistered)*100);
-    console.log("this.maleCandidatesPercentage : "+ this.maleCandidatesPercentage);
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
+    this.femaleRatedCandidates = (ratedFemale/this.ratedCandidates)*100;
+    this.femaleRatedCandidates = Math.round(this.femaleRatedCandidates * 100) / 100;
+    this.maleRatedCandidates = (ratedMale/this.ratedCandidates)*100;
+    this.maleRatedCandidates = Math.round(this.maleRatedCandidates * 100) / 100;
+    this.freshersCandidates = (this.l1Candidates/this.candidatesRegistered)*100;
+    this.freshersCandidates = Math.round(this.freshersCandidates * 100) / 100;
   }
 &nbsp;
-  onDeleteBtnClick(associateData,index){
-    this._addAssociateService.deleteAssociate(associateData.associateId)
+  onDeleteBtnClick(data,index){
+    this._addAssociateService.deleteAssociate(data.associateId)
     .subscribe(data =&gt;{
       this.deleteAssociateStatus = data;
       if(this.deleteAssociateStatus.status == 200){
@@ -963,7 +934,6 @@ chartColor = [
   }
 &nbsp;
   onEdit(associateData,event){
-    console.log("INSIDE EDIT FUNCTION : "+ JSON.stringify(associateData));
     this._sharedService.saveAssociateData(associateData);
     var target = event.target || event.srcElement || event.currentTarget;
     var idAttr = target.value;
@@ -982,7 +952,7 @@ chartColor = [
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jun 15 2018 18:23:36 GMT+0530 (India Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 18 2018 01:36:15 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

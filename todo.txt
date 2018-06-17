@@ -3,7 +3,6 @@
 7.Jenkins
 8. Pending karma testcases 
 9.delete associate from search page & add skill from edit page reflects only upon refresh
-10.correct the % calculation for rated
 
 https://github.com/dhanaraj-s
 https://codecraft.tv/courses/angular/unit-testing/model-driven-forms/
