@@ -102,7 +102,7 @@ describe('AddSkillComponent', () => {
     component.ngOnInit();    
     spyAddSkillService.editSkill.and.returnValue(Observable.of('Success'));
     component.editSkill(skillId,skillName,{ target: { value: 'Save',form:[{id:'skill-0'},{id:'skill-1'}] } },index);
-    expect(spyAddSkillService.editSkill.calls.count()).toBe(0);
+    expect(spyAddSkillService.editSkill.calls.count()).toBe(1);
   });
 
   //it('should save edited associate details', () => {

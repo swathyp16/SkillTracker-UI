@@ -20,8 +20,6 @@ describe('AddAssociateComponent', () => {
   let fixture: ComponentFixture<AddAssociateComponent>;
   let spyAssociateService: jasmine.SpyObj<AddAssociateService>;
   let spySkillService: jasmine.SpyObj<AddSkillService>;
-  // let component1: SearchComponent;
-  // let fixture1: ComponentFixture<SearchComponent>;
   let mockRouter = {
     navigate: jasmine.createSpy('navigate')
   };
@@ -104,6 +102,7 @@ describe('AddAssociateComponent', () => {
    // component = fixture.componentInstance;
    // fixture.detectChanges();
    component = TestBed.get(AddAssociateComponent);
+   //fixture = TestBed.createComponent(AddAssociateComponent);
 	  spyAssociateService = TestBed.get(AddAssociateService);
     spySkillService = TestBed.get(AddSkillService);
     spySkillService.viewAllSkills.and.returnValue(Observable.of(skillsList));
@@ -131,66 +130,52 @@ describe('AddAssociateComponent', () => {
     expect(spyAssociateService.addAssociate.calls.count()).toBeGreaterThan(0);
   });
 
-  /*it('should set value on status green button click', async(() => {
-    let button = fixture.debugElement.query(By.css('.green'));
-    button.triggerEventHandler('click', null);
-    fixture.detectChanges();
+  it('should set value on status green button click', async(() => {
+    component.statusGreenOnClick();
     expect(component.redStatusClicked).toBeTruthy();
     expect(component.blueStatusClicked).toBeTruthy();
     expect(component.greenStatusClicked).toBeUndefined();
   }));
 
   it('should set value on status blue button click', async(() => {
-    let button = fixture.debugElement.query(By.css('.blue'));
-    button.triggerEventHandler('click', null);
-    fixture.detectChanges();
+    component.statusBlueOnClick();
     expect(component.redStatusClicked).toBeTruthy();
     expect(component.greenStatusClicked).toBeTruthy();
     expect(component.blueStatusClicked).toBeUndefined();
   }));
 
   it('should set value on status red button click', async(() => {
-    let button = fixture.debugElement.query(By.css('.red'));
-    button.triggerEventHandler('click', null);
-    fixture.detectChanges();
+    component.statusRedOnClick();
     expect(component.blueStatusClicked).toBeTruthy();
     expect(component.greenStatusClicked).toBeTruthy();
     expect(component.redStatusClicked).toBeUndefined();
-  }));*/
+  }));
 
-  // it('should set value on level 1 button click', async(() => {
-  //   let button = fixture.debugElement.query(By.css('.level1'));
-  //   button.triggerEventHandler('click', null);
-  //   fixture.detectChanges();
-  //   expect(component.L2Clicked).toBeTruthy();
-  //   expect(component.L3Clicked).toBeTruthy();
-  //   expect(component.L1Clicked).toBeUndefined();
-  // }));
+  it('should set value on level 1 button click', async(() => {
+    component.level1OnClick();
+    expect(component.L2Clicked).toBeTruthy();
+    expect(component.L3Clicked).toBeTruthy();
+    expect(component.L1Clicked).toBeUndefined();
+  }));
 
-  // it('should set value on level 2 button click', async(() => {
-  //   let button = fixture.debugElement.query(By.css('.level2'));
-  //   button.triggerEventHandler('click', null);
-  //   fixture.detectChanges();
-  //   expect(component.L1Clicked).toBeTruthy();
-  //   expect(component.L3Clicked).toBeTruthy();
-  //   expect(component.L2Clicked).toBeUndefined();
-  // }));
+  it('should set value on level 2 button click', async(() => {
+    component.level2OnClick();
+    expect(component.L1Clicked).toBeTruthy();
+    expect(component.L3Clicked).toBeTruthy();
+    expect(component.L2Clicked).toBeUndefined();
+  }));
 
-  // it('should set value on level 3 button click', async(() => {
-  //   let button = fixture.debugElement.query(By.css('.level3'));
-  //   button.triggerEventHandler('click', null);
-  //   fixture.detectChanges();
-  //   expect(component.L1Clicked).toBeTruthy();
-  //   expect(component.L2Clicked).toBeTruthy();
-  //   expect(component.L3Clicked).toBeUndefined();
-  // }));
+  it('should set value on level 3 button click', async(() => {
+    component.level3OnClick();
+    expect(component.L1Clicked).toBeTruthy();
+    expect(component.L2Clicked).toBeTruthy();
+    expect(component.L3Clicked).toBeUndefined();
+  }));
 
-  /*it('should route to search associate on cancel button click', async(() => {
-    let button = fixture.debugElement.query(By.css('.cancel'));
-    button.triggerEventHandler('click', null);
-    fixture.detectChanges();
+  it('should route to search associate on cancel button click', async(() => {
+    component.onCancelBtnClick();
     expect(mockRouter.navigate).toHaveBeenCalledWith (['/searchAssociate']);
    
-  }));*/
+  }));
 
 });
