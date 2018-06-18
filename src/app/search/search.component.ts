@@ -264,10 +264,14 @@ chartColor = [
     this.l3CandidatePercentage = Math.round((this.l3Candidates/this.candidatesRegistered)*100);
     this.maleCandidatesPercentage = Math.round((this.maleCandidatesReg/this.candidatesRegistered)*100);
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
-    this.femaleRatedCandidates = (ratedFemale/this.ratedCandidates)*100;
-    this.femaleRatedCandidates = Math.round(this.femaleRatedCandidates * 100) / 100;
+    if(ratedFemale > 0){
+      this.femaleRatedCandidates = (ratedFemale/this.ratedCandidates)*100;
+      this.femaleRatedCandidates = Math.round(this.femaleRatedCandidates * 100) / 100;
+    } 
+    if(ratedMale > 0){
     this.maleRatedCandidates = (ratedMale/this.ratedCandidates)*100;
     this.maleRatedCandidates = Math.round(this.maleRatedCandidates * 100) / 100;
+    }
     this.freshersCandidates = (this.l1Candidates/this.candidatesRegistered)*100;
     this.freshersCandidates = Math.round(this.freshersCandidates * 100) / 100;
   }
@@ -279,6 +283,7 @@ chartColor = [
       if(this.deleteAssociateStatus.status == 200){
         this.successMessage = "Successfully deleted the Associate";
         this.associateData.splice(index,1);
+        this.associateData = Object.assign([],this.associateData);
       }
     },error =>{
       this.errorMessage = "Oops !! Something went wrong";
