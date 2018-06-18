@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">73.68% </span>
+        <span class="strong">85.96% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>42/57</span>
+        <span class='fraction'>49/57</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">57.89% </span>
+        <span class="strong">73.68% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>11/19</span>
+        <span class='fraction'>14/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">46.15% </span>
+        <span class="strong">76.92% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/13</span>
+        <span class='fraction'>10/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">70.59% </span>
+        <span class="strong">84.31% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>36/51</span>
+        <span class='fraction'>43/51</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -171,32 +171,32 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -238,8 +238,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -275,16 +275,16 @@ export class AddSkillComponent implements OnInit {
 &nbsp;
   ngOnInit() {
     this._addSkillService.viewAllSkills()
-    .subscribe(<span class="fstat-no" title="function not covered" >data =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      this.addedSkills = data; </span>
+    .subscribe(data =&gt; {
+      this.addedSkills = data; 
     });
   }
 &nbsp;
   addSkills(addSkillForm : NgForm):void{
     this._addSkillService.addSkill(addSkillForm)
-    .subscribe(<span class="fstat-no" title="function not covered" >data =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        this.addSkillResponse = data;</span>
-<span class="cstat-no" title="statement not covered" >        if(this.addSkillResponse.status == 200){</span>
+    .subscribe(data =&gt;{
+        this.addSkillResponse = data;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(this.addSkillResponse.status == 200){
 <span class="cstat-no" title="statement not covered" >          this.successMessage = "Successfully added the Skill";</span>
 <span class="cstat-no" title="statement not covered" >          this.addedSkills.splice( 1, 0, addSkillForm.value);</span>
         }
@@ -296,9 +296,9 @@ export class AddSkillComponent implements OnInit {
 &nbsp;
   deleteSkill(skill,index){
     this._addSkillService.deleteSkill(skill)
-    .subscribe(<span class="fstat-no" title="function not covered" >data =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >      this.deleteSkillStatus = data;</span>
-<span class="cstat-no" title="statement not covered" >      if(this.deleteSkillStatus.status == 200){</span>
+    .subscribe(data =&gt;{
+      this.deleteSkillStatus = data;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if(this.deleteSkillStatus.status == 200){
 <span class="cstat-no" title="statement not covered" >        this.successMessage = "Successfully deleted the Skill";</span>
 <span class="cstat-no" title="statement not covered" >        this.addedSkills.splice(index,1);</span>
       }
@@ -339,9 +339,9 @@ export class AddSkillComponent implements OnInit {
     this.editSkillData.skillId = skillId;
     this.editSkillData.skillName = this.skillName;
      this._addSkillService.editSkill(this.editSkillData)
-     .subscribe(<span class="fstat-no" title="function not covered" >data =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >         this.addSkill = data;</span>
-<span class="cstat-no" title="statement not covered" >         if(this.addSkill.status == 200){</span>
+     .subscribe(data =&gt;{
+         this.addSkill = data;
+         <span class="missing-if-branch" title="if path not taken" >I</span>if(this.addSkill.status == 200){
 <span class="cstat-no" title="statement not covered" >           this.successMessage = "Successfully edited the Skill";</span>
          }
        },<span class="fstat-no" title="function not covered" >error =&gt;{</span>
@@ -358,7 +358,7 @@ export class AddSkillComponent implements OnInit {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 18 2018 01:36:15 GMT+0530 (India Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 18 2018 13:12:42 GMT+0530 (India Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

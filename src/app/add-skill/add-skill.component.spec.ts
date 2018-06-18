@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule, ResponseOptions } from '@angular/http';
 import { FormsModule ,NgForm} from '@angular/forms';
 import { AddSkillService } from './add-skill.service';
-
+import { APP_BASE_HREF } from '@angular/common';
 import { AddSkillComponent } from './add-skill.component';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
@@ -44,15 +44,17 @@ describe('AddSkillComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule,HttpModule,FormsModule],
       declarations: [ AddSkillComponent ],
-      providers: [ { provide: AddSkillService, useValue: addSkillServiceSpy }]
+      providers: [ AddSkillComponent, { provide: AddSkillService, useValue: addSkillServiceSpy },
+	  { provide: APP_BASE_HREF, useValue: '/' }]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddSkillComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();  
+    //fixture = TestBed.createComponent(AddSkillComponent);
+    //component = fixture.componentInstance;
+    //fixture.detectChanges();  
+	component = TestBed.get(AddSkillComponent);
     response = new Response(
       new ResponseOptions({
           body: [
@@ -78,14 +80,14 @@ describe('AddSkillComponent', () => {
     component.ngOnInit();
     spyAddSkillService.addSkill.and.returnValue(Observable.of('Success'));
     component.addSkills(skillForm);
-    expect(spyAddSkillService.addSkill.calls.count()).toBe(0);
+    expect(spyAddSkillService.addSkill.calls.count()).toBe(1);
   });
 
   it('should delete associate details', () => {
     component.ngOnInit();
     spyAddSkillService.deleteSkill.and.returnValue(Observable.of('Success'));
     component.deleteSkill(skill,index);
-    expect(spyAddSkillService.deleteSkill.calls.count()).toBe(0);
+    expect(spyAddSkillService.deleteSkill.calls.count()).toBe(1);
   });
 
   it('should edit associate details', () => {
