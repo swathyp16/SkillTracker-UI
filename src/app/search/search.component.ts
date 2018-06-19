@@ -37,6 +37,7 @@ export class SearchComponent implements OnInit {
   maleRatedCandidates: number = 0;
   ratedCandidates: number = 0;
   freshersCandidates: number = 0;
+  random: number;
   a : ISkillCount[] = [];
   
   chartData:Array<any> = [
@@ -124,7 +125,7 @@ export class SearchComponent implements OnInit {
       this.displaySkillGraph();
       this.calculateCandidateDetails();
     });
-    
+    this.random = Math.random();
   }
 
   displaySkillGraph(){
