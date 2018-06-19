@@ -50,7 +50,7 @@
     </div>
       <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">   
         <div class="input-field upload-pic">
-            <img *ngIf="!localUrl" src="http://localhost:8090/getAssociatePic/{{associateData.associateId}}" class="preview-image">
+            <img *ngIf="!localUrl" src="http://localhost:8090/skillTracker/getAssociatePic/{{associateData.associateId}}" class="preview-image">
       <img [src]="localUrl" *ngIf="localUrl" class="preview-image">
         </div>  
         <input *ngIf="!readOnlyFlag" type="file" class="m-top-7" id="upload" name="pic" accept="image/*" (change)="selectFile($event)">

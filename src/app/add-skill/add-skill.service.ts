@@ -24,27 +24,27 @@ export class AddSkillService {
   
   addSkill(addSkillForm : NgForm): Observable<any>{
     var params = JSON.stringify(addSkillForm.value);
-    return this._http.post("http://localhost:8090/addSkill",params,this.options)
+    return this._http.post("http://localhost:8090/skillTracker/addSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }
 
   viewAllSkills(): Observable<IAddSkills[]>{
-    return this._http.get("http://localhost:8090/viewAllSkills",this.options)
+    return this._http.get("http://localhost:8090/skillTracker/viewAllSkills",this.options)
     .map((response: Response) =>  response.json())
     .catch(this.handleErrorObservable);
   }
 
   deleteSkill(skill):Observable<any>{
     var params = JSON.stringify(skill);
-    return this._http.post("http://localhost:8090/deleteSkill",params,this.options)
+    return this._http.post("http://localhost:8090/skillTracker/deleteSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }
 
   editSkill(editSkillData):Observable<any>{
     var params = JSON.stringify(editSkillData);
-    return this._http.post("http://localhost:8090/addSkill",params,this.options)
+    return this._http.post("http://localhost:8090/skillTracker/addSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }

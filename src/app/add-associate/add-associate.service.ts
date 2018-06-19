@@ -25,21 +25,21 @@ export class AddAssociateService {
     let formData: FormData = new FormData();
     formData.append('file',picture);
     formData.append('data',params);  
-    return this._http.post("http://localhost:8090/addAssociate",formData)
+    return this._http.post("http://localhost:8090/skillTracker/addAssociate",formData)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }
 
   
   deleteAssociate(associateId): Observable<any>{
-    return this._http.get("http://localhost:8090/deleteAssociate/"+associateId)
+    return this._http.get("http://localhost:8090/skillTracker/deleteAssociate/"+associateId)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }
 
   addSkillFromEditPage(skillData): Observable<any>{
     var params = JSON.stringify(skillData);
-    return this._http.post("http://localhost:8090/addSkill",params,this.options)
+    return this._http.post("http://localhost:8090/skillTracker/addSkill",params,this.options)
     .map(this.extractData)
     .catch(this.handleErrorObservable);
   }

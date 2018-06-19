@@ -22,7 +22,7 @@ export class SearchService {
   }
 
   viewAllAssociates(): Observable<IAddAssociate[]>{
-    return this._http.get("http://localhost:8090/viewAllAssociates",this.options)
+    return this._http.get("http://localhost:8090/skillTracker/viewAllAssociates",this.options)
     .map((response: Response) =>  response.json())
     .catch(this.handleErrorObservable);
   }

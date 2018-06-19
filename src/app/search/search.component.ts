@@ -162,21 +162,21 @@ export class SearchComponent implements OnInit {
            index++;
          }
        }
-      
       for(var j = 0; j < this.skillsData.length; j++){
         var flag = 0;
         for(var k = 0; k < this.compressed[0].length; k++){
           if(this.compressed[0][k] !== null && this.compressed[0][k] !== undefined){
             if(this.skillsData[j].label.toLowerCase() === this.compressed[0][k].label.toLowerCase()){
               this.skillsData[j].data[0] = this.compressed[0][k].data[0];
+            // this.skillsData[j].data[0] = this.compressed[0][k].data[0]*10;
               flag = flag + 1;
               break;
             }
           }          
         }
-        if(flag == 0){
-          this.skillsData.splice(j,1);
-        } 
+       // if(flag == 0){
+        //  this.skillsData.splice(j,1);
+        //}
       }  
       this.chart.chart.update();
 }
@@ -204,6 +204,8 @@ chartColor = [
                 beginAtZero:true,
                 fontFamily: "'Open Sans Bold', sans-serif",
                 fontSize:11
+				//steps : 10,
+				//stepValue : 1,
             },
             scaleLabel:{
                 display:false
@@ -266,14 +268,14 @@ chartColor = [
     this.femaleCandidatesPercentage = Math.round((this.femaleCandidatesReg/this.candidatesRegistered)*100);
     if(ratedFemale > 0){
       this.femaleRatedCandidates = (ratedFemale/this.ratedCandidates)*100;
-      this.femaleRatedCandidates = Math.round(this.femaleRatedCandidates * 100) / 100;
+      this.femaleRatedCandidates = Math.round((this.femaleRatedCandidates * 100) / 100);
     } 
     if(ratedMale > 0){
     this.maleRatedCandidates = (ratedMale/this.ratedCandidates)*100;
-    this.maleRatedCandidates = Math.round(this.maleRatedCandidates * 100) / 100;
+    this.maleRatedCandidates = Math.round((this.maleRatedCandidates * 100) / 100);
     }
     this.freshersCandidates = (this.l1Candidates/this.candidatesRegistered)*100;
-    this.freshersCandidates = Math.round(this.freshersCandidates * 100) / 100;
+    this.freshersCandidates = Math.round((this.freshersCandidates * 100) / 100);
   }
 
   onDeleteBtnClick(data,index){

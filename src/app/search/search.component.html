@@ -156,7 +156,7 @@
         <tbody>
           <tr *ngFor = "let data of associateData | filter: { name: searchByName, associateId: searchByAssociateId,email: searchByEmail,mobileNum: searchByMobile, associateSkills:searchByStrongskills} : searchByName:searchByAssociateId:searchByEmail:searchByMobile:searchByStrongskills; let i =  index">
             <td>
-              <img src="http://localhost:8090/getAssociatePic/{{data.associateId}}" width="40px" height="40px">
+              <img src="http://localhost:8090/skillTracker/getAssociatePic/{{data.associateId}}" width="40px" height="40px">
             </td>
             <td>
               <div *ngIf="data.statusGreen==true;else checkStatusBlue" class="status-green"></div>
